@@ -1,0 +1,15 @@
+export default function CalendarIcon() {
+    return (
+      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="15" width="40" height="35" rx="2" stroke="black" strokeWidth="2" />
+        <rect x="19" y="10" width="6" height="10" stroke="black" strokeWidth="2" />
+        <rect x="35" y="10" width="6" height="10" stroke="black" strokeWidth="2" />
+        <path d="M10 25H50" stroke="black" strokeWidth="2" />
+        <text x="30" y="42" textAnchor="middle" dominantBaseline="middle" fill="black" fontSize="16" fontWeight="bold">
+          31
+        </text>
+      </svg>
+    )
+  }
+  
+  
