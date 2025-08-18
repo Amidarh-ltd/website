@@ -17,7 +17,7 @@ export function Sidebar() {
             <Link href="/">Home</Link>
             <Link href="##">About Us</Link>
             <Link href="##">Products</Link>
-            <Link href="/lernza">--Lernza</Link>
+            <Link href="/trupper">--Trupper</Link>
         </div>
       </SheetContent>
     </Sheet>

@@ -5,9 +5,9 @@ export default function ProductsSection() {
   const templates = [
     {
       id: "scrum",
-      type: "/lernza",
-      title: "Lernza",
-      description: "Manage your institution with no stress",
+      type: "/trupper",
+      title: "Trupper",
+      description: "Exam Management Systemfor Schoolsat Every Level",
       image: "/scrum-template.svg",
     },
     {

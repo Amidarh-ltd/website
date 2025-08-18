@@ -43,7 +43,7 @@ export default function Solution() {
               <WikiIcon />
             </div>
             <h3 className="text-xl font-semibold flex items-center gap-1">
-              Lernza <ArrowRight className="w-4 h-4" />
+              Trupper <ArrowRight className="w-4 h-4" />
             </h3>
             <p className="text-gray-600 mt-1">One home base for all your knowledge.</p>
           </div>

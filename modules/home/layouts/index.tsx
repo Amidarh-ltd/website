@@ -7,13 +7,15 @@ import ProductsSection from "../components/products";
 import { Specs } from "../components/specs";
 import Banner from "../components/banner.";
 import Solution from "../components/solution";
+import AmidarhNote from "../components/amidarhNote";
 
 export function HomeLayout() {
     return (
       <main>
         <Header/>
         <Hero/>
-        <Stats/>
+        {/* <Stats/> */}
+        <AmidarhNote/>
         <Solution/>
         {/* <UnifiedSolution/> */}
         <Features/>

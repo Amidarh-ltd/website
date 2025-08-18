@@ -66,8 +66,8 @@ export function Products() {
               <ListItem href="##" title="Amidarh Note">
                 How to install dependencies and structure your app.
               </ListItem>
-              <ListItem href="/lernza" title="Lernza">
-                Lernza is our SMS product for managing schools.
+              <ListItem href="/trupper" title="Trupper">
+                Trupper is our SMS product for managing schools.
               </ListItem>
             </ul>
           </NavigationMenuContent>
