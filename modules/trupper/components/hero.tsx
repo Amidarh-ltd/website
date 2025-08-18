@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import dashboard from "@/public/images/trupper/dashboard.png";
+import { Waitlist } from "@/core/commons/waitlist";
 
 export function Hero() {
     return (
@@ -26,19 +27,17 @@ export function Hero() {
           <div className="flex flex-col justify-center items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-6 max-[800px]:flex max-[800px]:flex-col max-[800px]:justify-center max-[800px]:items-center text-center">
-              <h1 className="text-6xl font-bold tracking-tight">
-              Exam Management System
-                <br />
-                for institutions
+              <h1 className="font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
+                Exam Management System
+                <br className="hidden sm:block" />
+                <span className="block sm:inline">for institutions</span>
               </h1>
               <p className="text-xl text-gray-70">
                 Trupper is a comprehensive exam management system designed to streamline the entire exam process for institutions.
               </p>
 
               <div className="pt-4">
-                <Button className="bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl">
-                  Get Started
-                </Button>
+                <Waitlist />
               </div>
             </div>
 

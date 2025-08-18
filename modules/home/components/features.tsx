@@ -68,7 +68,7 @@ export default function Features() {
                 <div className="relative z-10 p-8 flex flex-col h-full">
                 <Quote className="rotate-180"/>
                 <p className="text-xl md:text-3xl font-medium mb-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ex enim eos dolore. Sit voluptate id officiis. Vitae, quasi magni in, aspernatur voluptatibus doloribus.
+                    Amidarh has transformed the way we communicate with our students and their families. The platform is intuitive, reliable, and has made our school operations much more efficient.
                 </p>
                 <div className="mt-auto">
                     <h4 className="font-bold">Wisdom woke</h4>
