@@ -6,7 +6,7 @@ import { Products } from "./products";
 import { Sidebar } from "./sidebar";
 import { Button } from "@/components/ui/button";
 
-export async function Header() {
+export async function Header({isTrupper}: {isTrupper?: boolean}) {
   return (
     <HeaderClient>
         <div className="flex justify-center items-center">
@@ -22,7 +22,13 @@ export async function Header() {
                         About Us
                     </Link>
                 </div> */}
+                {isTrupper ?
                 <div className="space-x-4 min-[800px]:flex max-[800px]:hidden flex flex-row items-center">
+                    <Button>
+                        Get Started
+                    </Button>
+                </div>
+                :<div className="space-x-4 min-[800px]:flex max-[800px]:hidden flex flex-row items-center">
                     {/* <Link
                     href='/##'
                     className={buttonVariants({ className:"dark:bg-white bg-primary text-primary dark:text-white" })}
@@ -36,7 +42,7 @@ export async function Header() {
                     <Button>
                         Login
                     </Button>
-                </div>
+                </div>}
                 <Sidebar/>
             </nav>
         </div>
