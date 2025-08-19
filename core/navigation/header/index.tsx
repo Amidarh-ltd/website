@@ -9,6 +9,7 @@ import { Sidebar } from "./sidebar";
 import { Button } from "@/components/ui/button";
 import Logo from "@/public/logo.svg";
 import Image from "next/image";
+import { Waitlist } from "@/core/commons/waitlist";
 
 export async function Header({isTrupper}: {isTrupper?: boolean}) {
   return (
@@ -20,7 +21,7 @@ export async function Header({isTrupper}: {isTrupper?: boolean}) {
                         <Image src={Logo} alt="Amidarh" className="w-10 h-10" />
                     </Link>
                 </div>
-                <div className="min-[800px]:flex items-center gap-4 max-[800px]:hidden">
+                {/* <div className="min-[800px]:flex items-center gap-4 max-[800px]:hidden">
                     <Link
                         href="/trupper"
                         className="relative font-semibold text-lg text-gray-900 transition-all duration-200 hover:text-indigo-700 group"
@@ -33,12 +34,10 @@ export async function Header({isTrupper}: {isTrupper?: boolean}) {
                             aria-hidden="true"
                         />
                     </Link>
-                </div>
+                </div> */}
                 {isTrupper ?
                 <div className="space-x-4 min-[800px]:flex max-[800px]:hidden flex flex-row items-center">
-                    <Button>
-                        Join Waitlist
-                    </Button>
+                    <Waitlist size="sm" />
                 </div>
                 :<div className="space-x-4 min-[800px]:flex max-[800px]:hidden flex flex-row items-center">
                     {/* <Link

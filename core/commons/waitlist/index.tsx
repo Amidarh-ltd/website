@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { cn } from "@/lib/utils"
 import {
   Dialog,
   DialogContent,
@@ -14,7 +15,7 @@ import {
 import { CheckCircle, Clock } from "lucide-react"
 import { useWaitlist } from "@/modules/trupper/services"
 
-export function Waitlist() {
+export function Waitlist({ size }: { size?: "sm" | "md" | "lg" }) {
   const [email, setEmail] = useState("")
   const [organization, setOrganization] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -34,7 +35,7 @@ export function Waitlist() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl">
+        <Button className={cn("bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl", size === "sm" && "text-sm", size === "md" && "text-base", size === "lg" && "text-lg")}>
           Join Waitlist
         </Button>
       </DialogTrigger>
