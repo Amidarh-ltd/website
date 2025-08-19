@@ -11,31 +11,24 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle, Users, Clock, Star } from "lucide-react"
+import { CheckCircle, Clock } from "lucide-react"
+import { useWaitlist } from "@/modules/trupper/services"
 
 export function Waitlist() {
   const [email, setEmail] = useState("")
   const [organization, setOrganization] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-
+  const { addToWaitlist, isLoading, error: waitlistError, success } = useWaitlist()
+  const [error, setError] = useState<string | null>(null)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setEmail("")
-      setOrganization("")
-    }, 3000)
+    await addToWaitlist({ email, organization })
+    if(success){
+      setIsSubmitted(true)
+      setError(null)
+    } else {
+      setError(waitlistError || "An error occurred")
+    }
   }
 
   return (
@@ -48,7 +41,6 @@ export function Waitlist() {
       
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden">
         <div className="relative">
-          {/* Background Pattern */}
           <div
             className="absolute inset-0 opacity-5"
             style={{
@@ -61,17 +53,16 @@ export function Waitlist() {
           />
           
           <div className="relative z-10">
-            {/* Header */}
             <DialogHeader className="text-center pb-6 pt-8 px-8">
               <DialogTitle className="text-2xl font-bold text-gray-900">
                 Join the Trupper Waitlist
               </DialogTitle>
+              {/* {error && <p className="text-red-500 text-sm">{error}</p>} */}
               <DialogDescription className="text-gray-600 text-base">
                 Be among the first to experience the future of exam management
               </DialogDescription>
             </DialogHeader>
 
-            {/* Benefits */}
             <div className="px-8 pb-6">
               <div className="grid grid-cols-1 gap-3 mb-6">
                 <div className="flex items-center gap-3 text-sm text-gray-600">
@@ -125,10 +116,10 @@ export function Waitlist() {
 
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isLoading}
                     className="w-full bg-primary hover:bg-[#24216A] text-white py-3 text-lg rounded-2xl"
                   >
-                    {isSubmitting ? (
+                    {isLoading ? (
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                         Joining...
