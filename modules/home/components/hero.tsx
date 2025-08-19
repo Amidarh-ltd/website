@@ -24,8 +24,8 @@ export function Hero() {
           <div className="flex justify-center items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-6 max-[800px]:flex max-[800px]:flex-col max-[800px]:justify-center max-[800px]:items-center text-center">
-              <h1 className="text-6xl font-bold tracking-tight">
-                Empowering <span className="text-blue-600 ">Education</span>
+              <h1 className="font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                Empowering <span className="text-blue-600">Education</span>
                 <br />
                 at Every Step
               </h1>
