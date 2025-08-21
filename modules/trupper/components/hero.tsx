@@ -51,6 +51,7 @@ export function Hero() {
                   width: "100%",
                   aspectRatio: "1.968019680196802",
                   padding: "40px 0 40px 0",
+                  backgroundColor: "gray",
                 }}
               >
                 <iframe
