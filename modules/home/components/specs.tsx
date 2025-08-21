@@ -43,9 +43,9 @@ export function Specs() {
             {features.map(({ icon, ...feature }, index) => (
               <CarouselItem
                 key={index}
-                className='basis-[95%] md:basis-1/2 lg:basis-[33%] 2xl:basis-1/4 h-full'
+                className='basis-[95%] md:basis-1/2 lg:basis-[33%] border-gray-200 2xl:basis-1/4 h-full'
               >
-                <Card className='shadow-[hsla(207,51%,46%,0.04)] backdrop-blur-2xl bg-white/50 lg:aspect-[1.3/1] h-full'>
+                <Card className='shadow-[hsla(207,51%,46%,0.04)] backdrop-blur-2xl bg-white/50 lg:aspect-[1.3/1] h-full border-gray-200'>
                   <CardContent className='pt-6 space-y-5 h-full'>
                     {/* <Image
                       src={icon}
