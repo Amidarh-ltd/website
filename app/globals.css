@@ -119,11 +119,89 @@ body {
   scroll-behavior: smooth;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SEO and Accessibility Improvements */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  /* Ensure proper focus states for accessibility */
+  *:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
   }
+
+  /* Improve text readability for SEO */
   body {
-    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Ensure proper heading hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  /* Improve link accessibility */
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Ensure proper contrast ratios */
+  .text-gray-500 {
+    color: #6b7280;
+  }
+
+  .text-gray-600 {
+    color: #4b5563;
+  }
+
+  .text-gray-700 {
+    color: #374151;
+  }
+
+  .text-gray-900 {
+    color: #111827;
+  }
+}
+
+/* Custom scrollbar for better UX */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Ensure proper loading states */
+@layer components {
+  .loading-skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+}
+
+/* Print styles for better SEO */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
   }
 }

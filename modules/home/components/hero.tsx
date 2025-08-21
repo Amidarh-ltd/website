@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
     return (
-      <div className="w-full py-20">
+      <div className="w-full pt-20">
         {/* Main Hero Section */}
         <div className="min-h-screen w-full bg-white fixed top-0 left-0 right-0 bottom-0 -z-1">
           {/* Magenta Orb Grid Background */}

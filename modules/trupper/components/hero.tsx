@@ -43,7 +43,26 @@ export function Hero() {
 
             <div className="relative mt-20 overflow-hidden w-full">
               <div className="aspect-video relative">
-                <Image src={dashboard} alt="Dashboard" className="mx-auto  bg-gray-600 rounded-2xl" />
+              <div
+                style={{
+                  position: "relative",
+                  boxSizing: "content-box",
+                  maxHeight: "80vh",
+                  width: "100%",
+                  aspectRatio: "1.968019680196802",
+                  padding: "40px 0 40px 0",
+                }}
+              >
+                <iframe
+                  src="https://app.supademo.com/embed/cmel7yld10ng5v9kqerqwf9oa?embed_v=2&utm_source=embed"
+                  loading="lazy"
+                  title="Vercel Demo"
+                  allow="clipboard-write"
+                  frameBorder={0}
+                  allowFullScreen
+                  style={{ width: "100%", height: "100%", border: "none" }}
+                ></iframe>
+              </div>
               </div>
             </div>
           </div>
