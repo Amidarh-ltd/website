@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import dashboard from "@/public/images/trupper/dashboard.png";
-import { Waitlist } from "@/core/commons/waitlist";
+import { WaitlistButton } from "@/core/commons/waitlist";
 
 export function Hero() {
     return (
@@ -37,7 +34,7 @@ export function Hero() {
               </p>
 
               <div className="pt-4">
-                <Waitlist />
+                <WaitlistButton />
               </div>
             </div>
 

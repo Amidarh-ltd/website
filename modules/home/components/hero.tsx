@@ -1,6 +1,15 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export function Hero() {
+    const router = useRouter();
+
+    const handleGetStarted = () => {
+        router.push("/signup");
+    };
+
     return (
       <div className="w-full pt-20">
         {/* Main Hero Section */}
@@ -18,7 +27,6 @@ export function Hero() {
             backgroundSize: "40px 40px, 40px 40px, 100% 100%",
           }}
           />
-            {/* Your Content/Components */}
           </div>
         <section className="container mx-auto px-4 py-16 md:py-30">
           <div className="flex justify-center items-center">
@@ -34,7 +42,9 @@ export function Hero() {
               </p>
 
               <div className="pt-4">
-                <Button className="bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl">
+                <Button className="bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl"
+                  onClick={handleGetStarted}
+                >
                   Get Started
                 </Button>
               </div>

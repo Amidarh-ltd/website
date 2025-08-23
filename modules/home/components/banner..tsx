@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Banner({ text, product }: { text: string, product: string }) {
+export default function Banner({ text, product, link }: { text: string, product: string, link?: string, action?: () => void }) {
   return (
     <div className="relative w-full overflow-hidden my-8 flex justify-center items-center px-4 lg:px-10">
       {/* Angled background */}
@@ -17,12 +17,20 @@ export default function Banner({ text, product }: { text: string, product: strin
 
             <p className="text-lg md:text-xl mb-8">Join millions using {product}</p>
 
+            {link ? (
             <Link
-            href="#"
-            className="inline-flex items-center justify-center px-8 py-3 border-2 border-white rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
+            href={link ?? "/"}
+            className="inline-flex items-center justify-center px-8 py-3 border-2 border-white rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 cursor-pointer"
             >
             Get started for free
             </Link>
+            ) : (
+              <div
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 cursor-pointer"
+              >
+              Get started for free
+              </div>
+            )}
         </div>
       </div>
 

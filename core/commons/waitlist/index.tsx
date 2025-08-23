@@ -10,15 +10,17 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog"
 import { CheckCircle, Clock } from "lucide-react"
 import { useWaitlist } from "@/modules/trupper/services"
+import { useStore } from "@/lib/utils/zustand/store"
 
-export function Waitlist({ size }: { size?: "sm" | "md" | "lg" }) {
+export function Waitlist() {
   const [email, setEmail] = useState("")
   const [organization, setOrganization] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const { setWaitList } = useStore()
+  const waitList = useStore(state => state.waitList)
   const { addToWaitlist, isLoading, error: waitlistError, success } = useWaitlist()
   const [error, setError] = useState<string | null>(null)
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,13 +35,10 @@ export function Waitlist({ size }: { size?: "sm" | "md" | "lg" }) {
   }
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button className={cn("bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl", size === "sm" && "text-sm", size === "md" && "text-base", size === "lg" && "text-lg")}>
-          Join Waitlist
-        </Button>
-      </DialogTrigger>
-      
+    <Dialog 
+      open={waitList}
+      onOpenChange={() => setWaitList(!waitList)}
+    >
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden">
         <div className="relative">
           <div
@@ -166,5 +165,16 @@ export function Waitlist({ size }: { size?: "sm" | "md" | "lg" }) {
         </div>
       </DialogContent>
     </Dialog>
+  )
+}
+
+export const WaitlistButton = ({ size }: { size?: "sm" | "md" | "lg" }) => {
+  const { setWaitList } = useStore()
+  return (
+        <Button className={cn("bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl", size === "sm" && "text-sm", size === "md" && "text-base", size === "lg" && "text-lg")}
+          onClick={() => setWaitList(true)}
+        >
+          Join Waitlist
+        </Button>
   )
 }

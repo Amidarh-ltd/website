@@ -23,7 +23,7 @@ export function HomeLayout() {
           <Specs/>
         </div>
         <ProductsSection/>
-        <Banner text="Education" product="Amidarh"/>
+        <Banner text="Education" product="Amidarh" link="/signup"/>
         <Footer/>
       </main>
     );
