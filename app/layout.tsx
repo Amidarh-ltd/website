@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
+import { AuthProvider } from "@/lib/utils/context/authContext";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -156,12 +157,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${bricolage.variable} antialiased`}
-      >
-        {children}
-        <Toaster position="top-right" richColors />
-      </body>
+      <AuthProvider>
+        <body
+          className={`${bricolage.variable} antialiased`}
+        >
+          {children}
+          <Toaster position="top-right" richColors />
+        </body>
+      </AuthProvider>
     </html>
   );
 }

@@ -1,7 +1,7 @@
-import api from "@/core/services/api"
 import { z } from "zod"
 import { useState } from "react"
 import { toast } from "sonner"
+import axios from "axios"
 
 const waitlistSchema = z.object({
   email: z.string().email(),
@@ -16,7 +16,7 @@ export const useWaitlist = () => {
     const addToWaitlist = async (data: z.infer<typeof waitlistSchema>) => {
         try{
             setIsLoading(true)
-            const response = await api.post("/waitlist", data)
+            const response = await axios.post("https://trupper-backend.amidarh.com/api/v1/waitlist", data)
             if(response.status === 200){
                 setIsLoading(false)
                 setSuccess("You have been added to the waitlist")

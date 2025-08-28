@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SignupFormData, signupSchema } from '../schema/signupSchema';
+import { toast } from 'sonner';
 
 export function useSignup() {
   const router = useRouter();
@@ -19,11 +20,12 @@ export function useSignup() {
     try {
       const res = await api.post('/auth/signup', data);
       if (res.status === 201) {
-        router.push(`/verify-otp?token=${res.data.doc}`);
+        router.push(`/verify-otp?token=${res.data.doc.token}`);
       }
     } catch (err: any) {
       const errorMessage =
         err.response?.data?.message || err.message || 'Signup failed';
+        toast.error(errorMessage);
       setServerError(errorMessage);
     }
   };

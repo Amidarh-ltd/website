@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { VerifyOtpFormData, verifyOtpSchema } from '../schema/verifyOtpSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
+import { useProfile } from '@/core/hooks/profile';
+import { useStore } from '@/lib/utils/zustand/store';
 
 export function useVerifyOtp() {
   const router = useRouter();
@@ -14,6 +16,8 @@ export function useVerifyOtp() {
   const query = searchParams.get('token');
   const [serverError, setServerError] = useState('');
   const [resendLoading, setResendLoading] = useState<boolean>(false);
+  const { getProfile } = useProfile();
+  const setToken = useStore((state) => state.setToken);
 
   const form = useForm<VerifyOtpFormData>({
     resolver: zodResolver(verifyOtpSchema),
@@ -24,9 +28,10 @@ export function useVerifyOtp() {
     try {
       const res = await api.post(`/auth/verify-email/${query}`, data);
       if (res.status === 200) {
-        const { user, token, refreshToken } = res.data.doc;
-        const isProduction = process.env.NODE_ENV === 'production';
-        router.push('/dashboard');
+        const {   token } = res.data.doc;
+        setToken(token);
+        await getProfile();
+        router.push('/welcome');
       }
     } catch (err: any) {
       const errorMessage =
