@@ -18,7 +18,7 @@ export function useForgetPassword() {
   const forgetPassword = async (data: ForgetPasswordFormData) => {
     setServerError("");
     try {
-      const res = await api.post("/auth/forgot-password", data);
+      const res = await api.post("/auth/forgot_password", data);
       if (res.status === 200) {
         setSuccessMessage("Reset link sent to email successfully");
       }

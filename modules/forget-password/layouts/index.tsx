@@ -10,6 +10,7 @@ import { useForgetPassword } from "@/modules/forget-password/services/forgetPass
 import { useRouter } from "next/navigation";
 import { Logo } from "@/core/commons/ui";
 import { GridPatterns } from "@/core/commons/ui/svg";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const ForgottenPasswordLayout = () => {
   const router = useRouter();
@@ -26,10 +27,11 @@ const ForgottenPasswordLayout = () => {
   } = useForgetPassword();
 
   return (
-    <div className="flex pt-10 sm:items-center justify-center h-screen w-full">
+    <ScrollArea className="w-full">
       <GridPatterns />
-      <Card className="w-full max-w-120 p-2 max-sm:bg-transparent border-none sm:border sm:p-8">
-        <div
+      <div className="flex pt-10 sm:items-center justify-center w-full">
+        <Card className="w-full max-w-120 p-2 max-sm:bg-transparent border-none sm:border sm:p-8">
+          <div
           className="flex flex-col items-center justify-center mb-4 cursor-pointer"
           onClick={() => router.push("/")}
         >
@@ -85,6 +87,7 @@ const ForgottenPasswordLayout = () => {
         </form>
       </Card>
     </div>
+    </ScrollArea>
   );
 };
 
