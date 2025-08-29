@@ -31,14 +31,14 @@ export const HeaderClient: React.FC<React.PropsWithChildren> = ({
   });
 
   return (
-    <header className='fixed w-screen pt-3 z-50 flex items-center justify-center'>
+    <header className="fixed w-screen pt-3 z-50 flex items-center justify-center">
       <motion.div
         animate={isHidden ? "hidden" : "visible"}
-        whileHover='visible'
+        whileHover="visible"
         onFocusCapture={() => setIsHidden(false)}
         variants={variants}
         transition={{ duration: 0.4 }}
-        className='w-full backdrop-blur-sm max-w-[1300px] px-4 rounded-[30px] bg-white/50 shadow-lg'
+        className="w-full backdrop-blur-sm max-w-[1300px] px-4 rounded-[30px] bg-white/50 shadow-lg"
       >
         {children}
       </motion.div>

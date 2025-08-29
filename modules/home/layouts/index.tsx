@@ -10,21 +10,21 @@ import Solution from "../components/solution";
 import AmidarhNote from "../components/amidarhNote";
 
 export function HomeLayout() {
-    return (
-      <main>
-        <Header/>
-        <Hero/>
-        {/* <Stats/> */}
-        <AmidarhNote/>
-        <Solution/>
-        {/* <UnifiedSolution/> */}
-        <Features/>
-        <div className="flex justify-center items-center">
-          <Specs/>
-        </div>
-        <ProductsSection/>
-        <Banner text="Education" product="Amidarh" link="/signup"/>
-        <Footer/>
-      </main>
-    );
-  }
+  return (
+    <main>
+      <Header />
+      <Hero />
+      {/* <Stats/> */}
+      <AmidarhNote />
+      <Solution />
+      {/* <UnifiedSolution/> */}
+      <Features />
+      <div className="flex justify-center items-center">
+        <Specs />
+      </div>
+      <ProductsSection />
+      <Banner text="Education" product="Amidarh" link="/signup" />
+      <Footer />
+    </main>
+  );
+}

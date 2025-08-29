@@ -27,16 +27,16 @@ export const Footer = () => {
         </div>
         <div className=" text-xl flex flex-row gap-3">
           <Link href="##" className="nav_link">
-            <FaYoutube color="white"/>
+            <FaYoutube color="white" />
           </Link>
           <Link href="##" className="nav_link">
-            <FaWhatsapp color="white"/>
+            <FaWhatsapp color="white" />
           </Link>
           <Link href="##" className="nav_link">
-            <FaTwitter color="white"/>
+            <FaTwitter color="white" />
           </Link>
           <Link href="##" className="nav_link">
-            <FaLinkedin color="white"/>
+            <FaLinkedin color="white" />
           </Link>
         </div>
       </div>

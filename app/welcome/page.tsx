@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { WelcomeLayouts } from "@/modules/welcome/layouts";
 

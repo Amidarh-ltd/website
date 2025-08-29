@@ -1,5 +1,5 @@
-"use client"
-import logoLight from "@/public/logo.svg"
+"use client";
+import logoLight from "@/public/logo.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

@@ -1,30 +1,38 @@
-import { Menu, X, Home, Building2, Users, GraduationCap, ArrowRight } from "lucide-react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import {
+  Menu,
+  X,
+  Home,
+  Building2,
+  Users,
+  GraduationCap,
+  ArrowRight,
+} from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
-} from "@/components/ui/sheet"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 export function Sidebar() {
-  const pathname = usePathname()
-  
+  const pathname = usePathname();
+
   const navigationItems = [
     {
       href: "/",
       label: "Home",
       icon: Home,
-      description: "Back to homepage"
+      description: "Back to homepage",
     },
     {
       href: "/trupper",
       label: "Trupper",
       icon: GraduationCap,
       description: "Exam Management System",
-      badge: "New"
+      badge: "New",
     },
     // {
     //   href: "##",
@@ -38,13 +46,13 @@ export function Sidebar() {
     //   icon: Building2,
     //   description: "Explore our solutions"
     // }
-  ]
+  ];
 
   const isActive = (href: string) => {
-    if (href === "/" && pathname === "/") return true
-    if (href === "/trupper" && pathname === "/trupper") return true
-    return false
-  }
+    if (href === "/" && pathname === "/") return true;
+    if (href === "/trupper" && pathname === "/trupper") return true;
+    return false;
+  };
 
   return (
     <Sheet>
@@ -58,8 +66,11 @@ export function Sidebar() {
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      
-      <SheetContent side="right" className="w-[300px] p-0 bg-white border-l border-gray-200">
+
+      <SheetContent
+        side="right"
+        className="w-[300px] p-0 bg-white border-l border-gray-200"
+      >
         <div className="flex flex-col h-full">
           {/* Header */}
           {/* <div className="flex items-center justify-between p-4 border-b border-gray-100">
@@ -85,9 +96,9 @@ export function Sidebar() {
           <div className="flex-1 mt-10 px-4 py-4">
             <div className="space-y-1">
               {navigationItems.map((item) => {
-                const Icon = item.icon
-                const active = isActive(item.href)
-                
+                const Icon = item.icon;
+                const active = isActive(item.href);
+
                 return (
                   <Link
                     key={item.href}
@@ -98,19 +109,23 @@ export function Sidebar() {
                         : "hover:bg-gray-50 border border-transparent"
                     }`}
                   >
-                    <div className={`p-2 rounded-lg transition-colors ${
-                      active
-                        ? "bg-primary text-white"
-                        : "bg-gray-100 text-gray-600 group-hover:bg-gray-200"
-                    }`}>
+                    <div
+                      className={`p-2 rounded-lg transition-colors ${
+                        active
+                          ? "bg-primary text-white"
+                          : "bg-gray-100 text-gray-600 group-hover:bg-gray-200"
+                      }`}
+                    >
                       <Icon className="h-4 w-4" />
                     </div>
-                    
+
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className={`font-medium text-sm transition-colors ${
-                          active ? "text-primary" : "text-gray-900"
-                        }`}>
+                        <span
+                          className={`font-medium text-sm transition-colors ${
+                            active ? "text-primary" : "text-gray-900"
+                          }`}
+                        >
                           {item.label}
                         </span>
                         {item.badge && (
@@ -123,12 +138,16 @@ export function Sidebar() {
                         {item.description}
                       </p>
                     </div>
-                    
-                    <ArrowRight className={`h-3 w-3 transition-colors ${
-                      active ? "text-primary" : "text-gray-400 group-hover:text-gray-600"
-                    }`} />
+
+                    <ArrowRight
+                      className={`h-3 w-3 transition-colors ${
+                        active
+                          ? "text-primary"
+                          : "text-gray-400 group-hover:text-gray-600"
+                      }`}
+                    />
                   </Link>
-                )
+                );
               })}
             </div>
           </div>
@@ -139,11 +158,14 @@ export function Sidebar() {
               <Button className="w-full bg-primary hover:bg-[#24216A] text-white rounded-xl py-2.5 font-medium transition-colors">
                 Get Started
               </Button>
-              <Button variant="outline" className="w-full border-gray-200 hover:border-gray-300 text-gray-700 rounded-xl py-2.5 font-medium transition-colors">
+              <Button
+                variant="outline"
+                className="w-full border-gray-200 hover:border-gray-300 text-gray-700 rounded-xl py-2.5 font-medium transition-colors"
+              >
                 Sign In
               </Button>
             </div>
-            
+
             <div className="mt-3 pt-3 border-t border-gray-200">
               <p className="text-xs text-gray-500 text-center">
                 © 2025 Amidarh. All rights reserved.
@@ -153,5 +175,5 @@ export function Sidebar() {
         </div>
       </SheetContent>
     </Sheet>
-  )
+  );
 }

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/lib/utils/context/authContext";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -10,12 +11,14 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://amidarh.com'),
+  metadataBase: new URL("https://amidarh.com"),
   title: {
-    default: "Amidarh - Leading Exam Management System & Educational Technology Solutions",
-    template: "%s | Amidarh"
+    default:
+      "Amidarh - Leading Exam Management System & Educational Technology Solutions",
+    template: "%s | Amidarh",
   },
-  description: "Amidarh provides cutting-edge exam management systems, educational technology solutions, and digital assessment platforms for schools, universities, and institutions worldwide. Streamline your exam processes with AI-powered tools.",
+  description:
+    "Amidarh provides cutting-edge exam management systems, educational technology solutions, and digital assessment platforms for schools, universities, and institutions worldwide. Streamline your exam processes with AI-powered tools.",
   keywords: [
     "exam management system",
     "online exam platform",
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     "institutional exam software",
     "automated grading system",
     "exam security software",
-    "academic assessment tools"
+    "academic assessment tools",
   ],
   authors: [{ name: "Amidarh Team" }],
   creator: "Amidarh",
@@ -52,7 +55,8 @@ export const metadata: Metadata = {
     url: "https://amidarh.com",
     siteName: "Amidarh",
     title: "Amidarh - Educational Technology Solutions",
-    description: "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+    description:
+      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
     images: [
       {
         url: "/images/amidarh-og-image.jpg",
@@ -65,7 +69,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Amidarh - Educational Technology Solutions",
-    description: "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+    description:
+      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
     images: ["/images/amidarh-twitter-image.jpg"],
     creator: "@amidarh",
     site: "@amidarh",
@@ -107,29 +112,30 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Amidarh",
-              "url": "https://amidarh.com",
-              "logo": "https://amidarh.com/logo.svg",
-              "description": "Leading provider of exam management systems and educational technology solutions",
-              "foundingDate": "2024",
-              "sameAs": [
+              name: "Amidarh",
+              url: "https://amidarh.com",
+              logo: "https://amidarh.com/logo.svg",
+              description:
+                "Leading provider of exam management systems and educational technology solutions",
+              foundingDate: "2024",
+              sameAs: [
                 "https://twitter.com/amidarh",
                 "https://linkedin.com/company/amidarh",
-                "https://facebook.com/amidarh"
+                "https://facebook.com/amidarh",
               ],
-              "contactPoint": {
+              contactPoint: {
                 "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "contact@amidarh.com"
+                contactType: "customer service",
+                email: "contact@amidarh.com",
               },
-              "address": {
+              address: {
                 "@type": "PostalAddress",
-                "addressCountry": "US"
-              }
-            })
+                addressCountry: "US",
+              },
+            }),
           }}
         />
-        
+
         {/* Structured Data for Software Application */}
         <script
           type="application/ld+json"
@@ -137,33 +143,34 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "Trupper Exam Management System",
-              "applicationCategory": "EducationalApplication",
-              "operatingSystem": "Web Browser",
-              "description": "Comprehensive exam management system for educational institutions",
-              "url": "https://amidarh.com/trupper",
-              "offers": {
+              name: "Trupper Exam Management System",
+              applicationCategory: "EducationalApplication",
+              operatingSystem: "Web Browser",
+              description:
+                "Comprehensive exam management system for educational institutions",
+              url: "https://amidarh.com/trupper",
+              offers: {
                 "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock"
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
               },
-              "aggregateRating": {
+              aggregateRating: {
                 "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "ratingCount": "150"
-              }
-            })
+                ratingValue: "4.8",
+                ratingCount: "150",
+              },
+            }),
           }}
         />
       </head>
       <AuthProvider>
-        <body
-          className={`${bricolage.variable} antialiased`}
-        >
-          {children}
-          <Toaster position="top-right" richColors />
-        </body>
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "This is me flexing"}>
+          <body className={`${bricolage.variable} antialiased`}>
+            {children}
+            <Toaster position="top-right" richColors />
+          </body>
+        </GoogleOAuthProvider>
       </AuthProvider>
     </html>
   );

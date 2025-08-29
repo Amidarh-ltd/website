@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Logo } from "@/core/commons/ui";
 import { Card } from "@/components/ui/card";
@@ -17,15 +17,17 @@ export const WelcomeLayouts = () => {
       <GridPatterns />
       <div className="flex flex-row items-center justify-between w-full">
         <Logo />
-        <Button
-          onClick={() => logout()}
-        >
-          { isLoading ? "Loading...." : "Logout"}
+        <Button onClick={() => logout()}>
+          {isLoading ? "Loading...." : "Logout"}
         </Button>
       </div>
       <div className="mt-6">
-        <h1 className="text-2xl sm:text-3xl font-bold">Hello {user?.firstName}</h1>
-        <p className="text-base sm:text-lg">Your journey to success begins here.</p>
+        <h1 className="text-2xl sm:text-3xl font-bold">
+          Hello {user?.firstName}
+        </h1>
+        <p className="text-base sm:text-lg">
+          Your journey to success begins here.
+        </p>
       </div>
       <div className="mt-6 flex flex-col gap-4 md:flex-row">
         <WelcomeCard

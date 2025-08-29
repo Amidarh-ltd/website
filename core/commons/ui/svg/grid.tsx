@@ -1,19 +1,19 @@
 export function GridPatterns() {
   return (
-   <div className="min-h-screen w-full bg-white fixed top-0 left-0 right-0 bottom-0 -z-1">
-        {/* Magenta Orb Grid Background */}
-        <div
+    <div className="min-h-screen w-full bg-white fixed top-0 left-0 right-0 bottom-0 -z-1">
+      {/* Magenta Orb Grid Background */}
+      <div
         className="absolute inset-0 z-0"
         style={{
-        background: "white",
-        backgroundImage: `
+          background: "white",
+          backgroundImage: `
             linear-gradient(to right, rgba(71,85,105,0.15) 1px, transparent 1px),
             linear-gradient(to bottom, rgba(71,85,105,0.15) 1px, transparent 1px),
             radial-gradient(circle at 50% 60%, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.05) 40%, transparent 70%)
         `,
-        backgroundSize: "40px 40px, 40px 40px, 100% 100%",
+          backgroundSize: "40px 40px, 40px 40px, 100% 100%",
         }}
-        />
+      />
     </div>
   );
 }

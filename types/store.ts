@@ -1,4 +1,4 @@
-import { UserType } from "@/types"
+import { UserType } from "@/types";
 
 export type Store = {
   waitList: boolean;

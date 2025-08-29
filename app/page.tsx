@@ -3,7 +3,8 @@ import { HomeLayout } from "@/modules/home/layouts";
 
 export const metadata: Metadata = {
   title: "Leading Exam Management System & Educational Technology Solutions",
-  description: "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools. Trusted by 500+ institutions worldwide.",
+  description:
+    "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools. Trusted by 500+ institutions worldwide.",
   keywords: [
     "exam management system",
     "online exam platform",
@@ -28,11 +29,12 @@ export const metadata: Metadata = {
     "best exam management system",
     "top educational technology",
     "school management software",
-    "university assessment platform"
+    "university assessment platform",
   ],
   openGraph: {
     title: "Leading Exam Management System & Educational Technology Solutions",
-    description: "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+    description:
+      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
     url: "https://amidarh.com",
     siteName: "Amidarh",
     images: [
@@ -49,7 +51,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Leading Exam Management System & Educational Technology Solutions",
-    description: "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+    description:
+      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
     images: ["/images/amidarh-homepage-twitter.jpg"],
   },
   alternates: {

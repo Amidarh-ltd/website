@@ -1,44 +1,46 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { CheckCircle, Clock } from "lucide-react"
-import { useWaitlist } from "@/modules/trupper/services"
-import { useStore } from "@/lib/utils/zustand/store"
+} from "@/components/ui/dialog";
+import { CheckCircle, Clock } from "lucide-react";
+import { useWaitlist } from "@/modules/trupper/services";
+import { useStore } from "@/lib/utils/zustand/store";
 
 export function Waitlist() {
-  const [email, setEmail] = useState("")
-  const [organization, setOrganization] = useState("")
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const { setWaitList } = useStore()
-  const waitList = useStore(state => state.waitList)
-  const { addToWaitlist, isLoading, error: waitlistError, success } = useWaitlist()
-  const [error, setError] = useState<string | null>(null)
+  const [email, setEmail] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { setWaitList } = useStore();
+  const waitList = useStore((state) => state.waitList);
+  const {
+    addToWaitlist,
+    isLoading,
+    error: waitlistError,
+    success,
+  } = useWaitlist();
+  const [error, setError] = useState<string | null>(null);
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    await addToWaitlist({ email, organization })
-    if(success){
-      setIsSubmitted(true)
-      setError(null)
+    e.preventDefault();
+    await addToWaitlist({ email, organization });
+    if (success) {
+      setIsSubmitted(true);
+      setError(null);
     } else {
-      setError(waitlistError || "An error occurred")
+      setError(waitlistError || "An error occurred");
     }
-  }
+  };
 
   return (
-    <Dialog 
-      open={waitList}
-      onOpenChange={() => setWaitList(!waitList)}
-    >
+    <Dialog open={waitList} onOpenChange={() => setWaitList(!waitList)}>
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden">
         <div className="relative">
           <div
@@ -51,7 +53,7 @@ export function Waitlist() {
               backgroundSize: "20px 20px",
             }}
           />
-          
+
           <div className="relative z-10">
             <DialogHeader className="text-center pb-6 pt-8 px-8">
               <DialogTitle className="text-2xl font-bold text-gray-900">
@@ -85,7 +87,10 @@ export function Waitlist() {
               <form onSubmit={handleSubmit} className="px-8 pb-8">
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email Address
                     </label>
                     <Input
@@ -98,9 +103,12 @@ export function Waitlist() {
                       className="w-full"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="organization"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Organization Name
                     </label>
                     <Input
@@ -140,7 +148,8 @@ export function Waitlist() {
                   You're on the list!
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  We'll notify you as soon as Trupper is ready for your institution.
+                  We'll notify you as soon as Trupper is ready for your
+                  institution.
                 </p>
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
                   <div className="flex items-center gap-2 text-blue-700 text-sm">
@@ -165,16 +174,22 @@ export function Waitlist() {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 
 export const WaitlistButton = ({ size }: { size?: "sm" | "md" | "lg" }) => {
-  const { setWaitList } = useStore()
+  const { setWaitList } = useStore();
   return (
-        <Button className={cn("bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl", size === "sm" && "text-sm", size === "md" && "text-base", size === "lg" && "text-lg")}
-          onClick={() => setWaitList(true)}
-        >
-          Join Waitlist
-        </Button>
-  )
-}
+    <Button
+      className={cn(
+        "bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl",
+        size === "sm" && "text-sm",
+        size === "md" && "text-base",
+        size === "lg" && "text-lg",
+      )}
+      onClick={() => setWaitList(true)}
+    >
+      Join Waitlist
+    </Button>
+  );
+};

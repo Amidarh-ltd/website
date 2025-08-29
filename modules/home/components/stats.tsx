@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export default function Stats() {
   const stats = [
@@ -45,14 +45,12 @@ export default function Stats() {
       value: "3",
       label: "Products",
     },
-  ]
+  ];
 
   return (
     <section className="py-5 text-white md:py-6 border bg-primary">
       <div className="container px-4 mx-auto">
-        <h2
-          className="text-4xl md:text-5xl font-bold text-center mb-10"
-        >
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-10">
           Our Stats
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto mb-10">
@@ -62,13 +60,14 @@ export default function Stats() {
               className="flex flex-col items-center text-center"
             >
               {/* <div className="text-[#E2FF6F] mb-4">{stat.icon}</div> */}
-              <div className="text-5xl font-bold mb-2 text-primary-main">{stat.value}</div>
+              <div className="text-5xl font-bold mb-2 text-primary-main">
+                {stat.value}
+              </div>
               <div className="text-sm text-gray-200">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
-

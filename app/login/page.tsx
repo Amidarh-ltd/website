@@ -1,10 +1,8 @@
-'use client';
+"use client";
 
 import LoginLayout from "@/modules/login/layout";
 const LoginPage = () => {
-  return (
-    <LoginLayout />
-  );
+  return <LoginLayout />;
 };
 
 export default LoginPage;

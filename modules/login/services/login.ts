@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import api from '@/core/services/api';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { loginSchema, LoginFormData } from '../schema/loginSchema';
-import { useStore } from '@/lib/utils/zustand/store';
-import { toast } from 'sonner';
+import api from "@/core/services/api";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { loginSchema, LoginFormData } from "../schema/loginSchema";
+import { useStore } from "@/lib/utils/zustand/store";
+import { toast } from "sonner";
 
 export function useLogin() {
   const router = useRouter();
-  const [serverError, setServerError] = useState('');
+  const [serverError, setServerError] = useState("");
   const { setUser, setIsAuthenticated, setToken, setRefreshToken } = useStore();
 
   const form = useForm<LoginFormData>({
@@ -18,32 +18,32 @@ export function useLogin() {
   });
 
   const login = async (data: LoginFormData) => {
-    setServerError('');
+    setServerError("");
 
     try {
-      const res = await api.post('/auth/login', data);
+      const res = await api.post("/auth/login", data);
 
       if (res.status === 203) {
-          router.push(`/2fa?token=${res.data.doc.token}`);
+        router.push(`/2fa?token=${res.data.doc.token}`);
       }
-      if(res.status == 200) {
+      if (res.status == 200) {
         const { user, token, refreshToken } = res.data.doc;
         setUser(user);
         setIsAuthenticated(true);
-         const isProduction = process.env.NODE_ENV === 'production';
-      const secureFlag = isProduction ? '; secure' : '';
-      // Calculate expiry for 7 days from now
-      const expires = new Date(
-        Date.now() + 7 * 24 * 60 * 60 * 1000
-      ).toUTCString();
-      // Set cookies client-side
-      document.cookie = `accessToken=${token}; path=/${secureFlag}; SameSite=Strict`;
-      document.cookie = `refreshToken=${refreshToken}; path=/${secureFlag}; SameSite=Strict; expires=${expires}`;
-      document.cookie = `role=${user.role.toUpperCase()}; path=/${secureFlag}; SameSite=Strict`;
+        const isProduction = process.env.NODE_ENV === "production";
+        const secureFlag = isProduction ? "; secure" : "";
+        // Calculate expiry for 7 days from now
+        const expires = new Date(
+          Date.now() + 7 * 24 * 60 * 60 * 1000,
+        ).toUTCString();
+        // Set cookies client-side
+        document.cookie = `accessToken=${token}; path=/${secureFlag}; SameSite=Strict`;
+        document.cookie = `refreshToken=${refreshToken}; path=/${secureFlag}; SameSite=Strict; expires=${expires}`;
+        document.cookie = `role=${user.role.toUpperCase()}; path=/${secureFlag}; SameSite=Strict`;
         setToken(token);
         setRefreshToken(refreshToken);
-        toast.success("You're logged in successfully")
-        router.push('/welcome');
+        toast.success("You're logged in successfully");
+        router.push("/welcome");
       }
     } catch (err: any) {
       console.error(err);
@@ -51,7 +51,7 @@ export function useLogin() {
         router.push(`/verify-otp?token=${err.response.data.doc.token}`);
       } else {
         const errorMessage =
-          err.response?.data?.message || err.message || 'Login failed';
+          err.response?.data?.message || err.message || "Login failed";
         setServerError(errorMessage);
       }
     }

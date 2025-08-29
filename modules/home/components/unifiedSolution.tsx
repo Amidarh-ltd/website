@@ -1,16 +1,21 @@
-import Image from "next/image"
-import { cn } from "@/lib/utils"
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface StakeholderProps {
-  label: string
-  position: "top" | "right" | "bottom" | "left"
-  featureLabel: string
-  featureSide: "left" | "right"
+  label: string;
+  position: "top" | "right" | "bottom" | "left";
+  featureLabel: string;
+  featureSide: "left" | "right";
 }
 
-const Stakeholder = ({ label, position, featureLabel, featureSide }: StakeholderProps) => {
+const Stakeholder = ({
+  label,
+  position,
+  featureLabel,
+  featureSide,
+}: StakeholderProps) => {
   // Placeholder images for each stakeholder
-  const imageSrc = `/placeholder.svg?height=120&width=120`
+  const imageSrc = `/placeholder.svg?height=120&width=120`;
 
   // Position classes
   const positionClasses = {
@@ -18,7 +23,7 @@ const Stakeholder = ({ label, position, featureLabel, featureSide }: Stakeholder
     right: "absolute top-1/2 -right-16 -translate-y-1/2",
     bottom: "absolute -bottom-16 left-1/2 -translate-x-1/2",
     left: "absolute top-1/2 -left-16 -translate-y-1/2",
-  }
+  };
 
   // Feature label position
   const featurePositionClasses = {
@@ -38,10 +43,15 @@ const Stakeholder = ({ label, position, featureLabel, featureSide }: Stakeholder
       left: "absolute -top-8 left-0",
       right: "absolute top-8 left-0",
     },
-  }
+  };
 
   return (
-    <div className={cn("w-24 h-24 rounded-md overflow-hidden relative", positionClasses[position])}>
+    <div
+      className={cn(
+        "w-24 h-24 rounded-md overflow-hidden relative",
+        positionClasses[position],
+      )}
+    >
       <div className="absolute inset-0 bg-teal-800 rounded-md overflow-hidden">
         <div className="absolute bottom-0 left-0 right-0 bg-black/70 py-1 px-2 text-white text-xs text-center">
           {label}
@@ -56,8 +66,8 @@ const Stakeholder = ({ label, position, featureLabel, featureSide }: Stakeholder
         {featureLabel}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default function UnifiedSolution() {
   return (
@@ -95,24 +105,46 @@ export default function UnifiedSolution() {
               </div>
 
               {/* Stakeholders */}
-              <Stakeholder label="Educators" position="top" featureLabel="Development" featureSide="left" />
-              <Stakeholder label="Students" position="right" featureLabel="Attendance" featureSide="right" />
-              <Stakeholder label="Families" position="bottom" featureLabel="Engagement" featureSide="right" />
-              <Stakeholder label="Superintendent" position="left" featureLabel="Analytics" featureSide="left" />
+              <Stakeholder
+                label="Educators"
+                position="top"
+                featureLabel="Development"
+                featureSide="left"
+              />
+              <Stakeholder
+                label="Students"
+                position="right"
+                featureLabel="Attendance"
+                featureSide="right"
+              />
+              <Stakeholder
+                label="Families"
+                position="bottom"
+                featureLabel="Engagement"
+                featureSide="right"
+              />
+              <Stakeholder
+                label="Superintendent"
+                position="left"
+                featureLabel="Analytics"
+                featureSide="left"
+              />
             </div>
           </div>
 
           {/* Text Content */}
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">One Unified Platform</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+              One Unified Platform
+            </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-md">
-              With our integrated communication, attendance, and educator success tools, your learning community will
-              stay engaged, informed, and connected.
+              With our integrated communication, attendance, and educator
+              success tools, your learning community will stay engaged,
+              informed, and connected.
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

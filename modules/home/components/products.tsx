@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function ProductsSection() {
   const templates = [
@@ -21,20 +21,26 @@ export default function ProductsSection() {
       id: "devops",
       type: "##",
       title: "Amidarh CBT",
-      description: "Practice make perfect. use amidarh cbt to stay ahead of your peers",
+      description:
+        "Practice make perfect. use amidarh cbt to stay ahead of your peers",
       image: "/devops-template.svg",
     },
-  ]
+  ];
 
   return (
     <section className="w-full py-16 px-4">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-center text-2xl font-bold">GET STARTED WITH OUR PRODUCTS</h2>
+        <h2 className="text-center text-2xl font-bold">
+          GET STARTED WITH OUR PRODUCTS
+        </h2>
         <p className="text-center mb-12 tex-xl">Amidarh for all</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {templates.map((template) => (
-            <div key={template.id} className="rounded-2xl border border-gray-200 p-6 transition-all hover:shadow-md backdrop-blur-sm bg-white/50">
+            <div
+              key={template.id}
+              className="rounded-2xl border border-gray-200 p-6 transition-all hover:shadow-md backdrop-blur-sm bg-white/50"
+            >
               <div className="h-40 mb-6 flex items-center justify-center">
                 <TemplateIllustration id={template.id} />
               </div>
@@ -61,19 +67,19 @@ export default function ProductsSection() {
         </div> */}
       </div>
     </section>
-  )
+  );
 }
 
 function TemplateIllustration({ id }: { id: string }) {
   switch (id) {
     case "scrum":
-      return <ScrumIllustration />
+      return <ScrumIllustration />;
     case "bug-tracking":
-      return <BugTrackingIllustration />
+      return <BugTrackingIllustration />;
     case "devops":
-      return <DevOpsIllustration />
+      return <DevOpsIllustration />;
     default:
-      return null
+      return null;
   }
 }
 
@@ -100,7 +106,7 @@ function ScrumIllustration() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function BugTrackingIllustration() {
@@ -124,7 +130,7 @@ function BugTrackingIllustration() {
       <div className="absolute -top-2 left-16 text-black text-xl">+</div>
       <div className="absolute top-4 left-4 text-black text-xl">+</div>
     </div>
-  )
+  );
 }
 
 function DevOpsIllustration() {
@@ -148,6 +154,5 @@ function DevOpsIllustration() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
