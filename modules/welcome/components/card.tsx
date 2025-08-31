@@ -13,7 +13,7 @@ export const WelcomeCard = ({
 }) => {
   return (
     <div className="mt-6">
-      <Card className="p-6 border-gray-200 w-full max-w-[400px] cursor-pointer transition-transform duration-200 hover:animate-shake hover:scale-105  bg-white-600 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60">
+      <Card className="p-6 border-gray-200 w-full max-w-[400px] cursor-pointer transition-transform duration-200 hover:animate-shake hover:scale-105  bg-white-600 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 no-underline">
         <Icon size={30} className="text-gray-500" />
         <h2 className="text-xl font-bold">{title}</h2>
         <p className="text-sm">{description}</p>

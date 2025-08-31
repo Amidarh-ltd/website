@@ -1,7 +1,11 @@
+"use client"
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function ProductsSection() {
+  const router = useRouter()
   const templates = [
     {
       id: "scrum",
@@ -39,7 +43,8 @@ export default function ProductsSection() {
           {templates.map((template) => (
             <div
               key={template.id}
-              className="rounded-2xl border border-gray-200 p-6 transition-all hover:shadow-md backdrop-blur-sm bg-white/50"
+              className="rounded-2xl border border-gray-200 p-6 transition-all hover:shadow-md backdrop-blur-sm bg-white/50 hover:scale-105 cursor-pointer"
+              onClick={() => router.push(template.type)}
             >
               <div className="h-40 mb-6 flex items-center justify-center">
                 <TemplateIllustration id={template.id} />
