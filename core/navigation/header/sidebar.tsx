@@ -16,9 +16,11 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const navigationItems = [
     {
@@ -155,12 +157,15 @@ export function Sidebar() {
           {/* Footer Actions */}
           <div className="p-4 border-t border-gray-100 bg-gray-50">
             <div className="space-y-2">
-              <Button className="w-full bg-primary hover:bg-[#24216A] text-white rounded-xl py-2.5 font-medium transition-colors">
+              <Button className="w-full bg-primary hover:bg-[#24216A] text-white rounded-xl py-2.5 font-medium transition-colors"
+              onClick={() => router.push('/signup')}
+              >
                 Get Started
               </Button>
               <Button
                 variant="outline"
                 className="w-full border-gray-200 hover:border-gray-300 text-gray-700 rounded-xl py-2.5 font-medium transition-colors"
+                onClick={() => router.push('/login')}
               >
                 Sign In
               </Button>
