@@ -43,7 +43,7 @@ const VerifyAccountContent = () => {
     <ScrollArea className="w-full ">
       <GridPatterns />
       <div className="flex pt-10 sm:items-center justify-center pb-5]">
-        <Card className="max-w-[480px] w-full p-2 max-sm:bg-transparent sm:border sm:p-8 border-gray-200">
+        <Card className="max-w-[480px] w-full p-2 max-sm:bg-transparent sm:border sm:p-8 border-gray-200 max-sm:bg-blur-sm">
           <div className="flex flex-col items-center justify-center mb-6">
             <Logo />
             <h2 className="text-2xl font-bold mb-1">Amidarh</h2>
