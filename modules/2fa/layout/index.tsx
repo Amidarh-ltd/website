@@ -45,7 +45,7 @@ function TwoFactorAuthContent() {
     <ScrollArea className="w-full">
       <GridPatterns />
       <div className="flex pt-10 sm:items-center justify-center pb-5">
-        <Card className="max-w-120 w-full p-2 max-sm:bg-transparent border-none sm:border sm:p-8  max-sm:bg-blur-md">
+        <Card className="max-w-120 w-full p-2 border-none sm:border sm:p-8 z-10">
           <div className="flex flex-col items-center justify-center mb-4">
             <div
               className="flex flex-col items-center justify-center cursor-pointer"

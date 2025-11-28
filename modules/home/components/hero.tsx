@@ -13,8 +13,7 @@ export function Hero() {
   return (
     <div className="w-full pt-20">
       {/* Main Hero Section */}
-      <div className="min-h-screen w-full bg-white fixed top-0 left-0 right-0 bottom-0 -z-1">
-        {/* Magenta Orb Grid Background */}
+      {/* <div className="min-h-screen w-full bg-white fixed top-0 left-0 right-0 bottom-0 -z-1">
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -27,7 +26,21 @@ export function Hero() {
             backgroundSize: "40px 40px, 40px 40px, 100% 100%",
           }}
         />
-      </div>
+      </div> */}
+      {/* Decorative SVG grid */}
+      <svg
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        xmlns="http://www.w3.org/2000/svg"
+        width="100%"
+        height="100%"
+      >
+        <defs>
+          <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <path d="M 32 0 L 0 0 0 32" fill="none" stroke="currentColor" strokeWidth="1" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
       <section className="container mx-auto px-4 py-16 md:py-30">
         <div className="flex justify-center items-center">
           {/* Left Column - Text Content */}

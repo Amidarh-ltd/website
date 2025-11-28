@@ -1,5 +1,5 @@
 import Image from "next/image";
-import note from "@/public/images/note.png";
+import note from "@/public/images/flow.png";
 
 export default function AmidarhNote() {
   return (
@@ -7,8 +7,8 @@ export default function AmidarhNote() {
       <div className="flex flex-col items-center justify-center w-full">
         <Image
           src={note}
-          alt="Amidarh Note"
-          className="w-full h-full object-cover max-w-[1300px] rounded-2xl shadow-lg mx-auto"
+          alt="Amidarh Flow"
+          className="w-full h-full object-cover max-w-[1300px] rounded-2xl shadow-lg mx-auto z-10"
         />
       </div>
     </div>

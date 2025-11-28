@@ -33,7 +33,7 @@ const LoginLayout = () => {
     <ScrollArea className="w-full">
       <GridPatterns />
       <div className="flex pt-10 sm:items-center justify-center pb-5">
-        <Card className="w-full max-w-120 p-2 max-sm:bg-transparent border-none sm:border sm:p-8 max-sm:bg-blur-sm">
+        <Card className="w-full max-w-120 p-2   border-none sm:border sm:p-8 max-sm:bg-blur-sm z-10">
           <div
             className="flex flex-col items-center justify-center mb-4 cursor-pointer"
             onClick={() => router.push("/")}
