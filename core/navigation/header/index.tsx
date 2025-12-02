@@ -27,11 +27,12 @@ export async function Header({ isTrupper }: { isTrupper?: boolean }) {
             </div>
           ) : (
             <div className="space-x-4 min-[800px]:flex max-[800px]:hidden flex flex-row items-center">
-              <Button variant="outline" onClick={() => push("/signup")}>
+              {/* <Button variant="outline" onClick={() => push("/signup")}>
                 Sign up
               </Button>
               <div>|</div>
-              <Button onClick={() => push("/login")}>Login</Button>
+              <Button onClick={() => push("/login")}>Login</Button> */}
+              <Button>use Flow</Button>
             </div>
           )}
           <Sidebar />
