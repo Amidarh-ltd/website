@@ -18,7 +18,8 @@ export default function ProductsSection() {
       id: "bug-tracking",
       type: "https://flow.amidarh.com",
       title: "Flow",
-      description: "Learn and grow with Flow",
+      description:
+        "AI-powered learning with generated courses, notes, flashcards, quizzes, and progress tracking.",
       image: "/bug-tracking-template.svg",
     },
     {

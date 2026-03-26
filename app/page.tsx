@@ -4,7 +4,7 @@ import { HomeLayout } from "@/modules/home/layouts";
 export const metadata: Metadata = {
   title: "Leading Exam Management System & Educational Technology Solutions",
   description:
-    "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools. Trusted by 500+ institutions worldwide.",
+    "Amidarh builds educational tools for every learner: Trupper for exam management and Flow for AI-powered learning with course generation, notes, flashcards, quizzes, and progress tracking.",
   keywords: [
     "exam management system",
     "online exam platform",
@@ -30,11 +30,18 @@ export const metadata: Metadata = {
     "top educational technology",
     "school management software",
     "university assessment platform",
+    "AI-powered learning platform",
+    "adaptive learning app",
+    "AI course generator",
+    "study notes generator",
+    "flashcards and quiz app",
+    "student progress tracking",
+    "Flow by Amidarh",
   ],
   openGraph: {
     title: "Leading Exam Management System & Educational Technology Solutions",
     description:
-      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+      "Discover Amidarh products: Trupper for modern exam management and Flow for AI-powered learning with generated courses, notes, flashcards, quizzes, and clear progress tracking.",
     url: "https://amidarh.com",
     siteName: "Amidarh",
     images: [
@@ -52,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Leading Exam Management System & Educational Technology Solutions",
     description:
-      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+      "Discover Amidarh products: Trupper for modern exam management and Flow for AI-powered learning with generated courses, notes, flashcards, quizzes, and clear progress tracking.",
     images: ["/images/amidarh-homepage-twitter.jpg"],
   },
   alternates: {

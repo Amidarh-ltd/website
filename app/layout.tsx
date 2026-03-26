@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Amidarh",
   },
   description:
-    "Amidarh provides cutting-edge exam management systems, educational technology solutions, and digital assessment platforms for schools, universities, and institutions worldwide. Streamline your exam processes with AI-powered tools.",
+    "Amidarh provides educational technology solutions including Trupper for exam management and Flow for AI-powered learning with course generation, notes, flashcards, quizzes, and progress tracking.",
   keywords: [
     "exam management system",
     "online exam platform",
@@ -40,6 +40,13 @@ export const metadata: Metadata = {
     "automated grading system",
     "exam security software",
     "academic assessment tools",
+    "AI-powered learning platform",
+    "adaptive learning app",
+    "AI course generator",
+    "study notes generator",
+    "flashcards and quiz app",
+    "student progress tracking",
+    "Flow by Amidarh",
   ],
   authors: [{ name: "Amidarh Team" }],
   creator: "Amidarh",
@@ -56,7 +63,7 @@ export const metadata: Metadata = {
     siteName: "Amidarh",
     title: "Amidarh - Educational Technology Solutions",
     description:
-      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+      "Amidarh powers better education with Trupper for exam management and Flow for AI-powered learning, including course generation, notes, flashcards, quizzes, and progress tracking.",
     images: [
       {
         url: "/images/amidarh-og-image.jpg",
@@ -70,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Amidarh - Educational Technology Solutions",
     description:
-      "Transform your educational institution with Amidarh's comprehensive exam management system. Streamline exam creation, scheduling, proctoring, and grading with AI-powered tools.",
+      "Amidarh powers better education with Trupper for exam management and Flow for AI-powered learning, including course generation, notes, flashcards, quizzes, and progress tracking.",
     images: ["/images/amidarh-twitter-image.jpg"],
     creator: "@amidarh",
     site: "@amidarh",
@@ -159,6 +166,29 @@ export default function RootLayout({
                 "@type": "AggregateRating",
                 ratingValue: "4.8",
                 ratingCount: "150",
+              },
+            }),
+          }}
+        />
+
+        {/* Structured Data for Flow */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Flow",
+              applicationCategory: "EducationalApplication",
+              operatingSystem: "Web Browser",
+              description:
+                "AI-powered learning platform to generate courses, create notes, practice with flashcards and quizzes, and track learning progress.",
+              url: "https://flow.amidarh.com",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
               },
             }),
           }}
