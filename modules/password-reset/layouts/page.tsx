@@ -13,6 +13,7 @@ import { usePasswordReset } from '@/modules/password-reset/services/passwordRese
 import { Suspense } from 'react';
 import { Logo } from '@/core/commons/ui';
 import { GridPatterns } from '@/core/commons/ui/svg';
+import { getCurrentYear } from '@/lib/utils';
 
 function PasswordResetContent() {
   const [showPassword, setShowPassword] = useState(false);
@@ -116,7 +117,7 @@ function PasswordResetContent() {
               <Separator />
               <p className='text-center max-w-90 text-xs dark:text-gray-300 text-gray-800'>
                 By creating this account you agree to all <b>Amidarh</b> terms
-                and conditions @ Amidarh 2025
+                and conditions @ Amidarh {getCurrentYear()}
               </p>
             </div>
           </form>

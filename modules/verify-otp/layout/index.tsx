@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/input-otp";
 import { useVerifyOtp } from "@/modules/verify-otp/services/verifyOtp";
 import { Logo } from "@/core/commons/ui";
+import { getCurrentYear } from "@/lib/utils";
 
 const VerifyAccountContent = () => {
   const {
@@ -116,7 +117,7 @@ const VerifyAccountContent = () => {
             <div className="text-center">
               <p className="text-xs text-gray-600 dark:text-gray-300">
                 By creating this account you agree to all <b>Amidarh</b> terms
-                and conditions @ Amidarh 2025
+                and conditions @ Amidarh {getCurrentYear()}
               </p>
             </div>
           </form>

@@ -30,10 +30,10 @@ export default function Banner({
 
           {link ? (
             <Link
-              href={link ?? "/"}
+              href={'https://flow.amidarh.com'}
               className="inline-flex items-center justify-center px-8 py-3 border-2 border-white rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 cursor-pointer"
             >
-              Get started for free
+              use Flow
             </Link>
           ) : (
             <div className="inline-flex items-center justify-center px-8 py-3 border-2 border-white rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 cursor-pointer">

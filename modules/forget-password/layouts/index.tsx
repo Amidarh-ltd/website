@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { Logo } from "@/core/commons/ui";
 import { GridPatterns } from "@/core/commons/ui/svg";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { getCurrentYear } from "@/lib/utils";
 
 const ForgottenPasswordLayout = () => {
   const router = useRouter();
@@ -81,7 +82,7 @@ const ForgottenPasswordLayout = () => {
               <Separator />
               <p className="text-center max-w-90 text-xs dark:text-gray-300 text-gray-800">
                 By loging in you agree to all <b>Amidarh</b> terms and conditions
-                @ Amidarh 2025
+                @ Amidarh {getCurrentYear()}
               </p>
             </div>
           </form>

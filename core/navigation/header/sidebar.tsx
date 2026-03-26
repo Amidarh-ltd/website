@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { getCurrentYear } from "@/lib/utils";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -158,22 +159,22 @@ export function Sidebar() {
           <div className="p-4 border-t border-gray-100 bg-gray-50">
             <div className="space-y-2">
               <Button className="w-full bg-primary hover:bg-[#24216A] text-white rounded-xl py-2.5 font-medium transition-colors"
-              onClick={() => router.push('/signup')}
+              onClick={() => router.push('https://flow.amidarh.com')}
               >
-                Get Started
+                use Flow
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 className="w-full border-gray-200 hover:border-gray-300 text-gray-700 rounded-xl py-2.5 font-medium transition-colors"
                 onClick={() => router.push('/login')}
               >
                 Sign In
-              </Button>
+              </Button> */}
             </div>
 
             <div className="mt-3 pt-3 border-t border-gray-200">
               <p className="text-xs text-gray-500 text-center">
-                © 2025 Amidarh. All rights reserved.
+                © {getCurrentYear()} Amidarh. All rights reserved.
               </p>
             </div>
           </div>

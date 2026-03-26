@@ -16,9 +16,9 @@ export default function ProductsSection() {
     },
     {
       id: "bug-tracking",
-      type: "##",
-      title: "Amidarh Note",
-      description: "Write and understand the world with amidarh note",
+      type: "https://flow.amidarh.com",
+      title: "Flow",
+      description: "Learn and grow with Flow",
       image: "/bug-tracking-template.svg",
     },
     {

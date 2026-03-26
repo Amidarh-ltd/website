@@ -6,10 +6,6 @@ import { useRouter } from "next/navigation";
 export function Hero() {
   const router = useRouter();
 
-  const handleGetStarted = () => {
-    router.push("/signup");
-  };
-
   return (
     <div className="w-full pt-20">
       {/* Main Hero Section */}
@@ -58,9 +54,9 @@ export function Hero() {
             <div className="pt-4">
               <Button
                 className="bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl"
-                onClick={handleGetStarted}
+                onClick={() => router.push('https://flow.amidarh.com')}
               >
-                Get Started
+                use Flow
               </Button>
             </div>
           </div>

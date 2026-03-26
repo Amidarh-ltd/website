@@ -16,6 +16,7 @@ import { useTwoFactor } from "@/modules/2fa/service/2fa";
 import { useRouter } from "next/navigation";
 import { Logo } from "@/core/commons/ui";
 import { GridPatterns } from "@/core/commons/ui/svg";
+import { getCurrentYear } from "@/lib/utils";
 
 function TwoFactorAuthContent() {
   const router = useRouter();
@@ -122,7 +123,7 @@ function TwoFactorAuthContent() {
               <Separator />
               <p className="text-center max-w-90 text-xs dark:text-gray-300 text-gray-800">
                 By logging in you agree to all <b>Amidarh</b> terms and
-                conditions @ Amidarh 2025
+                conditions @ Amidarh {getCurrentYear()}
               </p>
             </div>
           </form>

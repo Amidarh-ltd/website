@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { Logo } from "@/core/commons/ui";
 import { GridPatterns } from "@/core/commons/ui/svg";
 import { GoogleAuth } from "@/core/commons/ui/auth/googleLogin";
+import { getCurrentYear } from "@/lib/utils";
 
 const SignUpLayout = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -177,7 +178,7 @@ const SignUpLayout = () => {
               <Separator />
               <p className="text-center max-w-90 text-xs dark:text-gray-300 text-gray-800">
                 By creating this account you agree to all <b>Amidarh</b> terms
-                and conditions @ Amidarh 2025
+                and conditions @ Amidarh {getCurrentYear()}
               </p>
             </div>
           </form>
