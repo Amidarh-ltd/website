@@ -2,51 +2,83 @@
 
 import { Logo } from "@/core/commons/ui";
 import { Card } from "@/components/ui/card";
-import { GridPatterns } from "@/core/commons/ui/svg";
-import { Notebook, BookCheck } from "lucide-react";
+import { MarketingImage } from "@/components/ui/marketing-image";
+import { Notebook, BookCheck, LogOut } from "lucide-react";
 import { WelcomeCard } from "../components/card";
 import { Button } from "@/components/ui/button";
 import { useLogout } from "@/core/hooks/logout";
 import { useStore } from "@/lib/utils/zustand/store";
 import Link from "next/link";
+import { UNSPLASH_IMAGES } from "@/lib/constants/site";
 
 export const WelcomeLayouts = () => {
   const { isLoading, logout } = useLogout();
   const user = useStore((state) => state.user);
   const token = useStore((state) => state.token);
+
   return (
-    <div className="px-4 py-6 sm:px-8 md:px-16 lg:px-20 lg:py-10">
-      <GridPatterns />
-      <div className="flex flex-row items-center justify-between w-full">
-        <Logo />
-        <Button onClick={() => logout()}>
-          {isLoading ? "Loading...." : "Logout"}
-        </Button>
-      </div>
-      <div className="mt-6">
-        <h1 className="text-2xl sm:text-3xl font-bold">
-          Hello {user?.firstName}
-        </h1>
-        <p className="text-base sm:text-lg">
-          Your journey to success begins here.
-        </p>
-      </div>
-      <div className="mt-6 flex flex-col gap-4 md:flex-row">
-        <Link
-          href={process.env.NEXT_PUBLIC_NOTES_API_URL + "/my_note?a=" + token}
-          className="outline-0 underline-offset-0"
-        >
-          <WelcomeCard
-            Icon={Notebook}
-            title="Amidarh Note"
-            description="Notes help you capture ideas, organize your thoughts, and keep track of important information. Start creating notes to boost your productivity and never miss a great idea!"
+    <div className="min-h-screen bg-background">
+      <div className="grid min-h-screen lg:grid-cols-2">
+        <div className="relative hidden lg:block">
+          <MarketingImage
+            src={UNSPLASH_IMAGES.auth.src}
+            alt={UNSPLASH_IMAGES.auth.alt}
+            containerClassName="min-h-screen rounded-none"
+            sizes="50vw"
           />
-        </Link>
-        <WelcomeCard
-          Icon={BookCheck}
-          title="Amidarh CBT"
-          description="Notes help you capture ideas, organize your thoughts, and keep track of important information. Start creating notes to boost your productivity and never miss a great idea!"
-        />
+          <div className="absolute inset-0 bg-brand/70" />
+          <div className="absolute inset-0 flex flex-col justify-end p-12 text-brand-foreground">
+            <p className="text-sm font-semibold uppercase tracking-wider opacity-80">
+              Amidarh
+            </p>
+            <h1 className="mt-2 text-3xl font-bold">
+              Your journey to success begins here.
+            </h1>
+          </div>
+        </div>
+
+        <div className="flex flex-col px-6 py-8 sm:px-10 lg:px-16 lg:py-12">
+          <div className="flex items-center justify-between">
+            <Logo />
+            <Button variant="outline" size="sm" onClick={() => logout()}>
+              <LogOut className="size-4" />
+              {isLoading ? "Loading..." : "Logout"}
+            </Button>
+          </div>
+
+          <div className="mt-10">
+            <h2 className="text-3xl font-bold tracking-tight">
+              Hello, {user?.firstName}
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Choose a product to continue your learning journey.
+            </p>
+          </div>
+
+          <div className="mt-8 grid flex-1 gap-4 sm:grid-cols-2">
+            <Link
+              href={
+                process.env.NEXT_PUBLIC_NOTES_API_URL + "/my_note?a=" + token
+              }
+              className="outline-none"
+            >
+              <WelcomeCard
+                Icon={Notebook}
+                title="Amidarh Note"
+                description="Capture ideas, organize thoughts, and keep track of what matters."
+              />
+            </Link>
+            <Card className="card-elevated flex h-full flex-col p-6 opacity-75">
+              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+                <BookCheck className="size-6" />
+              </div>
+              <h3 className="text-lg font-semibold">Amidarh CBT</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Coming soon—practice exams in a dedicated CBT environment.
+              </p>
+            </Card>
+          </div>
+        </div>
       </div>
     </div>
   );

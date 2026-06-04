@@ -1,29 +1,26 @@
 import Features from "../components/features";
 import { Hero } from "../components/hero";
-import Stats from "../components/stats";
 import { Footer } from "@/core/navigation/footer";
 import { Header } from "@/core/navigation/header";
 import ProductsSection from "../components/products";
 import { Specs } from "../components/specs";
 import Banner from "../components/banner.";
 import Solution from "../components/solution";
-import AmidarhNote from "../components/amidarhNote";
+import FlowSpotlight from "../components/flow-spotlight";
+import TrupperSpotlight from "../components/trupper-spotlight";
 
 export function HomeLayout() {
   return (
-    <main>
+    <main className="min-h-screen bg-background">
       <Header />
       <Hero />
-      {/* <Stats/> */}
-      <AmidarhNote />
+      <FlowSpotlight />
+      <TrupperSpotlight />
       <Solution />
-      {/* <UnifiedSolution/> */}
       <Features />
-      <div className="flex justify-center items-center">
-        <Specs />
-      </div>
+      <Specs />
       <ProductsSection />
-      <Banner text="Education" product="Amidarh" link="/signup" />
+      <Banner />
       <Footer />
     </main>
   );

@@ -1,43 +1,110 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { HeaderClient } from "./components.client";
-// import { buttonVariants } from "@/components/ui/button";
-// import { Separator } from "@/components/ui/separator";
-// import { Products } from "./products";
 import { Sidebar } from "./sidebar";
 import { Button } from "@/components/ui/button";
 import { Waitlist, WaitlistButton } from "@/core/commons/waitlist";
-import { useRouter } from "next/navigation";
 import { Logo } from "@/core/commons/ui";
+import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
-export async function Header({ isTrupper }: { isTrupper?: boolean }) {
-  const { push } = useRouter();
+export function Header({ isTrupper }: { isTrupper?: boolean }) {
+  const router = useRouter();
 
   return (
     <HeaderClient>
-      <div className="flex justify-center items-center">
-        <nav className="px-4 xl:px-0 py-3 lg:py-4 container relative z-20 flex justify-between items-center">
-          <div className="">
-            <Logo />
-          </div>
+      <nav className="relative z-20 flex items-center justify-between gap-4 px-4 py-3 lg:px-6">
+        <Logo />
+
+        <div className="hidden min-[900px]:flex items-center gap-8">
+          <Link
+            href="/"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Home
+          </Link>
+
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent text-sm font-medium">
+                  Products
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[360px] gap-2 p-4">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <a
+                          href={FLOW_URL}
+                          className="block rounded-xl p-4 transition-colors hover:bg-muted"
+                        >
+                          <p className="font-semibold text-foreground">Flow</p>
+                          <p className="mt-1 text-sm text-muted-foreground">
+                            AI-powered learning with courses, notes, flashcards,
+                            and quizzes.
+                          </p>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={TRUPPER_PATH}
+                          className="block rounded-xl p-4 transition-colors hover:bg-muted"
+                        >
+                          <p className="font-semibold text-foreground">
+                            Trupper
+                          </p>
+                          <p className="mt-1 text-sm text-muted-foreground">
+                            Exam management for schools and institutions.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <Link
+            href={TRUPPER_PATH}
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            For Schools
+          </Link>
+        </div>
+
+        <div className="hidden min-[900px]:flex items-center gap-3">
           {isTrupper ? (
-            <div className="space-x-4 min-[800px]:flex max-[800px]:hidden flex flex-row items-center">
-              <WaitlistButton size="sm" />
-            </div>
+            <WaitlistButton size="lg" />
           ) : (
-            <div className="space-x-4 min-[800px]:flex max-[800px]:hidden flex flex-row items-center">
-              {/* <Button variant="outline" onClick={() => push("/signup")}>
-                Sign up
+            <>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => router.push(TRUPPER_PATH)}
+              >
+                For Schools
               </Button>
-              <div>|</div>
-              <Button onClick={() => push("/login")}>Login</Button> */}
-              <Button>use Flow</Button>
-            </div>
+              <Button size="lg" onClick={() => window.open(FLOW_URL, "_blank")}>
+                Start with Flow
+              </Button>
+            </>
           )}
-          <Sidebar />
-        </nav>
-      </div>
+        </div>
+
+        <Sidebar isTrupper={isTrupper} />
+      </nav>
       <Waitlist />
     </HeaderClient>
   );

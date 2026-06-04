@@ -125,7 +125,8 @@ export function Waitlist() {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-primary hover:bg-[#24216A] text-white py-3 text-lg rounded-2xl"
+                    className="w-full"
+                    size="lg"
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-2">
@@ -177,16 +178,18 @@ export function Waitlist() {
   );
 }
 
-export const WaitlistButton = ({ size }: { size?: "sm" | "md" | "lg" }) => {
+export const WaitlistButton = ({
+  size = "lg",
+  className,
+}: {
+  size?: "sm" | "lg" | "xl";
+  className?: string;
+}) => {
   const { setWaitList } = useStore();
   return (
     <Button
-      className={cn(
-        "bg-primary hover:bg-[#24216A] text-white px-8 py-6 text-lg rounded-3xl",
-        size === "sm" && "text-sm",
-        size === "md" && "text-base",
-        size === "lg" && "text-lg",
-      )}
+      size={size === "sm" ? "sm" : size === "xl" ? "xl" : "lg"}
+      className={className}
       onClick={() => setWaitList(true)}
     >
       Join Waitlist

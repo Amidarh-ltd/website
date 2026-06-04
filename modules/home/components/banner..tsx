@@ -1,47 +1,66 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { FLOW_URL, UNSPLASH_IMAGES } from "@/lib/constants/site";
+import { ArrowRight } from "lucide-react";
+import { WaitlistButton } from "@/core/commons/waitlist";
 
-export default function Banner({
-  text,
-  product,
-  link,
-}: {
-  text: string;
-  product: string;
-  link?: string;
-  action?: () => void;
-}) {
+type BannerProps = {
+  variant?: "flow" | "trupper";
+};
+
+export default function Banner({ variant = "flow" }: BannerProps) {
+  const isTrupper = variant === "trupper";
+
   return (
-    <div className="relative w-full overflow-hidden my-8 flex justify-center items-center px-4 lg:px-10">
-      {/* Angled background */}
-      <div className="bg-blue-600 transform -skew-y-2 inset-0 scale-110 w-full max-w-7xl rounded-3xl">
-        {/* Content */}
-        <div className="relative z-10 py-16 px-4 flex flex-col items-center text-center text-white max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Unleash the power of{" "}
-            <span className="relative inline-block">
-              {text}
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400"></span>
-            </span>
-          </h1>
-
-          <p className="text-lg md:text-xl mb-8">
-            Join millions using {product}
-          </p>
-
-          {link ? (
-            <Link
-              href={'https://flow.amidarh.com'}
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 cursor-pointer"
-            >
-              use Flow
-            </Link>
+    <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div className="container relative mx-auto max-w-7xl overflow-hidden rounded-3xl">
+        <Image
+          src={UNSPLASH_IMAGES.cta.src}
+          alt={UNSPLASH_IMAGES.cta.alt}
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand/80" />
+        <div className="relative z-10 flex flex-col items-center px-6 py-20 text-center text-brand-foreground md:py-28">
+          {isTrupper ? (
+            <>
+              <h2 className="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+                Be first to transform exam management
+              </h2>
+              <p className="mt-4 max-w-xl text-lg text-brand-foreground/90">
+                Join the Trupper waitlist for early access, priority onboarding,
+                and exclusive launch pricing.
+              </p>
+              <WaitlistButton size="xl" className="mt-8" />
+            </>
           ) : (
-            <div className="inline-flex items-center justify-center px-8 py-3 border-2 border-white rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 cursor-pointer">
-              Get started for free
-            </div>
+            <>
+              <h2 className="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+                Start learning smarter with Flow today
+              </h2>
+              <p className="mt-4 max-w-xl text-lg text-brand-foreground/90">
+                Personalized courses, notes, flashcards, and quizzes—built for
+                how you actually study.
+              </p>
+              <Button
+                size="xl"
+                variant="secondary"
+                className="mt-8 group bg-brand-foreground text-brand hover:bg-brand-foreground/90"
+                asChild
+              >
+                <Link href={FLOW_URL} target="_blank" rel="noopener noreferrer">
+                  Get started with Flow
+                  <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </Button>
+            </>
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

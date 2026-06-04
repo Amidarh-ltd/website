@@ -6,13 +6,11 @@ import Banner from "@/modules/home/components/banner.";
 
 export default function TrupperLayout() {
   return (
-    <main>
-      <Header isTrupper={true} />
+    <main className="min-h-screen bg-background">
+      <Header isTrupper />
       <Hero />
       <Features />
-      <div className="my-20">
-        <Banner product="Trupper" text="Exam Management" />
-      </div>
+      <Banner variant="trupper" />
       <Footer />
     </main>
   );

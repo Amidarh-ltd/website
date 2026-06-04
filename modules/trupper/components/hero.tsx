@@ -1,68 +1,64 @@
+"use client";
+
+import { MarketingImage } from "@/components/ui/marketing-image";
 import { WaitlistButton } from "@/core/commons/waitlist";
+import { BRAND_IMAGES } from "@/lib/constants/site";
+import { motion } from "framer-motion";
+import { Shield, Zap } from "lucide-react";
 
 export function Hero() {
   return (
-    <div className="w-full py-20">
-      {/* Main Hero Section */}
-      <div className="min-h-screen w-full bg-white fixed top-0 left-0 right-0 bottom-0 -z-1">
-        {/* Magenta Orb Grid Background */}
-        <svg
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="100%"
-        >
-          <defs>
-            <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-              <path d="M 32 0 L 0 0 0 32" fill="none" stroke="currentColor" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-        {/* Your Content/Components */}
-      </div>
-      <section className="container mx-auto px-4 py-16 md:py-30">
-        <div className="flex flex-col justify-center items-center">
-          {/* Left Column - Text Content */}
-          <div className="space-y-6 max-[800px]:flex max-[800px]:flex-col max-[800px]:justify-center max-[800px]:items-center text-center">
-            <h1 className="font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
-              Exam Management System
-              <br className="hidden sm:block" />
-              <span className="block sm:inline">for institutions</span>
-            </h1>
-            <p className="text-xl text-gray-70">
-              Trupper is a comprehensive exam management system designed to
-              streamline the entire exam process for institutions.
+    <div className="mesh-hero w-full pt-28 md:pt-32">
+      <section className="container mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 lg:pb-20">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="space-y-8 text-center lg:text-left"
+          >
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+              Trupper
             </p>
-
-            <div className="pt-4">
-              <WaitlistButton />
-            </div>
-          </div>
-
-          <div className="relative mt-20 overflow-hidden w-full">
-            <div className="aspect-video relative">
-              <div
-                style={{
-                  position: "relative",
-                  boxSizing: "content-box",
-                  maxHeight: "80vh",
-                  width: "100%",
-                  aspectRatio: "1.968019680196802",
-                  padding: "40px 0 40px 0",
-                }}
-              >
-                <iframe
-                  src="https://app.supademo.com/embed/cmel7yld10ng5v9kqerqwf9oa?embed_v=2&utm_source=embed"
-                  loading="lazy"
-                  title="Vercel Demo"
-                  allow="clipboard-write"
-                  frameBorder={0}
-                  allowFullScreen
-                  style={{ width: "100%", height: "100%", border: "none" }}
-                ></iframe>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              Exam management for modern institutions
+            </h1>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              Streamline exam creation, scheduling, delivery, grading, and
+              reporting—built for schools and universities that need reliability
+              at scale.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Zap className="size-4 text-accent" />
+                Faster operations
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Shield className="size-4 text-accent" />
+                Secure by design
               </div>
             </div>
+            <WaitlistButton size="xl" />
+          </motion.div>
+
+          <MarketingImage
+            src={BRAND_IMAGES.trupper.dashboard.src}
+            alt={BRAND_IMAGES.trupper.dashboard.alt}
+            fit="contain"
+            priority
+            containerClassName="aspect-[4/3] bg-muted/30 shadow-[0_24px_64px_rgba(15,23,42,0.12)]"
+          />
+        </div>
+
+        <div className="relative mt-16 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-lg">
+          <div className="aspect-video w-full">
+            <iframe
+              src="https://app.supademo.com/embed/cmel7yld10ng5v9kqerqwf9oa?embed_v=2&utm_source=embed"
+              loading="lazy"
+              title="Trupper product demo"
+              allow="clipboard-write"
+              className="h-full w-full border-0"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>

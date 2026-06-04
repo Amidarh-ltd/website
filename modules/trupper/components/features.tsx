@@ -1,122 +1,78 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import {
+  BarChart3,
+  ClipboardList,
+  FileCheck,
+  Lock,
+  Settings,
+  Users,
+} from "lucide-react";
+import { Section, SectionHeader } from "@/core/design-system/section";
+import { WaitlistButton } from "@/core/commons/waitlist";
 
 const features = [
   {
-    icon: "🎯",
+    icon: FileCheck,
     title: "Exam Management",
     description: "Manage exams, questions, and results with ease.",
-    gradient: "from-purple-500 to-pink-500",
   },
   {
-    icon: "📊",
+    icon: ClipboardList,
     title: "Question Bank",
-    description: "Create and manage question banks for your exams.",
-    gradient: "from-blue-500 to-cyan-500",
+    description: "Create and organize question banks for every subject.",
   },
   {
-    icon: "🤖",
+    icon: Users,
     title: "Student Management",
-    description: "Manage students, their results, and their progress.",
-    gradient: "from-green-500 to-emerald-500",
+    description: "Track students, results, and academic progress in one place.",
   },
   {
-    icon: "📱",
+    icon: BarChart3,
     title: "Report Generation",
-    description: "Generate reports for your exams and students.",
-    gradient: "from-orange-500 to-red-500",
+    description: "Generate insightful reports for exams and cohorts.",
   },
   {
-    icon: "🔒",
+    icon: Lock,
     title: "Security",
-    description:
-      "Enterprise-grade security ensures your data and progress remain completely private.",
-    gradient: "from-indigo-500 to-purple-500",
+    description: "Enterprise-grade controls to protect institutional data.",
   },
   {
-    icon: "🌍",
+    icon: Settings,
     title: "Customization",
-    description: "Customize your exams and results to your needs.",
-    gradient: "from-teal-500 to-blue-500",
+    description: "Adapt exams, grading, and workflows to your policies.",
   },
 ];
 
 export default function Features() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
-    <section className="py-20 px-5 bg-black/90 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-      </div>
+    <Section variant="muted">
+      <SectionHeader
+        eyebrow="Features"
+        title="Everything institutions need to run exams"
+        description="Trupper brings exam operations into one reliable platform—from planning to results."
+      />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
-              Powerful Features
-            </span>
-          </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Experience the future of education with cutting-edge features
-            designed to enhance your learning journey
-          </p>
-        </div>
-
-        {/* Features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`group relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:scale-105 hover:bg-white/10 ${
-                hoveredIndex === index
-                  ? "shadow-2xl shadow-purple-500/25"
-                  : "shadow-lg"
-              }`}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              {/* Gradient overlay */}
-              <div
-                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-              ></div>
-
-              {/* Icon */}
-              <div className="relative z-10 mb-6">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <div
-                  className={`w-12 h-1 bg-gradient-to-r ${feature.gradient} rounded-full`}
-                ></div>
-              </div>
-
-              {/* Content */}
-              <div className="relative z-10">
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-purple-200 transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <p className="text-white/70 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-
-              {/* Hover effect */}
-              <div className="absolute inset-0 rounded-2xl border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map(({ icon: Icon, title, description }) => (
+          <article
+            key={title}
+            className="card-elevated p-6 transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(15,23,42,0.1)]"
+          >
+            <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <Icon className="size-6" />
             </div>
-          ))}
-        </div>
-
-        {/* CTA section */}
-        <div className="text-center mt-16">
-          <Button className="px-8 py-4 text-lg font-semibold rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25">
-            Explore All Features
-          </Button>
-        </div>
+            <h3 className="text-lg font-semibold">{title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {description}
+            </p>
+          </article>
+        ))}
       </div>
-    </section>
+
+      <div className="mt-12 flex justify-center">
+        <WaitlistButton size="xl" />
+      </div>
+    </Section>
   );
 }

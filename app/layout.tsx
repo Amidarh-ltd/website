@@ -196,7 +196,7 @@ export default function RootLayout({
       </head>
       <AuthProvider>
         <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "This is me flexing"}>
-          <body className={`${bricolage.variable} antialiased`}>
+          <body className={`${bricolage.variable} font-sans antialiased`}>
             {children}
             <Toaster position="top-right" richColors />
           </body>

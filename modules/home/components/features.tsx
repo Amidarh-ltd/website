@@ -1,102 +1,78 @@
-import { Mail, Send } from "lucide-react";
-import { Quote } from "lucide-react";
+import Image from "next/image";
+import { Section, SectionHeader } from "@/core/design-system/section";
+import { UNSPLASH_IMAGES } from "@/lib/constants/site";
+import { Quote, TrendingUp, Users } from "lucide-react";
 
 export default function Features() {
   return (
-    <section className="w-full py-12 md:py-24 bg-white">
-      <div className="container px-4 mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-            Amidarh Features <br className="hidden sm:inline" />
-          </h2>
-        </div>
+    <Section>
+      <SectionHeader
+        eyebrow="Why Amidarh"
+        title="Built for outcomes, not complexity"
+        description="We help learners move faster with AI-guided study—and help institutions run exams with confidence."
+      />
 
-        <div className="grid grid-cols-1 gap-6">
-          <div className="flex lg:flex-row gap-6 flex-col">
-            <div className="relative overflow-hidden rounded-lg bg-gray-900 text-white w-full lg:max-w-[40%]">
-              <div className="relative z-10 p-8 flex flex-col h-full">
-                {/* <div className="text-4xl font-serif mb-4">"</div> */}
-                <Quote className="rotate-180" />
-                <p className="text-xl md:text-5xl font-bold mb-6">
-                  Amidarh is the power house for education and learning
-                </p>
-                <div className="mt-auto">
-                  <h4 className="font-bold">Wisdom woke</h4>
-                  <p className="text-sm text-gray-300">
-                    Team lead at alt university
-                  </p>
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-black opacity-50"></div>
-            </div>
-
-            {/* Stats Card 1 */}
-            <div className="rounded-lg bg-indigo-900 text-white p-8 flex flex-col w-full">
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-6xl md:text-7xl lg:text-8xl font-bold">
-                    85
-                  </span>
-                  <span className="text-5xl md:text-6xl font-bold">%</span>
-                </div>
-                <div className="bg-indigo-800 p-3 rounded-lg">
-                  <Mail className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <div className="mt-auto">
-                <h3 className="text-xl md:text-2xl font-bold mt-4">
-                  Reduction in Time Spent on School management
-                </h3>
-              </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        <article className="relative overflow-hidden rounded-2xl lg:col-span-2 min-h-[320px]">
+          <Image
+            src={UNSPLASH_IMAGES.testimonial.src}
+            alt={UNSPLASH_IMAGES.testimonial.alt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 66vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/70 to-brand/30" />
+          <div className="relative z-10 flex h-full flex-col justify-end p-8 text-brand-foreground md:p-10">
+            <Quote className="mb-4 size-8 opacity-80" />
+            <p className="text-xl font-medium leading-snug md:text-2xl">
+              Amidarh gives us one place to support how students learn and how
+              we manage assessments—it feels modern, clear, and ready to scale.
+            </p>
+            <div className="mt-6">
+              <p className="font-semibold">Wisdom Woke</p>
+              <p className="text-sm text-brand-foreground/80">
+                Team Lead, Alt University
+              </p>
             </div>
           </div>
-          {/* Testimonial Card 1 */}
+        </article>
 
-          {/* Stats Card 2 */}
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="rounded-lg bg-teal-800 text-white p-8 flex flex-col w-full">
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-6xl md:text-7xl lg:text-8xl font-bold text-yellow-100">
-                    2B
-                  </span>
-                  <span className="text-5xl md:text-6xl font-bold text-yellow-100">
-                    +
-                  </span>
-                </div>
-                <div className="mt-auto">
-                  <Send className="w-8 h-8 text-yellow-100 transform rotate-45" />
-                </div>
-              </div>
-              <div className="mt-auto">
-                <h3 className="text-xl md:text-2xl font-bold mt-4">
-                  Messages Sent to Families
-                </h3>
-              </div>
-            </div>
-
-            {/* Testimonial Card 2 */}
-            <div className="relative overflow-hidden rounded-lg bg-gray-900 text-white w-full lg:max-w-[40%]">
-              <div className="relative z-10 p-8 flex flex-col h-full">
-                <Quote className="rotate-180" />
-                <p className="text-xl md:text-3xl font-medium mb-6">
-                  Amidarh has transformed the way we communicate with our
-                  students and their families. The platform is intuitive,
-                  reliable, and has made our school operations much more
-                  efficient.
+        <div className="flex flex-col gap-6">
+          <article className="card-elevated flex flex-1 flex-col justify-between p-8">
+            <div className="flex items-start justify-between">
+              <div>
+                <p className="text-5xl font-bold text-primary">85%</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  admin time saved
                 </p>
-                <div className="mt-auto">
-                  <h4 className="font-bold">Wisdom woke</h4>
-                  <p className="text-sm text-gray-300">
-                    Superintendent, Pass Christian Public Schools
-                  </p>
-                </div>
               </div>
-              <div className="absolute inset-0 bg-black opacity-50"></div>
+              <div className="rounded-xl bg-primary/10 p-3 text-primary">
+                <TrendingUp className="size-6" />
+              </div>
             </div>
-          </div>
+            <p className="mt-6 font-medium text-foreground">
+              Reduction in time spent on school management workflows.
+            </p>
+          </article>
+
+          <article className="card-elevated flex flex-1 flex-col justify-between bg-brand p-8 text-brand-foreground">
+            <div className="flex items-start justify-between">
+              <div>
+                <p className="text-5xl font-bold">2B+</p>
+                <p className="mt-1 text-sm text-brand-foreground/80">
+                  messages delivered
+                </p>
+              </div>
+              <div className="rounded-xl bg-brand-foreground/15 p-3">
+                <Users className="size-6" />
+              </div>
+            </div>
+            <p className="mt-6 font-medium">
+              Reliable communication between schools, students, and families.
+            </p>
+          </article>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

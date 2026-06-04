@@ -1,164 +1,137 @@
-"use client"
+"use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { ArrowRight, Clock } from "lucide-react";
+import { Section, SectionHeader } from "@/core/design-system/section";
+import {
+  BRAND_IMAGES,
+  FLOW_URL,
+  TRUPPER_PATH,
+} from "@/lib/constants/site";
+
+const products = [
+  {
+    id: "trupper",
+    href: TRUPPER_PATH,
+    title: "Trupper",
+    badge: "Live",
+    description:
+      "Exam management system for schools at every level—scheduling, delivery, grading, and reporting.",
+    image: BRAND_IMAGES.trupper.dashboard,
+    external: false,
+    comingSoon: false,
+  },
+  {
+    id: "flow",
+    href: FLOW_URL,
+    title: "Flow",
+    badge: "Live",
+    description:
+      "AI-powered learning with generated courses, notes, flashcards, quizzes, and progress tracking.",
+    image: BRAND_IMAGES.flow,
+    external: true,
+    comingSoon: false,
+  },
+  {
+    id: "cbt",
+    href: "#",
+    title: "Amidarh CBT",
+    badge: "Coming soon",
+    description:
+      "Practice makes perfect—prepare for exams with a dedicated computer-based testing experience.",
+    image: BRAND_IMAGES.note,
+    external: false,
+    comingSoon: true,
+  },
+] as const;
+
+function ProductCard({
+  product,
+}: {
+  product: (typeof products)[number];
+}) {
+  const imageBlock = (
+    <>
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={product.image.src}
+          alt={product.image.alt}
+          fill
+          className="object-contain object-center bg-muted/40 p-4 transition-transform duration-500 group-hover:scale-[1.02]"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+        <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold text-foreground backdrop-blur-sm">
+          {product.comingSoon ? (
+            <span className="inline-flex items-center gap-1">
+              <Clock className="size-3" />
+              {product.badge}
+            </span>
+          ) : (
+            product.badge
+          )}
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="text-xl font-bold">{product.title}</h3>
+        <p className="mt-2 flex-1 text-muted-foreground leading-relaxed">
+          {product.description}
+        </p>
+        {!product.comingSoon ? (
+          <span className="mt-6 inline-flex items-center gap-1 font-semibold text-primary group-hover:text-accent">
+            Try it out
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+          </span>
+        ) : null}
+      </div>
+    </>
+  );
+
+  if (product.comingSoon) {
+    return (
+      <div className="card-elevated flex flex-col overflow-hidden opacity-90">
+        {imageBlock}
+      </div>
+    );
+  }
+
+  if (product.external) {
+    return (
+      <a
+        href={product.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="card-elevated group flex flex-col overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(15,23,42,0.12)]"
+      >
+        {imageBlock}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={product.href}
+      className="card-elevated group flex flex-col overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(15,23,42,0.12)]"
+    >
+      {imageBlock}
+    </Link>
+  );
+}
 
 export default function ProductsSection() {
-  const router = useRouter()
-  const templates = [
-    {
-      id: "scrum",
-      type: "/trupper",
-      title: "Trupper",
-      description: "Exam Management Systemfor Schoolsat Every Level",
-      image: "/scrum-template.svg",
-    },
-    {
-      id: "bug-tracking",
-      type: "https://flow.amidarh.com",
-      title: "Flow",
-      description:
-        "AI-powered learning with generated courses, notes, flashcards, quizzes, and progress tracking.",
-      image: "/bug-tracking-template.svg",
-    },
-    {
-      id: "devops",
-      type: "##",
-      title: "Amidarh CBT",
-      description:
-        "Practice make perfect. use amidarh cbt to stay ahead of your peers",
-      image: "/devops-template.svg",
-    },
-  ];
-
   return (
-    <section className="w-full py-16 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-center text-2xl font-bold">
-          GET STARTED WITH OUR PRODUCTS
-        </h2>
-        <p className="text-center mb-12 tex-xl">Amidarh for all</p>
+    <Section id="products" variant="muted">
+      <SectionHeader
+        eyebrow="Products"
+        title="Get started with Amidarh"
+        description="Choose the product that fits your journey—personal learning with Flow or institutional exams with Trupper."
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {templates.map((template) => (
-            <div
-              key={template.id}
-              className="rounded-2xl border border-gray-200 p-6 transition-all hover:shadow-md backdrop-blur-sm bg-white/50 hover:scale-105 cursor-pointer"
-              onClick={() => router.push(template.type)}
-            >
-              <div className="h-40 mb-6 flex items-center justify-center">
-                <TemplateIllustration id={template.id} />
-              </div>
-
-              <h3 className="text-xl font-bold mb-2">{template.title}</h3>
-              <p className="text-gray-700 mb-6">{template.description}</p>
-
-              <Link
-                href={template.type}
-                className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-              >
-                Try it out <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-          ))}
-        </div>
-
-        {/* <div className="mt-20 text-center">
-          <h2 className="text-3xl font-bold mb-4">For teams of all sizes</h2>
-          <p className="text-xl mb-6">Everyone from start-ups to large enterprises prefer Atlassian</p>
-          <Link href="/customers" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-            Explore all customers stories <ArrowRight className="ml-1 h-4 w-4" />
-          </Link>
-        </div> */}
+      <div className="grid gap-6 md:grid-cols-3">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
-    </section>
-  );
-}
-
-function TemplateIllustration({ id }: { id: string }) {
-  switch (id) {
-    case "scrum":
-      return <ScrumIllustration />;
-    case "bug-tracking":
-      return <BugTrackingIllustration />;
-    case "devops":
-      return <DevOpsIllustration />;
-    default:
-      return null;
-  }
-}
-
-function ScrumIllustration() {
-  return (
-    <div className="relative w-64 h-32">
-      <div className="absolute top-0 left-0 w-56 h-28 bg-blue-500 rounded-md transform rotate-6"></div>
-      <div className="absolute top-2 left-2 w-56 h-28 bg-green-500 rounded-md transform -rotate-3">
-        <div className="absolute inset-2 bg-white rounded-sm p-2">
-          <div className="space-y-2">
-            <div className="flex items-center">
-              <div className="w-3 h-3 bg-blue-500 rounded-sm mr-2"></div>
-              <div className="h-2 bg-gray-200 rounded-full w-3/4"></div>
-              <div className="ml-auto w-3 h-3 bg-purple-400 rounded-full"></div>
-            </div>
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="flex items-center">
-                <div className="w-3 h-3 bg-blue-500 rounded-sm mr-2"></div>
-                <div className="h-2 bg-gray-200 rounded-full w-2/3"></div>
-                <div className="ml-auto w-10 h-2 bg-amber-400 rounded-full"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function BugTrackingIllustration() {
-  return (
-    <div className="relative w-64 h-32">
-      <div className="absolute top-0 left-0 w-56 h-28 bg-blue-500 rounded-md"></div>
-      <div className="absolute top-2 left-2 w-56 h-28 bg-green-500 rounded-md">
-        <div className="absolute inset-2 bg-white rounded-sm p-2">
-          <div className="space-y-2">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="flex items-center">
-                <div className="w-3 h-3 bg-amber-400 rounded-sm mr-2"></div>
-                <div className="h-2 bg-gray-200 rounded-full w-2/3"></div>
-                <div className="ml-auto w-3 h-3 bg-gray-300 rounded-full"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className="absolute -top-2 left-10 text-black text-xl">+</div>
-      <div className="absolute -top-2 left-16 text-black text-xl">+</div>
-      <div className="absolute top-4 left-4 text-black text-xl">+</div>
-    </div>
-  );
-}
-
-function DevOpsIllustration() {
-  return (
-    <div className="relative w-64 h-32">
-      <div className="absolute top-0 right-0 w-56 h-28 bg-blue-500 rounded-md"></div>
-      <div className="absolute top-2 right-2 w-56 h-28 bg-green-500 rounded-md">
-        <div className="absolute inset-2 bg-white rounded-sm p-2">
-          <div className="space-y-4">
-            <div className="h-2 bg-gray-200 rounded-full w-3/4"></div>
-            <div className="flex items-center">
-              <div className="h-2 bg-amber-400 rounded-full w-1/3"></div>
-              <div className="h-2 bg-blue-500 rounded-full w-1/3 mx-1"></div>
-            </div>
-            <div className="flex items-center">
-              <div className="h-2 bg-amber-400 rounded-full w-1/2"></div>
-              <div className="ml-1">✂️</div>
-            </div>
-            <div className="h-2 bg-amber-400 rounded-full w-1/4"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </Section>
   );
 }
