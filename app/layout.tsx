@@ -101,6 +101,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://amidarh.com",
   },
+  icons: {
+    icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   category: "Education Technology",
 };
 
