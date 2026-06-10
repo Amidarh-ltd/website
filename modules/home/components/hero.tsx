@@ -20,18 +20,18 @@ export function Hero() {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground shadow-sm">
               <Sparkles className="size-4 text-accent" />
-              AI-powered learning · Exam management
+              AI-powered learning · Learning management
             </div>
 
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-[3.5rem] xl:leading-[1.1]">
               Learn smarter.
               <br />
-              <span className="text-gradient-brand">Run schools better.</span>
+              Run schools better.
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
               Amidarh brings together Flow for personalized AI learning and
-              Trupper for modern exam management—built for students, educators,
+              Trupper for institutional learning management—built for students, educators,
               and institutions.
             </p>
 

@@ -4,7 +4,7 @@ import { MarketingImage } from "@/components/ui/marketing-image";
 import { WaitlistButton } from "@/core/commons/waitlist";
 import { BRAND_IMAGES } from "@/lib/constants/site";
 import { motion } from "framer-motion";
-import { Shield, Zap } from "lucide-react";
+import { BookOpen, Shield, Zap } from "lucide-react";
 
 export function Hero() {
   return (
@@ -19,15 +19,21 @@ export function Hero() {
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">
               Trupper
             </p>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Exam management for modern institutions
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl lg:leading-[1.1]">
+              Manage learning.
+              <br />
+              At any scale.
             </h1>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Streamline exam creation, scheduling, delivery, grading, and
-              reporting—built for schools and universities that need reliability
-              at scale.
+              Trupper helps schools and universities run learning end to
+              end—courses, students, scheduling, and reporting—with exam
+              management built in when you need it.
             </p>
             <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <BookOpen className="size-4 text-accent" />
+                Courses & students
+              </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Zap className="size-4 text-accent" />
                 Faster operations

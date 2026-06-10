@@ -32,7 +32,7 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
       href: TRUPPER_PATH,
       label: "Trupper",
       icon: GraduationCap,
-      description: "Exam management",
+      description: "Learning management",
       badge: "Live",
     },
   ];

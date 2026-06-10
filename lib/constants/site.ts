@@ -17,7 +17,7 @@ export const BRAND_IMAGES = {
   trupper: {
     dashboard: {
       src: "/images/trupper/dashboard.png",
-      alt: "Trupper exam management dashboard",
+      alt: "Trupper learning management dashboard",
     },
     admins: {
       src: "/images/trupper/admins.png",
@@ -110,7 +110,8 @@ export const PLATFORM_CAPABILITIES = [
   },
   {
     title: "Trupper",
-    description: "End-to-end exam management for schools and institutions.",
+    description:
+      "Learning management for schools and institutions—courses, students, and exams in one platform.",
     href: TRUPPER_PATH,
   },
   {

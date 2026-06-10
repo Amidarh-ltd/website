@@ -29,11 +29,11 @@ export default function Banner({ variant = "flow" }: BannerProps) {
           {isTrupper ? (
             <>
               <h2 className="max-w-3xl text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-                Be first to transform exam management
+                Be first to transform how your institution manages learning
               </h2>
               <p className="mt-4 max-w-xl text-lg text-brand-foreground/90">
-                Join the Trupper waitlist for early access, priority onboarding,
-                and exclusive launch pricing.
+                Join the Trupper waitlist for early access to our learning
+                management platform—with exams built in.
               </p>
               <WaitlistButton size="xl" className="mt-8" />
             </>

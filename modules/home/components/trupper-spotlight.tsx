@@ -4,14 +4,21 @@ import { Button } from "@/components/ui/button";
 import { MarketingImage } from "@/components/ui/marketing-image";
 import { Section, SectionHeader } from "@/core/design-system/section";
 import { BRAND_IMAGES, TRUPPER_PATH } from "@/lib/constants/site";
-import { ArrowRight, Calendar, FileCheck, Shield, Users } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Calendar,
+  FileCheck,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 
 const trupperBenefits = [
   {
-    icon: FileCheck,
-    title: "Exam lifecycle",
-    description: "Create, schedule, deliver, and grade exams in one workflow.",
+    icon: BookOpen,
+    title: "Course & curriculum",
+    description:
+      "Organize subjects, classes, and learning paths in one system.",
   },
   {
     icon: Users,
@@ -20,13 +27,14 @@ const trupperBenefits = [
   },
   {
     icon: Calendar,
-    title: "Smart scheduling",
-    description: "Coordinate timetables and exam windows without friction.",
+    title: "Academic scheduling",
+    description: "Coordinate classes, terms, and exam windows without friction.",
   },
   {
-    icon: Shield,
-    title: "Secure & reliable",
-    description: "Enterprise-grade controls for institutional trust.",
+    icon: FileCheck,
+    title: "Exam management",
+    description:
+      "Create, deliver, and grade assessments as part of your LMS workflow.",
   },
 ];
 
@@ -38,8 +46,8 @@ export default function TrupperSpotlight() {
           <SectionHeader
             align="left"
             eyebrow="Trupper"
-            title="Exam management built for institutions"
-            description="Trupper streamlines the entire exam process for schools and universities—from question banks to results and reporting."
+            title="Learning management built for institutions"
+            description="Trupper is Amidarh's learning management system for schools and universities—manage courses, students, and academic operations in one place, with powerful exam tools built in."
             className="mb-0"
           />
 

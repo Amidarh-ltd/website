@@ -65,7 +65,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
                             Trupper
                           </p>
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Exam management for schools and institutions.
+                            Learning management for schools and institutions—with exams built in.
                           </p>
                         </Link>
                       </NavigationMenuLink>

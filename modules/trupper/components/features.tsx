@@ -2,10 +2,10 @@
 
 import {
   BarChart3,
-  ClipboardList,
+  BookOpen,
+  Calendar,
   FileCheck,
   Lock,
-  Settings,
   Users,
 } from "lucide-react";
 import { Section, SectionHeader } from "@/core/design-system/section";
@@ -13,34 +13,35 @@ import { WaitlistButton } from "@/core/commons/waitlist";
 
 const features = [
   {
-    icon: FileCheck,
-    title: "Exam Management",
-    description: "Manage exams, questions, and results with ease.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Question Bank",
-    description: "Create and organize question banks for every subject.",
+    icon: BookOpen,
+    title: "Course Management",
+    description:
+      "Organize subjects, classes, and curricula across your institution.",
   },
   {
     icon: Users,
     title: "Student Management",
-    description: "Track students, results, and academic progress in one place.",
+    description: "Track students, enrollments, and academic progress in one place.",
+  },
+  {
+    icon: Calendar,
+    title: "Academic Scheduling",
+    description: "Coordinate classes, terms, and exam windows with ease.",
+  },
+  {
+    icon: FileCheck,
+    title: "Exam Management",
+    description: "Create, deliver, and grade assessments within your LMS.",
   },
   {
     icon: BarChart3,
-    title: "Report Generation",
-    description: "Generate insightful reports for exams and cohorts.",
+    title: "Reports & Analytics",
+    description: "Generate insightful reports for learning outcomes and cohorts.",
   },
   {
     icon: Lock,
     title: "Security",
     description: "Enterprise-grade controls to protect institutional data.",
-  },
-  {
-    icon: Settings,
-    title: "Customization",
-    description: "Adapt exams, grading, and workflows to your policies.",
   },
 ];
 
@@ -49,8 +50,8 @@ export default function Features() {
     <Section variant="muted">
       <SectionHeader
         eyebrow="Features"
-        title="Everything institutions need to run exams"
-        description="Trupper brings exam operations into one reliable platform—from planning to results."
+        title="Everything institutions need to manage learning"
+        description="Trupper brings learning operations into one reliable platform—from courses and students to exams and reporting."
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

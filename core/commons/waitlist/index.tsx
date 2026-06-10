@@ -61,7 +61,7 @@ export function Waitlist() {
               </DialogTitle>
               {/* {error && <p className="text-red-500 text-sm">{error}</p>} */}
               <DialogDescription className="text-gray-600 text-base">
-                Be among the first to experience the future of exam management
+                Be among the first to experience the future of learning management for institutions
               </DialogDescription>
             </DialogHeader>
 

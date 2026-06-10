@@ -17,7 +17,7 @@ const products = [
     title: "Trupper",
     badge: "Live",
     description:
-      "Exam management system for schools at every level—scheduling, delivery, grading, and reporting.",
+      "Learning management system for schools at every level—courses, students, operations, and exams in one platform.",
     image: BRAND_IMAGES.trupper.dashboard,
     external: false,
     comingSoon: false,

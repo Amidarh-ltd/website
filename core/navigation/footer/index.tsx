@@ -27,7 +27,7 @@ export const Footer = () => {
             </Link>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-foreground/80">
               Human-centered education technology—AI-powered learning with Flow
-              and modern exam management with Trupper.
+              and institutional learning management with Trupper.
             </p>
             <div className="mt-6 flex gap-4">
               {[
