@@ -43,7 +43,7 @@ export default function Banner({ variant = "flow" }: BannerProps) {
                 Start learning smarter with Flow today
               </h2>
               <p className="mt-4 max-w-xl text-lg text-brand-foreground/90">
-                Personalized courses, notes, flashcards, and quizzes—built for
+                Personalized courses, flashcards, and quizzes—built for
                 how you actually study.
               </p>
               <Button

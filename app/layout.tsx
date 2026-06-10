@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Amidarh",
   },
   description:
-    "Amidarh provides educational technology solutions including Trupper for exam management and Flow for AI-powered learning with course generation, notes, flashcards, quizzes, and progress tracking.",
+    "Amidarh provides educational technology solutions including Trupper for exam management and Flow for AI-powered learning with course generation, flashcards, quizzes, and progress tracking.",
   keywords: [
     "exam management system",
     "online exam platform",
@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     "AI-powered learning platform",
     "adaptive learning app",
     "AI course generator",
-    "study notes generator",
     "flashcards and quiz app",
     "student progress tracking",
     "Flow by Amidarh",
@@ -63,7 +62,7 @@ export const metadata: Metadata = {
     siteName: "Amidarh",
     title: "Amidarh - Educational Technology Solutions",
     description:
-      "Amidarh powers better education with Trupper for exam management and Flow for AI-powered learning, including course generation, notes, flashcards, quizzes, and progress tracking.",
+      "Amidarh powers better education with Trupper for exam management and Flow for AI-powered learning, including course generation, flashcards, quizzes, and progress tracking.",
     images: [
       {
         url: "/images/amidarh-og-image.jpg",
@@ -77,7 +76,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Amidarh - Educational Technology Solutions",
     description:
-      "Amidarh powers better education with Trupper for exam management and Flow for AI-powered learning, including course generation, notes, flashcards, quizzes, and progress tracking.",
+      "Amidarh powers better education with Trupper for exam management and Flow for AI-powered learning, including course generation, flashcards, quizzes, and progress tracking.",
     images: ["/images/amidarh-twitter-image.jpg"],
     creator: "@amidarh",
     site: "@amidarh",
@@ -187,8 +186,8 @@ export default function RootLayout({
               applicationCategory: "EducationalApplication",
               operatingSystem: "Web Browser",
               description:
-                "AI-powered learning platform to generate courses, create notes, practice with flashcards and quizzes, and track learning progress.",
-              url: "https://flow.amidarh.com",
+                "AI-powered learning platform to generate courses, practice with flashcards and quizzes, and track learning progress.",
+              url: "https://test-flow.amidarh.com",
               offers: {
                 "@type": "Offer",
                 price: "0",

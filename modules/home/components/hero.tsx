@@ -71,7 +71,7 @@ export function Hero() {
             <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-border/60 bg-card/95 p-4 shadow-lg backdrop-blur-sm md:block">
               <p className="text-sm font-semibold text-foreground">Flow</p>
               <p className="text-xs text-muted-foreground">
-                Courses · Notes · Flashcards · Quiz
+                Courses · Flashcards · Quiz · Progress
               </p>
             </div>
           </motion.div>

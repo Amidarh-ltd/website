@@ -28,7 +28,7 @@ const products = [
     title: "Flow",
     badge: "Live",
     description:
-      "AI-powered learning with generated courses, notes, flashcards, quizzes, and progress tracking.",
+      "AI-powered learning with generated courses, flashcards, quizzes, and progress tracking.",
     image: BRAND_IMAGES.flow,
     external: true,
     comingSoon: false,

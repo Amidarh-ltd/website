@@ -4,7 +4,7 @@ import { HomeLayout } from "@/modules/home/layouts";
 export const metadata: Metadata = {
   title: "Leading Exam Management System & Educational Technology Solutions",
   description:
-    "Amidarh builds educational tools for every learner: Trupper for exam management and Flow for AI-powered learning with course generation, notes, flashcards, quizzes, and progress tracking.",
+    "Amidarh builds educational tools for every learner: Trupper for exam management and Flow for AI-powered learning with course generation, flashcards, quizzes, and progress tracking.",
   keywords: [
     "exam management system",
     "online exam platform",
@@ -33,7 +33,6 @@ export const metadata: Metadata = {
     "AI-powered learning platform",
     "adaptive learning app",
     "AI course generator",
-    "study notes generator",
     "flashcards and quiz app",
     "student progress tracking",
     "Flow by Amidarh",
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Leading Exam Management System & Educational Technology Solutions",
     description:
-      "Discover Amidarh products: Trupper for modern exam management and Flow for AI-powered learning with generated courses, notes, flashcards, quizzes, and clear progress tracking.",
+      "Discover Amidarh products: Trupper for modern exam management and Flow for AI-powered learning with generated courses, flashcards, quizzes, and clear progress tracking.",
     url: "https://amidarh.com",
     siteName: "Amidarh",
     images: [
@@ -59,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Leading Exam Management System & Educational Technology Solutions",
     description:
-      "Discover Amidarh products: Trupper for modern exam management and Flow for AI-powered learning with generated courses, notes, flashcards, quizzes, and clear progress tracking.",
+      "Discover Amidarh products: Trupper for modern exam management and Flow for AI-powered learning with generated courses, flashcards, quizzes, and clear progress tracking.",
     images: ["/images/amidarh-homepage-twitter.jpg"],
   },
   alternates: {

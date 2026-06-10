@@ -3,61 +3,63 @@
 import { Button } from "@/components/ui/button";
 import { MarketingImage } from "@/components/ui/marketing-image";
 import { Section, SectionHeader } from "@/core/design-system/section";
-import { BRAND_IMAGES, FLOW_FEATURES, FLOW_URL } from "@/lib/constants/site";
-import {
-  BookOpen,
-  Brain,
-  Layers,
-  NotebookPen,
-  Sparkles,
-} from "lucide-react";
-import { ArrowRight } from "lucide-react";
+import { BRAND_IMAGES, FLOW_URL } from "@/lib/constants/site";
+import { ArrowRight, BookOpen, Brain, Layers, Sparkles } from "lucide-react";
 
-const featureIcons = [Brain, NotebookPen, Layers, BookOpen, Sparkles];
+const flowBenefits = [
+  {
+    icon: Brain,
+    title: "Generate Course",
+    description:
+      "Create structured learning paths and research any topic with AI in minutes.",
+  },
+  {
+    icon: Layers,
+    title: "Flashcards",
+    description:
+      "Practice key concepts with flashcards built from your courses.",
+  },
+  {
+    icon: BookOpen,
+    title: "Quiz",
+    description:
+      "Test understanding with instant feedback and mastery tracking.",
+  },
+  {
+    icon: Sparkles,
+    title: "Progress",
+    description:
+      "See what you have learned and what to focus on next.",
+  },
+];
 
 export default function FlowSpotlight() {
   return (
     <Section id="flow" variant="muted">
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        <MarketingImage
-          src={BRAND_IMAGES.flow.src}
-          alt={BRAND_IMAGES.flow.alt}
-          fit="contain"
-          containerClassName="aspect-[4/3] order-2 lg:order-1 bg-muted/30"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
-
-        <div className="order-1 space-y-8 lg:order-2">
+        <div className="space-y-8">
           <SectionHeader
             align="left"
             eyebrow="Flow"
             title="Learn anything, your way"
-            description="Flow is Amidarh's AI-powered learning platform. Generate courses, capture notes, practice with flashcards, test with quizzes, and track progress—all in one place."
+            description="Flow is Amidarh's AI-powered learning platform—generate courses, practice with flashcards, test with quizzes, and track progress in one place."
             className="mb-0"
           />
 
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {FLOW_FEATURES.map((feature, index) => {
-              const Icon = featureIcons[index] ?? Sparkles;
-              return (
-                <li
-                  key={feature.title}
-                  className="card-elevated flex gap-3 p-4 transition-shadow hover:shadow-[0_8px_32px_rgba(15,23,42,0.08)]"
-                >
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Icon className="size-5" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">
-                      {feature.title}
-                    </p>
-                    <p className="mt-1 text-sm text-muted-foreground leading-snug">
-                      {feature.description}
-                    </p>
-                  </div>
-                </li>
-              );
-            })}
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {flowBenefits.map(({ icon: Icon, title, description }) => (
+              <li key={title} className="flex gap-3">
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
+                  <Icon className="size-5" />
+                </div>
+                <div>
+                  <p className="font-semibold">{title}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {description}
+                  </p>
+                </div>
+              </li>
+            ))}
           </ul>
 
           <Button
@@ -69,6 +71,14 @@ export default function FlowSpotlight() {
             <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
           </Button>
         </div>
+
+        <MarketingImage
+          src={BRAND_IMAGES.flow.src}
+          alt={BRAND_IMAGES.flow.alt}
+          fit="contain"
+          containerClassName="aspect-[4/3] bg-muted/30 shadow-[0_24px_64px_rgba(15,23,42,0.12)]"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
       </div>
     </Section>
   );

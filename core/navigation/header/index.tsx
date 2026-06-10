@@ -49,7 +49,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
                         >
                           <p className="font-semibold text-foreground">Flow</p>
                           <p className="mt-1 text-sm text-muted-foreground">
-                            AI-powered learning with courses, notes, flashcards,
+                            AI-powered learning with courses, flashcards,
                             and quizzes.
                           </p>
                         </a>

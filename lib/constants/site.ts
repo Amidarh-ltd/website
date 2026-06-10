@@ -1,6 +1,6 @@
 /** Centralized external URLs */
 export const FLOW_URL =
-  process.env.NEXT_PUBLIC_FLOW_URL ?? "https://flow.amidarh.com";
+  process.env.NEXT_PUBLIC_FLOW_URL ?? "https://test-flow.amidarh.com";
 
 export const TRUPPER_PATH = "/trupper";
 
@@ -86,11 +86,6 @@ export const FLOW_FEATURES = [
       "Create structured learning paths and research any topic with AI in minutes.",
   },
   {
-    title: "Notes",
-    description:
-      "Turn course content into clear, organized notes you can review anytime.",
-  },
-  {
     title: "Flashcards",
     description:
       "Practice key concepts with flashcards built from your courses.",
@@ -110,7 +105,7 @@ export const FLOW_FEATURES = [
 export const PLATFORM_CAPABILITIES = [
   {
     title: "Flow",
-    description: "AI-powered learning with courses, notes, flashcards, and quizzes.",
+    description: "AI-powered learning with courses, flashcards, and quizzes.",
     href: FLOW_URL,
   },
   {
