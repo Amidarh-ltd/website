@@ -80,7 +80,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
             href={TRUPPER_PATH}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            For Schools
+            For Institutions
           </Link>
         </div>
 
@@ -94,7 +94,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
                 size="lg"
                 onClick={() => router.push(TRUPPER_PATH)}
               >
-                For Schools
+                For Institutions
               </Button>
               <Button size="lg" onClick={() => window.open(FLOW_URL, "_blank")}>
                 Start with Flow

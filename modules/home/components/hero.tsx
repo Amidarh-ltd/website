@@ -26,7 +26,7 @@ export function Hero() {
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-[3.5rem] xl:leading-[1.1]">
               Learn smarter.
               <br />
-              Run schools better.
+              Run institutions better.
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">

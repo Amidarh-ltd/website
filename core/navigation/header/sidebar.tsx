@@ -145,7 +145,7 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
                   className="mt-2 w-full"
                   onClick={() => router.push(TRUPPER_PATH)}
                 >
-                  For Schools
+                  For Institutions
                 </Button>
               </>
             )}
