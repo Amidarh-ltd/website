@@ -63,14 +63,14 @@
 
   /* Amidarh design tokens — warm, soft-modern, editorial */
   --background: #f8f6f2;
-  --surface: #f0ede6;
+  --surface: #ececea;
   --surface-2: #e8e4dc;
   --border: #ddd9d0;
   --border-soft: #eae7e0;
 
   --ink: #1a1916;
   --ink-2: #5a5650;
-  --ink-3: #9b8e7a;
+  --ink-3: #8a8a89;
 
   --foreground: var(--ink);
   --card: #ffffff;
@@ -102,7 +102,7 @@
   --ring: var(--accent);
   --chart-1: #6b5fa0;
   --chart-2: #2d6a4f;
-  --chart-3: #9b8e7a;
+  --chart-3: #8a8a89;
   --chart-4: #4e4480;
   --chart-5: #1a1916;
   --sidebar: var(--background);
