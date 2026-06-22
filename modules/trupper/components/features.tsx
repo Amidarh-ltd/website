@@ -9,7 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import { Section, SectionHeader } from "@/core/design-system/section";
-import { WaitlistButton } from "@/core/commons/waitlist";
+import { InstitutionSignupButton } from "@/core/commons/institution-signup";
 
 const features = [
   {
@@ -72,7 +72,7 @@ export default function Features() {
       </div>
 
       <div className="mt-12 flex justify-center">
-        <WaitlistButton size="xl" />
+        <InstitutionSignupButton size="xl" />
       </div>
     </Section>
   );

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FLOW_URL, UNSPLASH_IMAGES } from "@/lib/constants/site";
 import { ArrowRight } from "lucide-react";
-import { WaitlistButton } from "@/core/commons/waitlist";
+import { InstitutionSignupButton } from "@/core/commons/institution-signup";
 
 type BannerProps = {
   variant?: "flow" | "trupper";
@@ -32,10 +32,10 @@ export default function Banner({ variant = "flow" }: BannerProps) {
                 Be first to transform how your institution manages learning
               </h2>
               <p className="mt-4 max-w-xl text-lg text-brand-foreground/90">
-                Join the Trupper waitlist for early access to our learning
-                management platform—with exams built in.
+                Sign up your institution on Trupper to get started with our
+                learning management platform—with exams built in.
               </p>
-              <WaitlistButton size="xl" className="mt-8" />
+              <InstitutionSignupButton size="xl" className="mt-8" />
             </>
           ) : (
             <>

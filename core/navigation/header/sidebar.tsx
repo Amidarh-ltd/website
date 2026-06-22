@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { getCurrentYear } from "@/lib/utils";
 import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
-import { WaitlistButton } from "@/core/commons/waitlist";
+import { InstitutionSignupButton } from "@/core/commons/institution-signup";
 import { cn } from "@/lib/utils";
 
 export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
@@ -131,7 +131,7 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
 
           <div className="border-t border-border bg-muted/30 p-4">
             {isTrupper ? (
-              <WaitlistButton className="w-full" />
+              <InstitutionSignupButton className="w-full" />
             ) : (
               <>
                 <Button

@@ -8,3 +8,11 @@ export function cn(...inputs: ClassValue[]) {
 export function getCurrentYear() {
   return new Date().getFullYear();
 }
+
+export function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 50);
+}

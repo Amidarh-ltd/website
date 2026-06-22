@@ -115,12 +115,6 @@ export const PLATFORM_CAPABILITIES = [
     href: TRUPPER_PATH,
   },
   {
-    title: "Amidarh CBT",
-    description: "Computer-based testing practice to stay exam-ready.",
-    href: "#",
-    comingSoon: true,
-  },
-  {
     title: "Unified Progress",
     description: "Track learning and assessment outcomes in one ecosystem.",
     href: FLOW_URL,

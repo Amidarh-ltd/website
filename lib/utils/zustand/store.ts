@@ -5,8 +5,8 @@ import { Store, UserType } from "@/types";
 export const useStore = create<Store>()(
   persist(
     (set) => ({
-      waitList: false,
-      setWaitList: (value: boolean) => set({ waitList: value }),
+      institutionSignup: false,
+      setInstitutionSignup: (value: boolean) => set({ institutionSignup: value }),
       user: null,
       setUser: (user: UserType | null) => set({ user }),
       isLoading: false,

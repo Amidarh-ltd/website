@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import {
   Dialog,
@@ -11,36 +12,75 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { CheckCircle, Clock } from "lucide-react";
-import { useWaitlist } from "@/modules/trupper/services";
+import { CheckCircle, CircleX, Copy, Loader2 } from "lucide-react";
+import {
+  SLUG_UNAVAILABLE_MESSAGES,
+  useRegisterInstitution,
+  useSlugAvailability,
+} from "@/modules/trupper/services";
 import { useStore } from "@/lib/utils/zustand/store";
+import { toast } from "sonner";
 
-export function Waitlist() {
-  const [email, setEmail] = useState("");
-  const [organization, setOrganization] = useState("");
+export function InstitutionSignup() {
+  const [name, setName] = useState("");
+  const [adminFirstName, setAdminFirstName] = useState("");
+  const [adminLastName, setAdminLastName] = useState("");
+  const [adminEmail, setAdminEmail] = useState("");
+  const [temporaryPassword, setTemporaryPassword] = useState<string | null>(
+    null,
+  );
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { setWaitList } = useStore();
-  const waitList = useStore((state) => state.waitList);
+
+  const { setInstitutionSignup } = useStore();
+  const institutionSignup = useStore((state) => state.institutionSignup);
+  const { registerInstitution, isLoading } = useRegisterInstitution();
   const {
-    addToWaitlist,
-    isLoading,
-    error: waitlistError,
-    success,
-  } = useWaitlist();
-  const [error, setError] = useState<string | null>(null);
+    slug,
+    status: slugStatus,
+    reason: slugReason,
+  } = useSlugAvailability(name);
+
+  const resetForm = () => {
+    setName("");
+    setAdminFirstName("");
+    setAdminLastName("");
+    setAdminEmail("");
+    setTemporaryPassword(null);
+    setIsSubmitted(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await addToWaitlist({ email, organization });
-    if (success) {
+    const response = await registerInstitution({
+      name,
+      slug,
+      adminFirstName,
+      adminLastName,
+      adminEmail,
+    });
+
+    if (response) {
       setIsSubmitted(true);
-      setError(null);
-    } else {
-      setError(waitlistError || "An error occurred");
+      if (!response.emailSent) {
+        setTemporaryPassword(response.temporaryPassword);
+      }
     }
   };
 
+  const copyPassword = async () => {
+    if (!temporaryPassword) return;
+    await navigator.clipboard.writeText(temporaryPassword);
+    toast.success("Password copied to clipboard");
+  };
+
   return (
-    <Dialog open={waitList} onOpenChange={() => setWaitList(!waitList)}>
+    <Dialog
+      open={institutionSignup}
+      onOpenChange={(open) => {
+        setInstitutionSignup(open);
+        if (!open) resetForm();
+      }}
+    >
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden">
         <div className="relative">
           <div
@@ -57,66 +97,117 @@ export function Waitlist() {
           <div className="relative z-10">
             <DialogHeader className="text-center pb-6 pt-8 px-8">
               <DialogTitle className="text-2xl font-bold text-gray-900">
-                Join the Trupper Waitlist
+                Sign up your institution
               </DialogTitle>
-              {/* {error && <p className="text-red-500 text-sm">{error}</p>} */}
               <DialogDescription className="text-gray-600 text-base">
-                Be among the first to experience the future of learning management for institutions
+                Create your Trupper account and get your admin set up in
+                minutes
               </DialogDescription>
             </DialogHeader>
 
-            <div className="px-8 pb-6">
-              <div className="grid grid-cols-1 gap-3 mb-6">
-                <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span>Early access to beta features</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span>Priority support and onboarding</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span>Exclusive pricing for early adopters</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Form */}
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="px-8 pb-8">
                 <div className="space-y-4">
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Email Address
-                    </label>
+                    <Label htmlFor="name" className="mb-2 block">
+                      Institution Name
+                    </Label>
                     <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@organization.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      id="name"
+                      type="text"
+                      placeholder="Bright Academy"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       required
+                      minLength={2}
+                      maxLength={200}
                       className="w-full"
                     />
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="organization"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                    <Label htmlFor="slug" className="mb-2 block">
+                      Institution Slug
+                    </Label>
+                    <div className="relative">
+                      <Input
+                        id="slug"
+                        type="text"
+                        value={slug}
+                        placeholder="bright-academy"
+                        readOnly
+                        disabled
+                        className="w-full pr-9 text-muted-foreground"
+                      />
+                      <span className="absolute right-3 top-1/2 -translate-y-1/2">
+                        {slugStatus === "checking" && (
+                          <Loader2 className="size-4 animate-spin text-muted-foreground" />
+                        )}
+                        {slugStatus === "available" && (
+                          <CheckCircle className="size-4 text-green-500" />
+                        )}
+                        {slugStatus === "unavailable" && (
+                          <CircleX className="size-4 text-red-500" />
+                        )}
+                      </span>
+                    </div>
+                    <p
+                      className={cn(
+                        "mt-1.5 text-xs",
+                        slugStatus === "unavailable"
+                          ? "text-red-600"
+                          : "text-muted-foreground",
+                      )}
                     >
-                      Organization Name
-                    </label>
+                      {slugStatus === "unavailable" && slugReason
+                        ? SLUG_UNAVAILABLE_MESSAGES[slugReason]
+                        : "Generated automatically from your institution name."}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="adminFirstName" className="mb-2 block">
+                        Admin First Name
+                      </Label>
+                      <Input
+                        id="adminFirstName"
+                        type="text"
+                        placeholder="Ada"
+                        value={adminFirstName}
+                        onChange={(e) => setAdminFirstName(e.target.value)}
+                        required
+                        maxLength={100}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="adminLastName" className="mb-2 block">
+                        Admin Last Name
+                      </Label>
+                      <Input
+                        id="adminLastName"
+                        type="text"
+                        placeholder="Obi"
+                        value={adminLastName}
+                        onChange={(e) => setAdminLastName(e.target.value)}
+                        required
+                        maxLength={100}
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="adminEmail" className="mb-2 block">
+                      Admin Email
+                    </Label>
                     <Input
-                      id="organization"
-                      type="text"
-                      placeholder="Your Organization Name"
-                      value={organization}
-                      onChange={(e) => setOrganization(e.target.value)}
+                      id="adminEmail"
+                      type="email"
+                      placeholder="ada@brightacademy.com"
+                      value={adminEmail}
+                      onChange={(e) => setAdminEmail(e.target.value)}
                       required
                       className="w-full"
                     />
@@ -124,50 +215,64 @@ export function Waitlist() {
 
                   <Button
                     type="submit"
-                    disabled={isLoading}
+                    disabled={
+                      isLoading ||
+                      slugStatus === "checking" ||
+                      slugStatus === "unavailable"
+                    }
                     className="w-full"
                     size="lg"
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Joining...
+                        Creating account...
                       </div>
                     ) : (
-                      "Join Waitlist"
+                      "Sign Up Institution"
                     )}
                   </Button>
                 </div>
               </form>
             ) : (
-              /* Success State */
               <div className="px-8 pb-8 text-center">
                 <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle className="w-8 h-8 text-green-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  You're on the list!
+                  You&rsquo;re all set!
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  We'll notify you as soon as Trupper is ready for your
-                  institution.
+                  Check {adminEmail || "your inbox"} for your login details to
+                  get started with Trupper.
                 </p>
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                  <div className="flex items-center gap-2 text-blue-700 text-sm">
-                    <Clock className="w-4 h-4" />
-                    <span>Expected launch: Q2 2024</span>
+
+                {temporaryPassword && (
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-left">
+                    <p className="text-sm text-amber-800 mb-2">
+                      We couldn&apos;t confirm the email was delivered&mdash;here&apos;s
+                      your temporary password, just in case:
+                    </p>
+                    <div className="flex items-center justify-between gap-2 rounded-lg bg-white border border-amber-200 px-3 py-2">
+                      <code className="text-sm font-mono text-gray-900">
+                        {temporaryPassword}
+                      </code>
+                      <button
+                        type="button"
+                        onClick={copyPassword}
+                        className="text-amber-700 hover:text-amber-900"
+                        aria-label="Copy password"
+                      >
+                        <Copy className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             )}
 
-            {/* Footer */}
             <div className="bg-gray-50 px-8 py-4 border-t">
               <div className="flex items-center justify-center text-sm text-gray-500">
-                {/* <div className="flex items-center gap-2">
-                  <Star className="w-4 h-4 text-yellow-500" />
-                  <span>Join 500+ institutions</span>
-                </div> */}
                 <span>🔒 Secure & Private</span>
               </div>
             </div>
@@ -178,21 +283,21 @@ export function Waitlist() {
   );
 }
 
-export const WaitlistButton = ({
+export const InstitutionSignupButton = ({
   size = "lg",
   className,
 }: {
   size?: "sm" | "lg" | "xl";
   className?: string;
 }) => {
-  const { setWaitList } = useStore();
+  const { setInstitutionSignup } = useStore();
   return (
     <Button
       size={size === "sm" ? "sm" : size === "xl" ? "xl" : "lg"}
-      className={className}
-      onClick={() => setWaitList(true)}
+      className={cn(className)}
+      onClick={() => setInstitutionSignup(true)}
     >
-      Join Waitlist
+      Sign Up Your Institution
     </Button>
   );
 };

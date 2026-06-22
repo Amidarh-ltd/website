@@ -60,10 +60,6 @@ export function Products() {
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="##" title="Amidarh CBT">
-                Amidarh CBT give you the proper environment for every exxam and
-                prepares you for what's ahead
-              </ListItem>
               <ListItem href="##" title="Amidarh Note">
                 How to install dependencies and structure your app.
               </ListItem>

@@ -7,7 +7,6 @@ const footerLinks = {
   products: [
     { label: "Flow", href: FLOW_URL, external: true },
     { label: "Trupper", href: TRUPPER_PATH },
-    { label: "Amidarh CBT", href: "#", disabled: true },
   ],
   company: [
     { label: "About", href: "#" },

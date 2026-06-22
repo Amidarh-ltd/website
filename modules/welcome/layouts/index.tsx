@@ -1,9 +1,8 @@
 "use client";
 
 import { Logo } from "@/core/commons/ui";
-import { Card } from "@/components/ui/card";
 import { MarketingImage } from "@/components/ui/marketing-image";
-import { Notebook, BookCheck, LogOut } from "lucide-react";
+import { Notebook, LogOut } from "lucide-react";
 import { WelcomeCard } from "../components/card";
 import { Button } from "@/components/ui/button";
 import { useLogout } from "@/core/hooks/logout";
@@ -55,7 +54,7 @@ export const WelcomeLayouts = () => {
             </p>
           </div>
 
-          <div className="mt-8 grid flex-1 gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid flex-1 gap-4 sm:max-w-sm">
             <Link
               href={
                 process.env.NEXT_PUBLIC_NOTES_API_URL + "/my_note?a=" + token
@@ -68,15 +67,6 @@ export const WelcomeLayouts = () => {
                 description="Capture ideas, organize thoughts, and keep track of what matters."
               />
             </Link>
-            <Card className="card-elevated flex h-full flex-col p-6 opacity-75">
-              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-muted text-muted-foreground">
-                <BookCheck className="size-6" />
-              </div>
-              <h3 className="text-lg font-semibold">Amidarh CBT</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Coming soon—practice exams in a dedicated CBT environment.
-              </p>
-            </Card>
           </div>
         </div>
       </div>

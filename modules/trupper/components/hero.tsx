@@ -1,7 +1,7 @@
 "use client";
 
 import { MarketingImage } from "@/components/ui/marketing-image";
-import { WaitlistButton } from "@/core/commons/waitlist";
+import { InstitutionSignupButton } from "@/core/commons/institution-signup";
 import { BRAND_IMAGES } from "@/lib/constants/site";
 import { motion } from "framer-motion";
 import { BookOpen, Shield, Zap } from "lucide-react";
@@ -43,7 +43,7 @@ export function Hero() {
                 Secure by design
               </div>
             </div>
-            <WaitlistButton size="xl" />
+            <InstitutionSignupButton size="xl" />
           </motion.div>
 
           <MarketingImage

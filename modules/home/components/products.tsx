@@ -33,17 +33,6 @@ const products = [
     external: true,
     comingSoon: false,
   },
-  {
-    id: "cbt",
-    href: "#",
-    title: "Amidarh CBT",
-    badge: "Coming soon",
-    description:
-      "Practice makes perfect—prepare for exams with a dedicated computer-based testing experience.",
-    image: BRAND_IMAGES.note,
-    external: false,
-    comingSoon: true,
-  },
 ] as const;
 
 function ProductCard({
@@ -127,7 +116,7 @@ export default function ProductsSection() {
         description="Choose the product that fits your journey—personal learning with Flow or institutional exams with Trupper."
       />
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

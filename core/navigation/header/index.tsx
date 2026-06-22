@@ -5,7 +5,10 @@ import { useRouter } from "next/navigation";
 import { HeaderClient } from "./components.client";
 import { Sidebar } from "./sidebar";
 import { Button } from "@/components/ui/button";
-import { Waitlist, WaitlistButton } from "@/core/commons/waitlist";
+import {
+  InstitutionSignup,
+  InstitutionSignupButton,
+} from "@/core/commons/institution-signup";
 import { Logo } from "@/core/commons/ui";
 import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
 import {
@@ -86,7 +89,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
 
         <div className="hidden min-[900px]:flex items-center gap-3">
           {isTrupper ? (
-            <WaitlistButton size="lg" />
+            <InstitutionSignupButton size="lg" />
           ) : (
             <>
               <Button
@@ -105,7 +108,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
 
         <Sidebar isTrupper={isTrupper} />
       </nav>
-      <Waitlist />
+      <InstitutionSignup />
     </HeaderClient>
   );
 }

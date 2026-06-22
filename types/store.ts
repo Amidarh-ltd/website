@@ -1,8 +1,8 @@
 import { UserType } from "@/types";
 
 export type Store = {
-  waitList: boolean;
-  setWaitList: (value: boolean) => void;
+  institutionSignup: boolean;
+  setInstitutionSignup: (value: boolean) => void;
   user: UserType | null;
   setUser: (user: UserType | null) => void;
   isLoading: boolean;
