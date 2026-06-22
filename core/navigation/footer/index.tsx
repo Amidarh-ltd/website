@@ -7,28 +7,31 @@ const footerLinks = {
   products: [
     { label: "Flow", href: FLOW_URL, external: true },
     { label: "Trupper", href: TRUPPER_PATH },
+    { label: "Note", href: "#" },
   ],
   company: [
     { label: "About", href: "#" },
     { label: "Blog", href: "#" },
-    { label: "Contact", href: "#" },
+  ],
+  legal: [
+    { label: "Privacy", href: "#" },
+    { label: "Terms", href: "#" },
   ],
 };
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border bg-brand text-brand-foreground">
-      <div className="container mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-ink text-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <Link href="/" className="text-2xl font-bold">
+            <Link href="/" className="font-display text-2xl font-bold text-white">
               Amidarh
             </Link>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-foreground/80">
-              Human-centered education technology—AI-powered learning with Flow
-              and institutional learning management with Trupper.
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-white/55">
+              Learn smarter. Run institutions better.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex gap-2">
               {[
                 { Icon: FaTwitter, href: "#", label: "Twitter" },
                 { Icon: FaLinkedin, href: "#", label: "LinkedIn" },
@@ -39,16 +42,16 @@ export const Footer = () => {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="rounded-lg p-2 text-brand-foreground/80 transition-colors hover:bg-brand-foreground/10 hover:text-brand-foreground"
+                  className="flex size-9 items-center justify-center rounded-md text-white/55 transition-colors hover:bg-white/10 hover:text-white"
                 >
-                  <Icon className="size-5" />
+                  <Icon className="size-4" />
                 </Link>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/40">
               Products
             </h3>
             <ul className="mt-4 space-y-3">
@@ -59,14 +62,14 @@ export const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-brand-foreground/80 transition-colors hover:text-brand-foreground"
+                      className="text-sm text-white/55 transition-colors hover:text-white/90"
                     >
                       {link.label}
                     </a>
                   ) : (
                     <Link
                       href={link.href}
-                      className="text-sm text-brand-foreground/80 transition-colors hover:text-brand-foreground"
+                      className="text-sm text-white/55 transition-colors hover:text-white/90"
                     >
                       {link.label}
                     </Link>
@@ -76,30 +79,47 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
-              Company
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-brand-foreground/80 transition-colors hover:text-brand-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-2 gap-8 sm:col-span-2 lg:col-span-1 lg:grid-cols-1">
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/40">
+                Company
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/55 transition-colors hover:text-white/90"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/40">
+                Legal
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.legal.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/55 transition-colors hover:text-white/90"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-brand-foreground/15 pt-8 text-sm text-brand-foreground/70 sm:flex-row">
-          <p>© {getCurrentYear()} Amidarh. All rights reserved.</p>
-          <p className="text-xs">
-            Designed with ❤️ by <a href="https://github.com/amidarh" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-brand-foreground">Amidarh</a>
-          </p>
+        <div className="mt-14 border-t border-white/10 pt-8 text-center text-xs text-white/35">
+          <p>© {getCurrentYear()} Amidarh Technologies. All rights reserved.</p>
         </div>
       </div>
     </footer>

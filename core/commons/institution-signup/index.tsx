@@ -297,7 +297,7 @@ export const InstitutionSignupButton = ({
       className={cn(className)}
       onClick={() => setInstitutionSignup(true)}
     >
-      Sign Up Your Institution
+      Get Started with Trupper
     </Button>
   );
 };

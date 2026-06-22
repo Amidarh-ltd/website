@@ -1,78 +1,148 @@
-import Image from "next/image";
-import { Section, SectionHeader } from "@/core/design-system/section";
-import { UNSPLASH_IMAGES } from "@/lib/constants/site";
-import { Quote, TrendingUp, Users } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  BarChart,
+  BookOpen,
+  Layers,
+  Sparkles,
+  TrendingUp,
+  Video,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ProductBadge } from "@/core/design-system/tag";
+import { FeatureCard } from "@/core/design-system/feature-card";
+import { fadeUp, staggerContainer } from "@/lib/motion";
+import { FLOW_URL } from "@/lib/constants/site";
+import { useStore } from "@/lib/utils/zustand/store";
+
+const flowFeatures = [
+  {
+    icon: Sparkles,
+    title: "Generate any course",
+    description:
+      "Turn any topic into a structured course with AI in seconds.",
+  },
+  {
+    icon: Layers,
+    title: "Flashcards & quizzes",
+    description: "Active recall tools that reinforce what you've learned.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Track mastery",
+    description: "See exactly where you're strong and what needs more work.",
+  },
+];
+
+const trupperFeatures = [
+  {
+    icon: BookOpen,
+    title: "Courses & resources",
+    description:
+      "Build course catalogs with lessons, books, and study materials.",
+  },
+  {
+    icon: Video,
+    title: "Live classes",
+    description: "Host live sessions and virtual classrooms for your learners.",
+  },
+  {
+    icon: BarChart,
+    title: "Trainee management & analytics",
+    description:
+      "Track students or staff trainees and their progress across all courses.",
+  },
+];
 
 export default function Features() {
+  const setInstitutionSignup = useStore((state) => state.setInstitutionSignup);
+
   return (
-    <Section>
-      <SectionHeader
-        eyebrow="Why Amidarh"
-        title="Built for outcomes, not complexity"
-        description="We help learners move faster with AI-guided study—and help institutions run exams with confidence."
-      />
-
-      <div className="grid gap-6 lg:grid-cols-3">
-        <article className="relative overflow-hidden rounded-2xl lg:col-span-2 min-h-[320px]">
-          <Image
-            src={UNSPLASH_IMAGES.testimonial.src}
-            alt={UNSPLASH_IMAGES.testimonial.alt}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 66vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/70 to-brand/30" />
-          <div className="relative z-10 flex h-full flex-col justify-end p-8 text-brand-foreground md:p-10">
-            <Quote className="mb-4 size-8 opacity-80" />
-            <p className="text-xl font-medium leading-snug md:text-2xl">
-              Amidarh gives us one place to support how students learn and how
-              we manage assessments—it feels modern, clear, and ready to scale.
+    <>
+      <section className="w-full bg-white px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="max-w-2xl"
+          >
+            <ProductBadge product="flow" />
+            <h2 className="mt-5 font-display text-[clamp(28px,4vw,40px)] font-semibold text-ink">
+              Learning that adapts to you
+            </h2>
+            <p className="mt-4 text-[17px] leading-relaxed text-ink-2">
+              Flow turns any topic into a structured course with AI, then
+              helps you retain it with flashcards and quizzes. Track your
+              mastery as you go, so you always know what to study next.
             </p>
-            <div className="mt-6">
-              <p className="font-semibold">Wisdom Woke</p>
-              <p className="text-sm text-brand-foreground/80">
-                Team Lead, Alt University
-              </p>
-            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {flowFeatures.map((feature) => (
+              <FeatureCard key={feature.title} accent="flow" {...feature} />
+            ))}
+          </motion.div>
+
+          <div className="mt-10">
+            <Button
+              variant="accent"
+              size="lg"
+              onClick={() => window.open(FLOW_URL, "_blank")}
+            >
+              Try Flow free →
+            </Button>
           </div>
-        </article>
-
-        <div className="flex flex-col gap-6">
-          <article className="card-elevated flex flex-1 flex-col justify-between p-8">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-5xl font-bold text-primary">85%</p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  admin time saved
-                </p>
-              </div>
-              <div className="rounded-xl bg-primary/10 p-3 text-primary">
-                <TrendingUp className="size-6" />
-              </div>
-            </div>
-            <p className="mt-6 font-medium text-foreground">
-              Reduction in time spent on school management workflows.
-            </p>
-          </article>
-
-          <article className="card-elevated flex flex-1 flex-col justify-between bg-brand p-8 text-brand-foreground">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-5xl font-bold">2B+</p>
-                <p className="mt-1 text-sm text-brand-foreground/80">
-                  messages delivered
-                </p>
-              </div>
-              <div className="rounded-xl bg-brand-foreground/15 p-3">
-                <Users className="size-6" />
-              </div>
-            </div>
-            <p className="mt-6 font-medium">
-              Reliable communication between schools, students, and families.
-            </p>
-          </article>
         </div>
-      </div>
-    </Section>
+      </section>
+
+      <section className="w-full bg-surface px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="max-w-2xl"
+          >
+            <ProductBadge product="trupper" />
+            <h2 className="mt-5 font-display text-[clamp(28px,4vw,40px)] font-semibold text-ink">
+              A learning platform for every kind of educator
+            </h2>
+            <p className="mt-4 text-[17px] leading-relaxed text-ink-2">
+              Schools and universities, online tutors running live classes,
+              and companies training staff all use Trupper for courses,
+              content, exams, and analytics — in one platform.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {trupperFeatures.map((feature) => (
+              <FeatureCard key={feature.title} accent="accent" {...feature} />
+            ))}
+          </motion.div>
+
+          <div className="mt-10">
+            <Button size="lg" onClick={() => setInstitutionSignup(true)}>
+              Request access →
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

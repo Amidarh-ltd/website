@@ -1,82 +1,121 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { MarketingImage } from "@/components/ui/marketing-image";
-import { FLOW_URL, TRUPPER_PATH, UNSPLASH_IMAGES } from "@/lib/constants/site";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Tag } from "@/core/design-system/tag";
+import { fadeUp, staggerContainer } from "@/lib/motion";
+import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <div className="mesh-hero w-full pt-28 md:pt-32">
-      <section className="container mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-8"
+    <section className="w-full px-4 pt-24 pb-20 sm:px-6 sm:pt-28 sm:pb-24 lg:px-8 lg:pt-32 lg:pb-28">
+      <motion.div
+        initial={shouldReduceMotion ? "visible" : "hidden"}
+        animate="visible"
+        variants={staggerContainer}
+        className="mx-auto flex max-w-[860px] flex-col items-center text-center"
+      >
+        <motion.div variants={fadeUp}>
+          <Tag>EdTech · 2024</Tag>
+        </motion.div>
+
+        <motion.h1
+          variants={fadeUp}
+          className="mt-6 font-display text-[clamp(40px,7vw,80px)] font-bold leading-[1.05] text-ink"
+        >
+          Learn smarter.
+          <br />
+          <span className="relative inline-block">
+            Run institutions better.
+            <svg
+              viewBox="0 0 320 14"
+              preserveAspectRatio="none"
+              className="absolute -bottom-2 left-0 h-3 w-full text-accent sm:-bottom-3 sm:h-4"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 9 C 50 1, 90 13, 140 6 C 190 -1, 230 13, 318 5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+        </motion.h1>
+
+        <motion.p
+          variants={fadeUp}
+          className="mt-5 max-w-[560px] text-lg leading-relaxed text-ink-2"
+        >
+          Amidarh is the company behind two independent products: Flow,
+          AI-powered learning for individuals, and Trupper, a learning
+          platform for schools, online tutors, and companies.
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp}
+          className="mt-9 flex flex-col items-center gap-4 sm:flex-row"
+        >
+          <Button
+            size="xl"
+            className="group min-h-[44px]"
+            onClick={() => window.open(FLOW_URL, "_blank")}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground shadow-sm">
-              <Sparkles className="size-4 text-accent" />
-              AI-powered learning · Learning management
-            </div>
+            Start learning free
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+          </Button>
+          <Link
+            href={TRUPPER_PATH}
+            className="flex min-h-[44px] items-center text-[15px] font-medium text-accent transition-colors hover:text-accent-2"
+          >
+            For institutions →
+          </Link>
+        </motion.div>
 
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-[3.5rem] xl:leading-[1.1]">
-              Learn smarter.
-              <br />
-              Run institutions better.
-            </h1>
-
-            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Amidarh brings together Flow for personalized AI learning and
-              Trupper for institutional learning management—built for students, educators,
-              and institutions.
+        <motion.div
+          variants={fadeUp}
+          className="mt-12 flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-stretch"
+        >
+          <motion.a
+            href={FLOW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="w-full max-w-[280px] rounded-xl border-l-[3px] border-flow bg-flow-soft px-6 py-5 text-left transition-shadow hover:shadow-[var(--shadow-lift)] sm:mx-0"
+          >
+            <p className="font-display text-3xl font-bold text-flow">Flow</p>
+            <p className="mt-1 text-[13px] text-flow/70">
+              AI learning for everyone
             </p>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button
-                size="xl"
-                className="group"
-                onClick={() => window.open(FLOW_URL, "_blank")}
-              >
-                Start with Flow
-                <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
-              </Button>
-              <Button variant="outline" size="xl" asChild>
-                <Link href={TRUPPER_PATH}>Explore Trupper</Link>
-              </Button>
-            </div>
-
-            <p className="text-sm text-muted-foreground">
-              Trusted approach for learners and institutions scaling digital
-              education.
-            </p>
-          </motion.div>
+          </motion.a>
 
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative"
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="w-full max-w-[280px] sm:mx-0"
           >
-            <MarketingImage
-              src={UNSPLASH_IMAGES.hero.src}
-              alt={UNSPLASH_IMAGES.hero.alt}
-              priority
-              containerClassName="aspect-[4/3] shadow-[0_24px_64px_rgba(36,33,106,0.18)]"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-border/60 bg-card/95 p-4 shadow-lg backdrop-blur-sm md:block">
-              <p className="text-sm font-semibold text-foreground">Flow</p>
-              <p className="text-xs text-muted-foreground">
-                Courses · Flashcards · Quiz · Progress
+            <Link
+              href={TRUPPER_PATH}
+              className="block rounded-xl border-l-[3px] border-accent bg-accent-soft px-6 py-5 text-left transition-shadow hover:shadow-[var(--shadow-lift)]"
+            >
+              <p className="font-display text-3xl font-bold text-accent">
+                Trupper
               </p>
-            </div>
+              <p className="mt-1 text-[13px] text-accent/70">
+                Courses, classes & training
+              </p>
+            </Link>
           </motion.div>
-        </div>
-      </section>
-    </div>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }

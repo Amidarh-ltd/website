@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/lib/utils/context/authContext";
@@ -7,6 +7,11 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -18,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Amidarh",
   },
   description:
-    "Amidarh provides educational technology solutions including Trupper for institutional learning management and Flow for AI-powered learning with course generation, flashcards, quizzes, and progress tracking.",
+    "Amidarh provides educational technology including Trupper, a learning platform for schools, online tutors, and companies, and Flow for AI-powered learning with course generation, flashcards, quizzes, and progress tracking.",
   keywords: [
     "exam management system",
     "online exam platform",
@@ -63,7 +68,7 @@ export const metadata: Metadata = {
     siteName: "Amidarh",
     title: "Amidarh - Educational Technology Solutions",
     description:
-      "Amidarh powers better education with Trupper for institutional learning management and Flow for AI-powered learning, including course generation, flashcards, quizzes, and progress tracking.",
+      "Amidarh powers better education with Trupper, a learning platform for schools, online tutors, and companies, and Flow for AI-powered learning, including course generation, flashcards, quizzes, and progress tracking.",
     images: [
       {
         url: "/images/amidarh-og-image.jpg",
@@ -77,7 +82,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Amidarh - Educational Technology Solutions",
     description:
-      "Amidarh powers better education with Trupper for institutional learning management and Flow for AI-powered learning, including course generation, flashcards, quizzes, and progress tracking.",
+      "Amidarh powers better education with Trupper, a learning platform for schools, online tutors, and companies, and Flow for AI-powered learning, including course generation, flashcards, quizzes, and progress tracking.",
     images: ["/images/amidarh-twitter-image.jpg"],
     creator: "@amidarh",
     site: "@amidarh",
@@ -155,11 +160,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              name: "Trupper Learning Management System",
+              name: "Trupper Learning Platform",
               applicationCategory: "EducationalApplication",
               operatingSystem: "Web Browser",
               description:
-                "Learning management system for educational institutions with courses, students, and built-in exam tools",
+                "Learning platform for schools, online tutors, and companies with courses, live classes, and built-in exam tools",
               url: "https://amidarh.com/trupper",
               offers: {
                 "@type": "Offer",
@@ -201,7 +206,9 @@ export default function RootLayout({
       </head>
       <AuthProvider>
         <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "This is me flexing"}>
-          <body className={`${bricolage.variable} font-sans antialiased`}>
+          <body
+            className={`${bricolage.variable} ${inter.variable} font-sans antialiased`}
+          >
             {children}
             <Toaster position="top-right" richColors />
           </body>

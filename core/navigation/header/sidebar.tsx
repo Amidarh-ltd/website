@@ -49,14 +49,14 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
         <Button
           variant="ghost"
           size="icon"
-          className="min-[900px]:hidden flex size-10 rounded-xl"
+          className="min-[900px]:hidden flex size-11 rounded-lg"
         >
           <Menu className="size-5" />
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="w-[320px] border-l p-0">
+      <SheetContent side="right" className="w-[320px] border-l border-border-soft p-0">
         <div className="flex h-full flex-col bg-background">
           <div className="flex-1 space-y-1 px-4 py-8">
             {navigationItems.map((item) => {
@@ -67,10 +67,10 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
                 <>
                   <div
                     className={cn(
-                      "rounded-lg p-2 transition-colors",
+                      "rounded-md p-2 transition-colors",
                       active
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-muted-foreground",
+                        ? "bg-ink text-background"
+                        : "bg-surface text-ink-2",
                     )}
                   >
                     <Icon className="size-4" />
@@ -79,36 +79,36 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
                     <div className="flex items-center gap-2">
                       <span
                         className={cn(
-                          "text-sm font-medium",
-                          active && "text-primary",
+                          "text-sm font-medium text-ink",
+                          active && "text-accent",
                         )}
                       >
                         {item.label}
                       </span>
                       {item.badge ? (
-                        <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground">
+                        <span className="rounded-pill bg-accent px-2 py-0.5 text-xs font-medium text-white">
                           {item.badge}
                         </span>
                       ) : null}
                     </div>
-                    <p className="mt-0.5 text-xs text-muted-foreground">
+                    <p className="mt-0.5 text-xs text-ink-3">
                       {item.description}
                     </p>
                   </div>
                   <ArrowRight
                     className={cn(
                       "size-3.5",
-                      active ? "text-primary" : "text-muted-foreground",
+                      active ? "text-accent" : "text-ink-3",
                     )}
                   />
                 </>
               );
 
               const className = cn(
-                "group flex items-center gap-3 rounded-xl border p-3 transition-colors",
+                "group flex min-h-[44px] items-center gap-3 rounded-lg border p-3 transition-colors",
                 active
-                  ? "border-primary/20 bg-primary/5"
-                  : "border-transparent hover:bg-muted/60",
+                  ? "border-accent/20 bg-accent-soft"
+                  : "border-transparent hover:bg-surface",
               );
 
               return item.external ? (
@@ -129,27 +129,27 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
             })}
           </div>
 
-          <div className="border-t border-border bg-muted/30 p-4">
+          <div className="border-t border-border-soft bg-surface/60 p-4">
             {isTrupper ? (
-              <InstitutionSignupButton className="w-full" />
+              <InstitutionSignupButton className="w-full min-h-[44px]" />
             ) : (
               <>
                 <Button
-                  className="w-full"
+                  className="w-full min-h-[44px]"
                   onClick={() => window.open(FLOW_URL, "_blank")}
                 >
-                  Start with Flow
+                  Get started
                 </Button>
                 <Button
                   variant="outline"
-                  className="mt-2 w-full"
+                  className="mt-2 w-full min-h-[44px]"
                   onClick={() => router.push(TRUPPER_PATH)}
                 >
                   For Institutions
                 </Button>
               </>
             )}
-            <p className="mt-4 text-center text-xs text-muted-foreground">
+            <p className="mt-4 text-center text-xs text-ink-3">
               © {getCurrentYear()} Amidarh
             </p>
           </div>

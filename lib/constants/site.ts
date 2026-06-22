@@ -77,6 +77,33 @@ export const UNSPLASH_IMAGES = {
     alt: "University library study space",
     credit: "João Ferrão",
   },
+  trupperFeatures: {
+    courses: {
+      src: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80",
+      alt: "Shelves of books and course materials",
+      credit: "Eugenio Mazzone",
+    },
+    liveClasses: {
+      src: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=1200&q=80",
+      alt: "Laptop screen showing a live virtual classroom call",
+      credit: "Chris Montgomery",
+    },
+    examEngine: {
+      src: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=1200&q=80",
+      alt: "Student filling in answers on a multiple-choice exam sheet",
+      credit: "Nguyen Dang Hoang Nhu",
+    },
+    records: {
+      src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1200&q=80",
+      alt: "Students taking notes in a classroom",
+      credit: "Bila Ozturk",
+    },
+    analytics: {
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      alt: "Performance analytics dashboard with charts on a laptop screen",
+      credit: "Carlos Muza",
+    },
+  },
 } as const;
 
 export const FLOW_FEATURES = [
@@ -111,13 +138,8 @@ export const PLATFORM_CAPABILITIES = [
   {
     title: "Trupper",
     description:
-      "Learning management for schools and institutions—courses, students, and exams in one platform.",
+      "Learning management for schools, online tutors, and companies—courses, live classes, students, and exams in one platform.",
     href: TRUPPER_PATH,
-  },
-  {
-    title: "Unified Progress",
-    description: "Track learning and assessment outcomes in one ecosystem.",
-    href: FLOW_URL,
   },
   {
     title: "Secure by Design",

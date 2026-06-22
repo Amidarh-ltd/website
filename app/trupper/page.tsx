@@ -3,17 +3,21 @@ import TrupperLayout from "@/modules/trupper/layout";
 
 export const metadata: Metadata = {
   title:
-    "Trupper - Learning Management System for Schools & Universities",
+    "Trupper - Learning Platform for Schools, Tutors & Companies",
   description:
-    "Trupper is a learning management system for schools and universities. Manage courses, students, and academic operations in one platform—with built-in exam creation, delivery, and grading.",
+    "Trupper is a learning platform for schools, online tutors, and companies. Manage courses, live classes, learners, and exams in one place—with built-in exam creation, delivery, and grading.",
   keywords: [
     "Trupper LMS",
     "learning management system",
     "school management system",
     "university LMS",
-    "institutional learning platform",
+    "learning platform for tutors",
+    "staff training software",
+    "online tutoring platform",
     "course management software",
     "student management system",
+    "live class software",
+    "virtual classroom software",
     "academic scheduling software",
     "exam management system",
     "online exam platform",
@@ -24,13 +28,13 @@ export const metadata: Metadata = {
     "school administration software",
     "university management software",
     "best LMS for schools",
-    "learning platform for institutions",
+    "learning platform for schools, tutors and companies",
   ],
   openGraph: {
     title:
-      "Trupper - Learning Management System for Schools & Universities",
+      "Trupper - Learning Platform for Schools, Tutors & Companies",
     description:
-      "Trupper is a learning management system for schools and universities. Manage courses, students, and academic operations—with built-in exam tools.",
+      "Trupper is a learning platform for schools, online tutors, and companies. Manage courses, live classes, learners, and exams—with built-in exam tools.",
     url: "https://amidarh.com/trupper",
     siteName: "Amidarh",
     images: [
@@ -38,7 +42,7 @@ export const metadata: Metadata = {
         url: "/images/trupper/trupper-og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Trupper Learning Management System for Educational Institutions",
+        alt: "Trupper - Learning Platform for Schools, Tutors, and Companies",
       },
     ],
     locale: "en_US",
@@ -47,9 +51,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Trupper - Learning Management System for Schools & Universities",
+      "Trupper - Learning Platform for Schools, Tutors & Companies",
     description:
-      "Trupper is a learning management system for schools and universities. Manage courses, students, and academic operations—with built-in exam tools.",
+      "Trupper is a learning platform for schools, online tutors, and companies. Manage courses, live classes, learners, and exams—with built-in exam tools.",
     images: ["/images/trupper/trupper-twitter-image.jpg"],
   },
   alternates: {
@@ -77,9 +81,9 @@ export default function TrupperPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            name: "Trupper Learning Management System",
+            name: "Trupper Learning Platform",
             description:
-              "Learning management system for educational institutions. Manage courses, students, and academic operations—with built-in exam creation, delivery, and grading.",
+              "Learning platform for schools, online tutors, and companies. Manage courses, live classes, learners, and exams—with built-in exam creation, delivery, and grading.",
             brand: {
               "@type": "Brand",
               name: "Amidarh",
@@ -114,7 +118,7 @@ export default function TrupperPage() {
                   bestRating: "5",
                 },
                 reviewBody:
-                  "Trupper has transformed how we manage learning across our institution. Courses, students, and exams—all in one place.",
+                  "Trupper has transformed how we manage learning across our school. Courses, students, and exams—all in one place.",
               },
               {
                 "@type": "Review",
@@ -132,14 +136,15 @@ export default function TrupperPage() {
               },
             ],
             featureList: [
-              "Course and curriculum management",
-              "Student enrollment and records",
-              "Academic scheduling",
+              "Course, content, and resource management",
+              "Live classes and virtual classrooms",
+              "Student and trainee enrollment and records",
+              "Scheduling for classes, terms, and sessions",
               "Exam creation and delivery",
               "Automated grading and results",
               "Question bank management",
               "Performance analytics and reporting",
-              "Secure institutional environment",
+              "Secure environment for schools, tutors, and companies",
             ],
           }),
         }}
@@ -157,7 +162,7 @@ export default function TrupperPage() {
                 name: "What is Trupper?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Trupper is a learning management system designed for schools and universities. It helps institutions manage courses, students, and academic operations—with built-in tools for exam creation, delivery, and grading.",
+                  text: "Trupper is a learning platform for schools, online tutors, and companies. It helps you manage courses, live classes, learners, and exams—with built-in tools for exam creation, delivery, and grading.",
                 },
               },
               {
@@ -165,15 +170,15 @@ export default function TrupperPage() {
                 name: "Does Trupper include exam management?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes. Exam management is built into Trupper as part of the broader LMS. You can create, schedule, deliver, and grade assessments alongside your courses and student records.",
+                  text: "Yes. Exam management is built into Trupper alongside courses and live classes. You can create, schedule, deliver, and grade assessments alongside your course and learner records.",
                 },
               },
               {
                 "@type": "Question",
-                name: "Is Trupper suitable for universities?",
+                name: "Is Trupper only for schools and universities?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes, Trupper is designed for all educational institutions including universities, schools, and training centers. It scales to handle large cohorts, complex curricula, and institutional reporting needs.",
+                  text: "No. Trupper is also used by online tutors running live classes and companies training their staff, in addition to schools, universities, and training centers. It scales from individual tutors to large institutions.",
                 },
               },
             ],

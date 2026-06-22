@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { HeaderClient } from "./components.client";
 import { Sidebar } from "./sidebar";
 import { Button } from "@/components/ui/button";
@@ -21,17 +20,20 @@ import {
 } from "@/components/ui/navigation-menu";
 
 export function Header({ isTrupper }: { isTrupper?: boolean }) {
-  const router = useRouter();
-
   return (
     <HeaderClient>
-      <nav className="relative z-20 flex items-center justify-between gap-4 px-4 py-3 lg:px-6">
-        <Logo />
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-2">
+          <Logo />
+          <span className="font-display text-lg font-bold text-ink">
+            Amidarh
+          </span>
+        </Link>
 
         <div className="hidden min-[900px]:flex items-center gap-8">
           <Link
             href="/"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-ink-2 transition-colors hover:text-ink"
           >
             Home
           </Link>
@@ -39,7 +41,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-sm font-medium">
+                <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-ink-2 hover:text-ink data-[state=open]:text-ink">
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -48,10 +50,12 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
                       <NavigationMenuLink asChild>
                         <a
                           href={FLOW_URL}
-                          className="block rounded-xl p-4 transition-colors hover:bg-muted"
+                          className="block rounded-lg p-4 transition-colors hover:bg-flow-soft"
                         >
-                          <p className="font-semibold text-foreground">Flow</p>
-                          <p className="mt-1 text-sm text-muted-foreground">
+                          <p className="font-display font-semibold text-flow">
+                            Flow
+                          </p>
+                          <p className="mt-1 text-sm text-ink-2">
                             AI-powered learning with courses, flashcards,
                             and quizzes.
                           </p>
@@ -62,13 +66,14 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
                       <NavigationMenuLink asChild>
                         <Link
                           href={TRUPPER_PATH}
-                          className="block rounded-xl p-4 transition-colors hover:bg-muted"
+                          className="block rounded-lg p-4 transition-colors hover:bg-accent-soft"
                         >
-                          <p className="font-semibold text-foreground">
+                          <p className="font-display font-semibold text-accent">
                             Trupper
                           </p>
-                          <p className="mt-1 text-sm text-muted-foreground">
-                            Learning management for schools and institutions—with exams built in.
+                          <p className="mt-1 text-sm text-ink-2">
+                            Courses, live classes, and exams for schools,
+                            tutors, and companies.
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -81,7 +86,7 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
 
           <Link
             href={TRUPPER_PATH}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-ink-2 transition-colors hover:text-ink"
           >
             For Institutions
           </Link>
@@ -89,20 +94,15 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
 
         <div className="hidden min-[900px]:flex items-center gap-3">
           {isTrupper ? (
-            <InstitutionSignupButton size="lg" />
+            <InstitutionSignupButton size="sm" />
           ) : (
-            <>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => router.push(TRUPPER_PATH)}
-              >
-                For Institutions
-              </Button>
-              <Button size="lg" onClick={() => window.open(FLOW_URL, "_blank")}>
-                Start with Flow
-              </Button>
-            </>
+            <Button
+              size="sm"
+              className="px-5"
+              onClick={() => window.open(FLOW_URL, "_blank")}
+            >
+              Visit Flow
+            </Button>
           )}
         </div>
 

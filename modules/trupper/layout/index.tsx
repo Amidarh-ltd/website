@@ -2,7 +2,7 @@ import { Header } from "@/core/navigation/header";
 import { Footer } from "@/core/navigation/footer";
 import { Hero } from "../components/hero";
 import Features from "../components/features";
-import Banner from "@/modules/home/components/banner.";
+import AccessFaq from "../components/access-faq";
 
 export default function TrupperLayout() {
   return (
@@ -10,7 +10,7 @@ export default function TrupperLayout() {
       <Header isTrupper />
       <Hero />
       <Features />
-      <Banner variant="trupper" />
+      <AccessFaq />
       <Footer />
     </main>
   );

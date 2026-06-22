@@ -1,73 +1,54 @@
 "use client";
 
-import { MarketingImage } from "@/components/ui/marketing-image";
+import { motion, useReducedMotion } from "framer-motion";
 import { InstitutionSignupButton } from "@/core/commons/institution-signup";
-import { BRAND_IMAGES } from "@/lib/constants/site";
-import { motion } from "framer-motion";
-import { BookOpen, Shield, Zap } from "lucide-react";
+import { ProductBadge } from "@/core/design-system/tag";
+import { fadeUp, staggerContainer } from "@/lib/motion";
+import { Button } from "@/components/ui/button";
 
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <div className="mesh-hero w-full pt-28 md:pt-32">
-      <section className="container mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 lg:pb-20">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-8 text-center lg:text-left"
-          >
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              Trupper
-            </p>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl lg:leading-[1.1]">
-              Manage learning.
-              <br />
-              At any scale.
-            </h1>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Trupper helps schools and universities run learning end to
-              end—courses, students, scheduling, and reporting—with exam
-              management built in when you need it.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <BookOpen className="size-4 text-accent" />
-                Courses & students
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Zap className="size-4 text-accent" />
-                Faster operations
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Shield className="size-4 text-accent" />
-                Secure by design
-              </div>
-            </div>
-            <InstitutionSignupButton size="xl" />
-          </motion.div>
+    <section className="grid-pattern w-full px-4 pt-24 pb-20 sm:px-6 sm:pt-28 sm:pb-24 lg:px-8 lg:pt-32 lg:pb-28">
+      <motion.div
+        initial={shouldReduceMotion ? "visible" : "hidden"}
+        animate="visible"
+        variants={staggerContainer}
+        className="mx-auto flex max-w-[860px] flex-col items-center text-center"
+      >
+        <motion.div variants={fadeUp}>
+          <ProductBadge product="trupper" />
+        </motion.div>
 
-          <MarketingImage
-            src={BRAND_IMAGES.trupper.dashboard.src}
-            alt={BRAND_IMAGES.trupper.dashboard.alt}
-            fit="contain"
-            priority
-            containerClassName="aspect-[4/3] bg-muted/30 shadow-[0_24px_64px_rgba(15,23,42,0.12)]"
-          />
-        </div>
+        <motion.h1
+          variants={fadeUp}
+          className="mt-6 font-display text-[clamp(36px,5vw,64px)] font-bold leading-[1.1] text-ink"
+        >
+          The complete learning platform for schools, tutors, and companies
+        </motion.h1>
 
-        <div className="relative mt-16 overflow-hidden rounded-2xl border border-border/60 bg-card shadow-lg">
-          <div className="aspect-video w-full">
-            <iframe
-              src="https://app.supademo.com/embed/cmel7yld10ng5v9kqerqwf9oa?embed_v=2&utm_source=embed"
-              loading="lazy"
-              title="Trupper product demo"
-              allow="clipboard-write"
-              className="h-full w-full border-0"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
-    </div>
+        <motion.p
+          variants={fadeUp}
+          className="mt-5 max-w-[600px] text-lg leading-relaxed text-ink-2"
+        >
+          Trupper gives schools, online tutors, and companies full control
+          over courses, live classes, books and resources, students or
+          trainees, exams, and analytics — from one platform.
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp}
+          className="mt-9 flex flex-col items-center gap-4 sm:flex-row"
+        >
+          <InstitutionSignupButton size="lg" />
+          <Button variant="ghost" size="lg" asChild>
+            <a href="#features" className="min-h-[44px] text-ink-2">
+              See features ↓
+            </a>
+          </Button>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }
