@@ -119,7 +119,7 @@ export function InstitutionSignup() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
-                      minLength={2}
+                      minLength={4}
                       maxLength={200}
                       className="w-full"
                     />
@@ -156,12 +156,16 @@ export function InstitutionSignup() {
                         "mt-1.5 text-xs",
                         slugStatus === "unavailable"
                           ? "text-red-600"
-                          : "text-muted-foreground",
+                          : slugStatus === "available"
+                            ? "text-green-600"
+                            : "text-muted-foreground",
                       )}
                     >
                       {slugStatus === "unavailable" && slugReason
                         ? SLUG_UNAVAILABLE_MESSAGES[slugReason]
-                        : "Generated automatically from your institution name."}
+                        : slugStatus === "available"
+                          ? "This institution name is available"
+                          : "Generated automatically from your institution name."}
                     </p>
                   </div>
 

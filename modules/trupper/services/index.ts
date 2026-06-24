@@ -6,7 +6,7 @@ import { slugify } from "@/lib/utils";
 
 const TRUPPER_API_URL =
   process.env.NEXT_PUBLIC_TRUPPER_API_URL ??
-  "https://trupper-backend.amidarh.com/api/v1";
+  "https://trupper-backend.trupper.app/api/v1";
 
 export type SlugUnavailableReason = "empty" | "invalid" | "reserved" | "taken";
 
@@ -58,6 +58,13 @@ export const useSlugAvailability = (name: string) => {
     }
 
     setSlug(slugify(name));
+
+    if (name.trim().length < 4) {
+      setStatus("idle");
+      setReason(undefined);
+      return;
+    }
+
     setStatus("checking");
 
     debounceRef.current = setTimeout(async () => {
@@ -81,7 +88,10 @@ export const useSlugAvailability = (name: string) => {
 };
 
 export const registerInstitutionSchema = z.object({
-  name: z.string().min(2, "Institution name is too short").max(200),
+  name: z
+    .string()
+    .min(4, "Institution name must be at least 4 characters")
+    .max(200),
   slug: z
     .string()
     .min(3, "Slug is too short")
