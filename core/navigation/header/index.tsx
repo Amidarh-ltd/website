@@ -90,6 +90,13 @@ export function Header({ isTrupper }: { isTrupper?: boolean }) {
           >
             For Institutions
           </Link>
+
+          <Link
+            href="/blog"
+            className="text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+          >
+            Blog
+          </Link>
         </div>
 
         <div className="hidden min-[900px]:flex items-center gap-3">

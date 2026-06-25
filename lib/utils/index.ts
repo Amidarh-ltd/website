@@ -16,3 +16,11 @@ export function slugify(value: string) {
     .replace(/^-+|-+$/g, "")
     .slice(0, 50);
 }
+
+export function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}

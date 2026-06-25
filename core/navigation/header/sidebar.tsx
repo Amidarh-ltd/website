@@ -1,6 +1,13 @@
 "use client";
 
-import { Menu, Home, GraduationCap, ArrowRight, Sparkles } from "lucide-react";
+import {
+  Menu,
+  Home,
+  GraduationCap,
+  ArrowRight,
+  Sparkles,
+  Newspaper,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -35,11 +42,18 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
       description: "Learning management",
       badge: "Live",
     },
+    {
+      href: "/blog",
+      label: "Blog",
+      icon: Newspaper,
+      description: "Product updates & stories",
+    },
   ];
 
   const isActive = (href: string) => {
     if (href === "/" && pathname === "/") return true;
     if (href === TRUPPER_PATH && pathname === TRUPPER_PATH) return true;
+    if (href === "/blog" && pathname.startsWith("/blog")) return true;
     return false;
   };
 

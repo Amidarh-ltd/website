@@ -1,0 +1,34 @@
+---
+title: "How Flow generates a course from a single topic"
+description: "A look at how Flow turns a topic into a structured course, flashcards, and quizzes — and where it still needs a human."
+date: "2026-03-22"
+author: "Tobi Lawal"
+role: "Engineering Lead, Flow"
+category: "Product"
+cover:
+  src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1600&q=80"
+  alt: "Student taking notes while learning on a laptop"
+featured: false
+---
+
+Type in a topic — "cellular respiration," "intro to Python," "the French Revolution" — and Flow returns a structured course: modules, lessons, flashcards, and a quiz, ready to study from. Here's roughly how that works, and where it falls short.
+
+## Structure before content
+
+The first pass doesn't generate lesson text — it generates an outline. Breaking a topic into modules and ordering them sensibly is a different problem than writing good explanations, and getting the structure wrong is much more disruptive to a learner than an individual lesson being slightly off. We generate and review the outline first, then fill it in.
+
+## Flashcards are derived, not separate
+
+Flashcards aren't generated independently from the course — they're extracted from the same lesson content, which keeps terminology and emphasis consistent. If a lesson defines a term one way, the flashcard for that term matches it.
+
+## Quizzes target the outline, not just the text
+
+Quiz questions are written against the module's learning objectives rather than purely against the generated text. This matters because it's easy for a model to write a quiz question that's technically answerable from the lesson but doesn't actually test understanding of the concept the module was meant to teach.
+
+## Where a human still matters
+
+Generated courses are a strong starting point, not a finished product. We're explicit about this in the product: every generated course is editable, and we'd rather a learner adjust a lesson than trust something that reads confidently but is subtly wrong. For niche or fast-moving topics especially, review before you rely on it.
+
+## What's next
+
+We're working on letting learners point Flow at their own material — lecture notes, a textbook chapter, a set of slides — and generate a course grounded in that source rather than general knowledge. That's the next big shift: from "teach me about X" to "teach me this specific material."
