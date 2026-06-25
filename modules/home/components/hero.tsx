@@ -12,12 +12,12 @@ export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="w-full px-4 pt-24 pb-20 sm:px-6 sm:pt-28 sm:pb-24 lg:px-8 lg:pt-32 lg:pb-28">
+    <section className="flex min-h-[calc(100vh-180px)] w-full items-start px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 lg:px-8 lg:pt-28 lg:pb-28">
       <motion.div
         initial={shouldReduceMotion ? "visible" : "hidden"}
         animate="visible"
         variants={staggerContainer}
-        className="mx-auto flex max-w-[860px] flex-col items-center text-center"
+        className="mx-auto flex w-full max-w-[860px] flex-col items-center text-center"
       >
         <motion.div variants={fadeUp}>
           <Tag>EdTech · 2024</Tag>
@@ -75,45 +75,6 @@ export function Hero() {
           >
             For institutions →
           </Link>
-        </motion.div>
-
-        <motion.div
-          variants={fadeUp}
-          className="mt-12 flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-stretch"
-        >
-          <motion.a
-            href={FLOW_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="w-full max-w-[280px] rounded-xl border-l-[3px] border-flow bg-flow-soft px-6 py-5 text-left transition-shadow hover:shadow-[var(--shadow-lift)] sm:mx-0"
-          >
-            <p className="font-display text-3xl font-bold text-flow">Flow</p>
-            <p className="mt-1 text-[13px] text-flow/70">
-              AI learning for everyone
-            </p>
-          </motion.a>
-
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="w-full max-w-[280px] sm:mx-0"
-          >
-            <Link
-              href={TRUPPER_PATH}
-              className="block rounded-xl border-l-[3px] border-accent bg-accent-soft px-6 py-5 text-left transition-shadow hover:shadow-[var(--shadow-lift)]"
-            >
-              <p className="font-display text-3xl font-bold text-accent">
-                Trupper
-              </p>
-              <p className="mt-1 text-[13px] text-accent/70">
-                Courses, classes & training
-              </p>
-            </Link>
-          </motion.div>
         </motion.div>
       </motion.div>
     </section>
