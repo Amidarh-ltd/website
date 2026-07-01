@@ -12,6 +12,7 @@ const footerLinks = {
   company: [
     { label: "About", href: "#" },
     { label: "Blog", href: "/blog" },
+    { label: "System Status", href: "/trupper/status" },
   ],
   legal: [
     { label: "Privacy", href: "#" },
