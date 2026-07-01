@@ -1,15 +1,70 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { useStore } from "@/lib/utils/zustand/store";
-import type { Plan } from "../services/plans";
+import { getPlans, type Plan } from "../services/plans";
 
-export default function PricingCards({ plans }: { plans: Plan[] }) {
+function PricingSkeletonCard() {
+  return (
+    <div className="flex animate-pulse flex-col rounded-xl border border-border-soft bg-white p-8">
+      <div className="h-5 w-24 rounded bg-surface" />
+      <div className="mt-3 h-4 w-full rounded bg-surface" />
+      <div className="mt-1.5 h-4 w-3/4 rounded bg-surface" />
+
+      <div className="mt-6 h-8 w-28 rounded bg-surface" />
+      <div className="mt-2 h-3 w-20 rounded bg-surface" />
+
+      <div className="mt-7 h-11 w-full rounded-full bg-surface" />
+
+      <div className="mt-8 flex flex-col gap-3">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="h-3.5 w-full rounded bg-surface" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function PricingCards() {
   const setInstitutionSignup = useStore((state) => state.setInstitutionSignup);
+  const [plans, setPlans] = useState<Plan[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    getPlans()
+      .then((data) => {
+        if (!cancelled) setPlans(data);
+      })
+      .catch(() => {
+        if (!cancelled) setPlans([]);
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="mt-14 grid gap-6 lg:grid-cols-4">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <PricingSkeletonCard key={i} />
+        ))}
+      </div>
+    );
+  }
+
+  if (!plans.length) return null;
 
   return (
     <motion.div

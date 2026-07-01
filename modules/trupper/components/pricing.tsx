@@ -1,11 +1,6 @@
-import { getPlans } from "../services/plans";
 import PricingCards from "./pricing-cards";
 
-export default async function Pricing() {
-  const plans = await getPlans().catch(() => []);
-
-  if (!plans.length) return null;
-
+export default function Pricing() {
   return (
     <section
       id="pricing"
@@ -22,7 +17,7 @@ export default async function Pricing() {
           </p>
         </div>
 
-        <PricingCards plans={plans} />
+        <PricingCards />
       </div>
     </section>
   );
