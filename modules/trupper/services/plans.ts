@@ -1,5 +1,6 @@
 const TRUPPER_ROOT_URL =
-  process.env.NEXT_PUBLIC_TRUPPER_ROOT_URL ?? "https://api.trupper.app";
+  process.env.NEXT_PUBLIC_TRUPPER_ROOT_URL ??
+  "https://trupper-backend.trupper.app";
 
 export interface PlanCapabilities {
   liveClasses: boolean;
@@ -33,7 +34,7 @@ export interface GetPlansResponse {
 }
 
 export const getPlans = async (): Promise<Plan[]> => {
-  const response = await fetch(`${TRUPPER_ROOT_URL}/api/public/plans`, {
+  const response = await fetch(`${TRUPPER_ROOT_URL}/api/v1/billing/public/plans`, {
     next: { revalidate: 3600 },
   });
 
