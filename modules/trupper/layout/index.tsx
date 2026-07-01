@@ -3,6 +3,7 @@ import { Footer } from "@/core/navigation/footer";
 import { Hero } from "../components/hero";
 import Features from "../components/features";
 import DesktopApp from "../components/desktop-app";
+import Pricing from "../components/pricing";
 import AccessFaq from "../components/access-faq";
 
 export default function TrupperLayout() {
@@ -12,6 +13,7 @@ export default function TrupperLayout() {
       <Hero />
       <Features />
       <DesktopApp />
+      <Pricing />
       <AccessFaq />
       <Footer />
     </main>
