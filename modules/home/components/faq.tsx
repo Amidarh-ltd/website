@@ -39,7 +39,7 @@ const faqs = [
 
 export default function Faq() {
   return (
-    <section className="w-full bg-white px-4 py-24 sm:px-6 lg:px-8">
+    <section className="w-full px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-2xl">
         <motion.div
           initial="hidden"
@@ -47,7 +47,7 @@ export default function Faq() {
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
         >
-          <h2 className="text-center font-display text-[clamp(28px,4vw,40px)] font-semibold text-ink">
+          <h2 className="text-center font-display text-[clamp(28px,4vw,40px)] font-700 text-foreground">
             Frequently asked questions
           </h2>
           <Accordion className="mt-10">

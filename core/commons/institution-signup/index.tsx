@@ -297,6 +297,7 @@ export const InstitutionSignupButton = ({
   const { setInstitutionSignup } = useStore();
   return (
     <Button
+      variant="trupper"
       size={size === "sm" ? "sm" : size === "xl" ? "xl" : "lg"}
       className={cn(className)}
       onClick={() => setInstitutionSignup(true)}

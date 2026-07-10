@@ -1,82 +1,165 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Tag } from "@/core/design-system/tag";
-import { fadeUp, staggerContainer } from "@/lib/motion";
-import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
-import { ArrowRight } from "lucide-react";
+import { images } from "@/lib/site-image";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
-    <section className="flex min-h-[calc(100vh-180px)] w-full items-start px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 lg:px-8 lg:pt-28 lg:pb-28">
-      <motion.div
-        initial={shouldReduceMotion ? "visible" : "hidden"}
-        animate="visible"
-        variants={staggerContainer}
-        className="mx-auto flex w-full max-w-[860px] flex-col items-center text-center"
-      >
-        <motion.div variants={fadeUp}>
-          <Tag>EdTech · 2024</Tag>
-        </motion.div>
-
-        <motion.h1
-          variants={fadeUp}
-          className="mt-6 font-display text-[clamp(40px,7vw,80px)] font-bold leading-[1.05] text-ink"
-        >
-          Learn smarter.
-          <br />
-          <span className="relative inline-block">
-            Run institutions better.
-            <svg
-              viewBox="0 0 320 14"
-              preserveAspectRatio="none"
-              className="absolute -bottom-2 left-0 h-3 w-full text-accent sm:-bottom-3 sm:h-4"
-              aria-hidden="true"
+    <section id="top" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 relative bottom-[50px]">
+        <div className="grid items-start gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Left - Copy */}
+          <div className="pt-4">
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease }}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-600 uppercase tracking-[0.16em] text-muted-foreground shadow-soft"
             >
-              <path
-                d="M2 9 C 50 1, 90 13, 140 6 C 190 -1, 230 13, 318 5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-        </motion.h1>
+              <Sparkles className="size-3.5 text-flow" /> Edtech &middot; 2024
+            </motion.span>
 
-        <motion.p
-          variants={fadeUp}
-          className="mt-5 max-w-[560px] text-lg leading-relaxed text-ink-2"
-        >
-          Amidarh is the company behind two independent products: Flow,
-          AI-powered learning for individuals, and Trupper, a learning
-          platform for schools, online tutors, and companies.
-        </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.06, ease }}
+              className="mt-6 font-display text-5xl font-700 leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+            >
+              Learn smarter.
+              <br />
+              Run institutions{" "}
+              <span className="underline-squiggle">better.</span>
+            </motion.h1>
 
-        <motion.div
-          variants={fadeUp}
-          className="mt-9 flex flex-col items-center gap-4 sm:flex-row"
-        >
-          <Button
-            size="xl"
-            className="group min-h-[44px]"
-            onClick={() => window.open(FLOW_URL, "_blank")}
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.16, ease }}
+              className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground"
+            >
+              Amidarh is the company behind two independent products:{" "}
+              <span className="font-600 text-foreground">Flow</span>, AI-powered
+              learning for individuals, and{" "}
+              <span className="font-600 text-foreground">Trupper</span>, a
+              learning platform for schools, online tutors, and companies.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.26, ease }}
+              className="mt-9 flex flex-wrap items-center gap-4"
+            >
+              <Button variant="ink" size="xl" asChild>
+                <a href="#flow">
+                  Start learning free <ArrowRight className="size-4" />
+                </a>
+              </Button>
+              <a
+                href="#trupper"
+                className="group inline-flex items-center gap-1.5 text-sm font-600 text-trupper transition-colors hover:text-foreground"
+              >
+                For institutions
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-12 flex items-center gap-8"
+            >
+              <div>
+                <p className="font-display text-2xl font-700 text-foreground">40k+</p>
+                <p className="text-xs text-muted-foreground">Active learners</p>
+              </div>
+              <div className="h-8 w-px bg-border" />
+              <div>
+                <p className="font-display text-2xl font-700 text-foreground">120+</p>
+                <p className="text-xs text-muted-foreground">Institutions</p>
+              </div>
+              <div className="h-8 w-px bg-border" />
+              <div>
+                <p className="font-display text-2xl font-700 text-foreground">2</p>
+                <p className="text-xs text-muted-foreground">Focused products</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right - Image Collage Grid */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.2, ease }}
+            className="relative"
           >
-            Start learning free
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </Button>
-          <Link
-            href={TRUPPER_PATH}
-            className="flex min-h-[44px] items-center text-[15px] font-medium text-accent transition-colors hover:text-accent-2"
-          >
-            For institutions →
-          </Link>
-        </motion.div>
-      </motion.div>
+            <div className="grid grid-cols-5 grid-rows-6 gap-3 [aspect-ratio:5/6]">
+              {/* Primary image - top-left, large */}
+              <div className="relative col-span-3 row-span-4 overflow-hidden rounded-2xl shadow-lift">
+                <img
+                  src={images.heroPrimary}
+                  alt="People learning together"
+                  className="h-full w-full object-cover"
+                  loading="eager"
+                />
+                {/* Flow badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                  className="absolute left-3 top-3 flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-2 text-sm font-600 shadow-lift"
+                >
+                  <span className="size-2 rounded-full bg-flow" /> Flow
+                </motion.div>
+              </div>
+
+              {/* Secondary image - top-right, shorter */}
+              <div className="col-span-2 row-span-3 overflow-hidden rounded-2xl shadow-lift">
+                <img
+                  src={images.heroSecondary}
+                  alt="Study notes and planning"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Tertiary image - bottom-right */}
+              <div className="relative col-span-2 row-span-3 overflow-hidden rounded-2xl shadow-lift">
+                <img
+                  src={images.heroTertiary}
+                  alt="Reading in a library"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                {/* Trupper badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.85, duration: 0.6 }}
+                  className="absolute right-3 bottom-3 flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-2 text-sm font-600 shadow-lift"
+                >
+                  <span className="size-2 rounded-full bg-trupper" /> Trupper
+                </motion.div>
+              </div>
+
+              {/* Dark card - bottom-left */}
+              <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-ink p-6 text-ink-foreground shadow-ink">
+                <p className="font-display text-xs font-600 uppercase tracking-[0.14em] text-ink-foreground/50">
+                  One company
+                </p>
+                <p className="mt-1 font-display text-lg font-600 leading-snug">
+                  Two products, built to work the way you learn and teach.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

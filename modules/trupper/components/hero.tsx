@@ -10,7 +10,7 @@ export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative w-full overflow-hidden bg-white px-4 pt-24 pb-20 sm:px-6 sm:pt-28 sm:pb-24 lg:px-8 lg:pt-32 lg:pb-28">
+    <section className="relative w-full overflow-hidden bg-white px-4 pt-6 pb-20 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 lg:pt-10 lg:pb-28">
       <div
         aria-hidden="true"
         className="absolute inset-0"

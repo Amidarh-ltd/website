@@ -30,7 +30,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="w-full bg-surface px-4 py-24 sm:px-6 lg:px-8">
+    <section className="w-full px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -39,7 +39,7 @@ export default function Testimonials() {
           variants={fadeUp}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="font-display text-[clamp(28px,4vw,40px)] font-semibold text-ink">
+          <h2 className="font-display text-[clamp(28px,4vw,40px)] font-700 text-foreground">
             What people are saying
           </h2>
         </motion.div>
@@ -55,15 +55,21 @@ export default function Testimonials() {
             <motion.figure
               key={t.name}
               variants={fadeUp}
-              className="flex flex-col justify-between rounded-lg border border-border-soft bg-white p-7 shadow-[var(--shadow-card)]"
+              className="flex flex-col justify-between rounded-2xl border border-border-soft bg-card p-7 shadow-[var(--shadow-card)]"
             >
-              <blockquote className="text-[15px] leading-relaxed text-ink-2">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
+              {/* Quote mark */}
+              <div>
+                <span className="font-display text-3xl leading-none text-muted-foreground/30">
+                  &ldquo;&ldquo;
+                </span>
+                <blockquote className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                  {t.quote}
+                </blockquote>
+              </div>
               <figcaption className="mt-6 flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-ink">{t.name}</p>
-                  <p className="text-xs text-ink-3">{t.role}</p>
+                  <p className="text-sm font-600 text-foreground">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
                 <ProductBadge product={t.product} />
               </figcaption>

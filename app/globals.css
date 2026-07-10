@@ -19,7 +19,11 @@
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-flow: var(--flow);
+  --color-flow-foreground: var(--flow-foreground);
   --color-flow-soft: var(--flow-soft);
+  --color-trupper: var(--trupper);
+  --color-trupper-foreground: var(--trupper-foreground);
+  --color-ink-foreground: var(--ink-foreground);
   --color-border-soft: var(--border-soft);
   --font-sans: var(--font-body);
   --font-body: var(--font-body);
@@ -56,6 +60,10 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-pill: 999px;
+
+  --shadow-soft: 0 1px 3px rgba(26, 25, 22, 0.06), 0 1px 2px rgba(26, 25, 22, 0.04);
+  --shadow-ink: 0 4px 12px rgba(26, 25, 22, 0.25), 0 1px 3px rgba(26, 25, 22, 0.12);
+  --shadow-lift: 0 4px 16px rgba(26, 25, 22, 0.08), 0 1px 4px rgba(26, 25, 22, 0.04);
 }
 
 :root {
@@ -85,13 +93,19 @@
   --primary: var(--ink);
   --primary-foreground: var(--background);
 
-  --accent: #6b5fa0;
+  --accent: #6c3cf0;
   --accent-foreground: #ffffff;
-  --accent-soft: #ecedf8;
-  --accent-2: #4e4480;
+  --accent-soft: #eee7fe;
+  --accent-2: #4a1fd6;
 
-  --flow: #2d6a4f;
-  --flow-soft: #e8f5ee;
+  --flow: #0ea968;
+  --flow-foreground: #ffffff;
+  --flow-soft: #ddf6ea;
+
+  --trupper: #6c3cf0;
+  --trupper-foreground: #ffffff;
+
+  --ink-foreground: #f8f6f2;
 
   --secondary: var(--surface);
   --secondary-foreground: var(--ink);
@@ -100,10 +114,10 @@
   --destructive: oklch(0.577 0.245 27.325);
   --input: var(--surface-2);
   --ring: var(--accent);
-  --chart-1: #6b5fa0;
-  --chart-2: #2d6a4f;
+  --chart-1: #6c3cf0;
+  --chart-2: #0ea968;
   --chart-3: #8a8a89;
-  --chart-4: #4e4480;
+  --chart-4: #4a1fd6;
   --chart-5: #1a1916;
   --sidebar: var(--background);
   --sidebar-foreground: var(--ink);
@@ -145,13 +159,19 @@
   --primary: var(--ink);
   --primary-foreground: var(--background);
 
-  --accent: #8b7fc0;
+  --accent: #a585ff;
   --accent-foreground: #14130f;
-  --accent-soft: rgba(139, 127, 192, 0.16);
-  --accent-2: #a89cd8;
+  --accent-soft: rgba(165, 133, 255, 0.18);
+  --accent-2: #c0aaff;
 
-  --flow: #5fae87;
-  --flow-soft: rgba(95, 174, 135, 0.14);
+  --flow: #3ddc9a;
+  --flow-foreground: #14130f;
+  --flow-soft: rgba(61, 220, 154, 0.16);
+
+  --trupper: #a585ff;
+  --trupper-foreground: #14130f;
+
+  --ink-foreground: #14130f;
 
   --secondary: var(--surface);
   --secondary-foreground: var(--ink);
@@ -170,11 +190,14 @@
   --sidebar-ring: var(--accent);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  scroll-behavior: smooth;
   background-color: var(--background);
   color: var(--foreground);
 }

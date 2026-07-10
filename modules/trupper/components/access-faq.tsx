@@ -76,7 +76,7 @@ export default function AccessFaq() {
             a tailored onboarding session.
           </p>
           <Button
-            variant="accent"
+            variant="trupper"
             size="lg"
             className="mt-6"
             onClick={() => setInstitutionSignup(true)}

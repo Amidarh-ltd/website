@@ -111,7 +111,7 @@ export default function PricingCards() {
           )}
 
           <Button
-            variant={plan.popular ? "accent" : "outline"}
+            variant={plan.popular ? "trupper" : "outline"}
             size="lg"
             className="mt-7 w-full"
             onClick={() => setInstitutionSignup(true)}
