@@ -55,9 +55,14 @@ export function Hero() {
           className="mt-9 flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
           <InstitutionSignupButton size="lg" />
-          <Button variant="ghost" size="lg" asChild>
-            <a href="#features" className="min-h-[44px] text-ink-2">
-              See features ↓
+          <Button variant="outline" size="lg" asChild>
+            <a
+              href="https://calendly.com/amidarh01/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="min-h-[44px]"
+            >
+              Book a demo
             </a>
           </Button>
         </motion.div>

@@ -98,15 +98,36 @@ export default function PricingCards() {
             {plan.description}
           </p>
 
-          <div className="mt-6 flex items-baseline gap-1.5">
+          {plan.discountPercent !== null && (
+            <span className="mt-4 inline-flex w-fit items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-700">
+              {plan.discountPercent}% off
+            </span>
+          )}
+
+          <div className="mt-4 flex items-baseline gap-1.5">
             <span className="font-display text-3xl font-bold text-ink">
               {plan.priceLabel}
             </span>
             <span className="text-sm text-ink-2">{plan.period}</span>
           </div>
+
+          {plan.discountPercent !== null && plan.originalPriceAmount > 0 && (
+            <p className="mt-1 text-[13px] text-ink-2 line-through">
+              {plan.currency === "NGN" ? "₦" : "$"}
+              {plan.originalPriceAmount.toLocaleString()}
+            </p>
+          )}
+
           {plan.priceUsd !== null && (
             <p className="mt-1 text-[13px] text-ink-2">
-              {plan.priceUsdLabel} USD equivalent
+              {plan.priceUsdLabel}
+              {plan.originalPriceUsd !== null &&
+                plan.discountPercent !== null && (
+                  <span className="ml-1 line-through opacity-60">
+                    ${plan.originalPriceUsd}
+                  </span>
+                )}{" "}
+              USD equivalent
             </p>
           )}
 

@@ -27,6 +27,9 @@ export interface Plan {
   studentLimit: number | null;
   storageLimitGb: number | null;
   capabilities: PlanCapabilities;
+  originalPriceAmount: number;
+  originalPriceUsd: number | null;
+  discountPercent: number | null;
 }
 
 export interface GetPlansResponse {
