@@ -28,7 +28,9 @@ export function Hero() {
             </span>
           </h1>
           {/* Hero image placeholder for mobile */}
-          <div className="mt-8 aspect-[16/9] w-full rounded-2xl bg-surface lg:hidden" />
+          <div className="mt-8 aspect-[16/9] w-full rounded-2xl bg-surface lg:hidden">
+          <Image src="https://res.cloudinary.com/dl5dyntsp/image/upload/v1786832820/cover2_tzfpeo.png" alt="Trupper" width={1000} height={1000} className="w-full h-full object-cover rounded-2xl" priority />
+          </div>
         </motion.div>
 
         {/* Right — description + CTAs */}
@@ -58,6 +60,12 @@ export function Hero() {
           </div>
         </motion.div>
       </motion.div>
+      
+
+      {/* image for mobile */}
+      <div className="mx-auto mt-16 hidden max-w-7xl lg:block">
+        <Image src="https://res.cloudinary.com/dl5dyntsp/image/upload/v1786832820/cover2_tzfpeo.png" alt="Trupper" width={1000} height={1000} className="w-full h-full object-cover rounded-2xl" priority />
+      </div>
 
       {/* Hero image placeholder for desktop */}
       <div className="mx-auto mt-16 hidden max-w-7xl lg:block">
