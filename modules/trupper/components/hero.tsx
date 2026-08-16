@@ -63,9 +63,9 @@ export function Hero() {
       
 
       {/* image for mobile */}
-      <div className="mx-auto mt-16 hidden max-w-7xl lg:block">
+      {/* <div className="mx-auto mt-16 hidden max-w-7xl lg:block">
         <Image src="https://res.cloudinary.com/dl5dyntsp/image/upload/v1786832820/cover2_tzfpeo.png" alt="Trupper" width={1000} height={1000} className="w-full h-full object-cover rounded-2xl" priority />
-      </div>
+      </div> */}
 
       {/* Hero image placeholder for desktop */}
       <div className="mx-auto mt-16 hidden max-w-7xl lg:block">

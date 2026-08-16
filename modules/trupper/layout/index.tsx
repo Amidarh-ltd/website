@@ -19,7 +19,7 @@ export default function TrupperLayout() {
       <Hero />
       <TrustBar />
       <ValueHeadline />
-      <FeatureCards />
+      {/* <FeatureCards /> */}
       <Features />
       <DesktopApp />
       <Pricing />
