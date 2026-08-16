@@ -123,7 +123,7 @@ export default function Features() {
               className="overflow-hidden rounded-2xl bg-surface"
             >
               <img
-                src={images.trupper}
+                src={"https://res.cloudinary.com/dl5dyntsp/image/upload/v1786843744/cover_2_d8pzgl.png"}
                 alt="Trupper institution management"
                 className="h-full w-full object-cover aspect-[856/360]"
                 loading="lazy"

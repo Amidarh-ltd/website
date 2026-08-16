@@ -20,7 +20,7 @@ export function Hero() {
               transition={{ duration: 0.5, ease }}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground shadow-soft"
             >
-              <Sparkles className="size-3.5 text-flow" /> Edtech &middot; 2024
+             Edtech &middot;
             </motion.span>
 
             <motion.h1
