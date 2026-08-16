@@ -2,71 +2,69 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { InstitutionSignupButton } from "@/core/commons/institution-signup";
-import { ProductBadge } from "@/core/design-system/tag";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative w-full overflow-hidden bg-white px-4 pt-6 pb-20 sm:px-6 sm:pt-8 sm:pb-24 lg:px-8 lg:pt-10 lg:pb-28">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 75% 60% at 50% -5%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 72%), radial-gradient(ellipse 55% 45% at 105% 15%, color-mix(in oklab, var(--accent-2) 26%, transparent), transparent 68%), radial-gradient(ellipse 55% 45% at -5% 100%, color-mix(in oklab, var(--flow) 18%, transparent), transparent 68%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="grid-pattern absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)] opacity-40"
-      />
-
+    <section className="w-full bg-white px-4 pt-16 pb-20 sm:px-6 sm:pt-20 sm:pb-24 lg:px-8 lg:pt-24 lg:pb-28">
       <motion.div
         initial={shouldReduceMotion ? "visible" : "hidden"}
         animate="visible"
         variants={staggerContainer}
-        className="relative mx-auto flex max-w-[860px] flex-col items-center text-center"
+        className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20"
       >
-        <motion.div variants={fadeUp} className="w-full">
-          <ProductBadge product="trupper" />
+        {/* Left — headline */}
+        <motion.div variants={fadeUp}>
+          <h1 className="font-display text-[clamp(40px,5.5vw,72px)] font-bold leading-[1.05] tracking-tight text-ink">
+            Run your institution
+            <br />
+            without the{" "}
+            <span className="font-[var(--font-serif-display)] italic">
+              chaos
+            </span>
+          </h1>
+          {/* Hero image placeholder for mobile */}
+          <div className="mt-8 aspect-[16/9] w-full rounded-2xl bg-surface lg:hidden" />
         </motion.div>
 
-        <motion.h1
-          variants={fadeUp}
-          className="mt-6 w-full font-display text-[clamp(36px,5vw,64px)] font-bold leading-[1.1] text-ink"
-        >
-          The complete learning platform for schools, tutors, and companies
-        </motion.h1>
-
-        <motion.p
-          variants={fadeUp}
-          className="mx-auto mt-5 w-full max-w-[600px] text-lg leading-relaxed text-ink-2"
-        >
-          Trupper gives schools, online tutors, and companies full control
-          over courses, live classes, books and resources, students or
-          trainees, exams, and analytics — from one platform.
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp}
-          className="mt-9 flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center"
-        >
-          <InstitutionSignupButton size="lg" />
-          <Button variant="outline" size="lg" asChild>
-            <a
-              href="https://calendly.com/amidarh01/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="min-h-[44px]"
-            >
-              Book a demo
-            </a>
-          </Button>
+        {/* Right — description + CTAs */}
+        <motion.div variants={fadeUp} className="flex flex-col items-start lg:items-end">
+          <div className="max-w-md lg:text-right">
+            <p className="text-[17px] leading-relaxed text-ink-2">
+              Trupper empowers schools, tutors, and institutions with a
+              multitenant LMS — CBT exams, instant payments, and AI-powered
+              administration.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3 lg:justify-end">
+              <InstitutionSignupButton
+                size="lg"
+                variant="outline"
+                label="Get Early Access"
+              />
+              <Button variant="outline" size="lg" asChild>
+                <a
+                  href="https://calendly.com/amidarh01/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Request a demo
+                </a>
+              </Button>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
+
+      {/* Hero image placeholder for desktop */}
+      <div className="mx-auto mt-16 hidden max-w-7xl lg:block">
+        {/* <div className="aspect-[16/7] w-full rounded-2xl bg-surface" /> */}
+
+        <Image src="https://res.cloudinary.com/dl5dyntsp/image/upload/v1786832820/cover2_tzfpeo.png" alt="Trupper" width={1000} height={1000} className="w-full h-full object-cover rounded-2xl" priority />
+      </div>
     </section>
   );
 }

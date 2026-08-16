@@ -1,21 +1,33 @@
 import { Header } from "@/core/navigation/header";
-import { Footer } from "@/core/navigation/footer";
 import { Hero } from "../components/hero";
+import TrustBar from "../components/trust-bar";
+import ValueHeadline from "../components/value-headline";
+import FeatureCards from "../components/feature-cards";
 import Features from "../components/features";
 import DesktopApp from "../components/desktop-app";
 import Pricing from "../components/pricing";
-import AccessFaq from "../components/access-faq";
+import Testimonial from "../components/testimonial";
+import Security from "../components/security";
+import Changelog from "../components/changelog";
+import ClosingCta from "../components/closing-cta";
+import TrupperFooter from "../components/trupper-footer";
 
 export default function TrupperLayout() {
   return (
-    <main className="min-h-screen bg-background">
-      <Header isTrupper />
+    <main className="min-h-screen bg-white">
+      <Header />
       <Hero />
+      <TrustBar />
+      <ValueHeadline />
+      <FeatureCards />
       <Features />
       <DesktopApp />
       <Pricing />
-      <AccessFaq />
-      <Footer />
+      <Testimonial />
+      <Security />
+      <Changelog />
+      <ClosingCta />
+      <TrupperFooter />
     </main>
   );
 }

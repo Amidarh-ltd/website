@@ -1,32 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ProductBadge } from "@/core/design-system/tag";
-import { fadeUp, staggerContainer } from "@/lib/motion";
-
-const testimonials = [
-  {
-    quote:
-      "Flow turned a topic I knew nothing about into a course I could actually follow. The flashcards made revision painless.",
-    name: "Amaka O.",
-    role: "Flow user",
-    product: "flow" as const,
-  },
-  {
-    quote:
-      "We moved our entire exam process onto Trupper in under two weeks. Grading that used to take days now happens automatically.",
-    name: "Dr. Bello",
-    role: "Academic Director",
-    product: "trupper" as const,
-  },
-  {
-    quote:
-      "I use Flow to study between classes — generating a quiz on a topic takes seconds and it actually tests what I don't know.",
-    name: "Tunde A.",
-    role: "Flow user",
-    product: "flow" as const,
-  },
-];
+import { fadeUp } from "@/lib/motion";
 
 export default function Testimonials() {
   return (
@@ -37,44 +12,25 @@ export default function Testimonials() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
-          className="mx-auto max-w-2xl text-center"
+          className="rounded-2xl border border-border-soft bg-card px-6 py-16 sm:px-12 sm:py-20"
         >
-          <h2 className="font-display text-[clamp(28px,4vw,40px)] font-700 text-foreground">
-            What people are saying
-          </h2>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={staggerContainer}
-          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {testimonials.map((t) => (
-            <motion.figure
-              key={t.name}
-              variants={fadeUp}
-              className="flex flex-col justify-between rounded-2xl border border-border-soft bg-card p-7 shadow-[var(--shadow-card)]"
-            >
-              {/* Quote mark */}
-              <div>
-                <span className="font-display text-3xl leading-none text-muted-foreground/30">
-                  &ldquo;&ldquo;
-                </span>
-                <blockquote className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                  {t.quote}
-                </blockquote>
+          <blockquote className="mx-auto max-w-2xl text-center">
+            <p className="font-serif-display text-[clamp(20px,2.5vw,28px)] italic leading-relaxed text-foreground">
+              &ldquo;Flow helped me learn data science in a way textbooks never
+              could. The AI-generated courses just make sense.&rdquo;
+            </p>
+            <figcaption className="mt-8 flex flex-col items-center gap-3">
+              <div className="size-10 rounded-full bg-surface" />
+              <div className="text-center">
+                <p className="text-sm font-semibold text-foreground">
+                  Amaka Okonkwo
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Data Science Learner, Flow
+                </p>
               </div>
-              <figcaption className="mt-6 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-600 text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </div>
-                <ProductBadge product={t.product} />
-              </figcaption>
-            </motion.figure>
-          ))}
+            </figcaption>
+          </blockquote>
         </motion.div>
       </div>
     </section>

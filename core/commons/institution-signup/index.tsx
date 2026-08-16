@@ -289,20 +289,24 @@ export function InstitutionSignup() {
 
 export const InstitutionSignupButton = ({
   size = "lg",
+  variant = "trupper",
+  label = "Get Started with Trupper",
   className,
 }: {
   size?: "sm" | "lg" | "xl";
+  variant?: "trupper" | "outline" | "default";
+  label?: string;
   className?: string;
 }) => {
   const { setInstitutionSignup } = useStore();
   return (
     <Button
-      variant="trupper"
+      variant={variant}
       size={size === "sm" ? "sm" : size === "xl" ? "xl" : "lg"}
       className={cn(className)}
       onClick={() => setInstitutionSignup(true)}
     >
-      Get Started with Trupper
+      {label}
     </Button>
   );
 };

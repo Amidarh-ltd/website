@@ -7,19 +7,18 @@ import {
   ArrowRight,
   Sparkles,
   Newspaper,
+  Tag,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { getCurrentYear } from "@/lib/utils";
 import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
-import { InstitutionSignupButton } from "@/core/commons/institution-signup";
 import { cn } from "@/lib/utils";
 
-export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
+export function Sidebar() {
   const pathname = usePathname();
-  const router = useRouter();
 
   const navigationItems = [
     {
@@ -41,6 +40,12 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
       icon: GraduationCap,
       description: "Learning management",
       badge: "Live",
+    },
+    {
+      href: `${TRUPPER_PATH}#pricing`,
+      label: "Pricing",
+      icon: Tag,
+      description: "Plans and pricing",
     },
     {
       href: "/blog",
@@ -118,7 +123,7 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
                 </>
               );
 
-              const className = cn(
+              const itemClassName = cn(
                 "group flex min-h-[44px] items-center gap-3 rounded-lg border p-3 transition-colors",
                 active
                   ? "border-accent/20 bg-accent-soft"
@@ -131,12 +136,12 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={className}
+                  className={itemClassName}
                 >
                   {content}
                 </a>
               ) : (
-                <Link key={item.href} href={item.href} className={className}>
+                <Link key={item.href} href={item.href} className={itemClassName}>
                   {content}
                 </Link>
               );
@@ -144,25 +149,15 @@ export function Sidebar({ isTrupper }: { isTrupper?: boolean }) {
           </div>
 
           <div className="border-t border-border-soft bg-surface/60 p-4">
-            {isTrupper ? (
-              <InstitutionSignupButton className="w-full min-h-[44px]" />
-            ) : (
-              <>
-                <Button
-                  className="w-full min-h-[44px]"
-                  onClick={() => window.open(FLOW_URL, "_blank")}
-                >
-                  Get started
-                </Button>
-                <Button
-                  variant="outline"
-                  className="mt-2 w-full min-h-[44px]"
-                  onClick={() => router.push(TRUPPER_PATH)}
-                >
-                  For Institutions
-                </Button>
-              </>
-            )}
+            <Button className="w-full min-h-[44px]" asChild>
+              <a
+                href="https://calendly.com/amidarh01/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a demo
+              </a>
+            </Button>
             <p className="mt-4 text-center text-xs text-ink-3">
               © {getCurrentYear()} Amidarh
             </p>

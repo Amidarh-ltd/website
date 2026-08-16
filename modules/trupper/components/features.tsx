@@ -1,103 +1,103 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  BarChart2,
-  BookOpen,
-  FileText,
-  type LucideIcon,
-  Users,
-  Video,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
 import { fadeUp } from "@/lib/motion";
-import { MarketingImage } from "@/components/ui/marketing-image";
-import { UNSPLASH_IMAGES } from "@/lib/constants/site";
+import Image from "next/image";
 
-const sections: {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  image: { src: string; alt: string };
-}[] = [
+const sections = [
   {
-    icon: BookOpen,
-    title: "Courses & Resources",
+    number: "01",
+    title: "Launch your institution\nin your own brand",
     description:
-      "Build course catalogs with modules, lessons, books, and study materials. Assign to cohorts or individual learners. Control who sees what with role-based permissions.",
-    image: UNSPLASH_IMAGES.trupperFeatures.courses,
+      "Go live with a branded platform — custom domain, your logo, your colors. Each institution gets its own isolated environment, instantly.",
+    capabilityLabel: "Multitenancy",
+    capabilities: [
+      "Custom Domains",
+      "Branded Themes",
+      "Role-Based Access",
+      "Data Isolation",
+      "Bulk Onboarding",
+    ],
+    image: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786834532/branding_jimmtp.png",
   },
   {
-    icon: Video,
-    title: "Live Classes",
+    number: "02",
+    title: "Run exams that\ncan't be gamed",
     description:
-      "Host live sessions and virtual classrooms — whether you're a school running a term, a tutor teaching one-on-one, or a company training staff remotely.",
-    image: UNSPLASH_IMAGES.trupperFeatures.liveClasses,
+      "CBT engine with real-time proctoring signals, randomized questions, timed sessions, and instant auto-grading with detailed analytics.",
+    capabilityLabel: "Exam Integrity",
+    capabilities: [
+      "Auto-Proctoring Signals",
+      "Time Analytics",
+      "Auto-Grading",
+      "Result Exports",
+    ],
+    image: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786835612/exams_xrhu6n.png",
   },
   {
-    icon: FileText,
-    title: "Exam Engine",
+    number: "03",
+    title: "Let the AI assistant\ndo the admin work",
     description:
-      "Create exams with question banks, time limits, and auto-grading. Support for MCQ, theory, and CBT formats. Anti-cheat built in.",
-    image: UNSPLASH_IMAGES.trupperFeatures.examEngine,
-  },
-  {
-    icon: Users,
-    title: "Student & Trainee Records",
-    description:
-      "Manage enrollment, attendance, schedules, and records in one view — for students, course participants, or staff trainees. Export to CSV anytime.",
-    image: UNSPLASH_IMAGES.trupperFeatures.records,
-  },
-  {
-    icon: BarChart2,
-    title: "Performance Analytics",
-    description:
-      "Real-time dashboards for administrators and trainers. Track cohort progress, identify at-risk learners, and generate reports.",
-    image: UNSPLASH_IMAGES.trupperFeatures.analytics,
+      '"Add 40 students to Class 3B." "Generate a quiz on photosynthesis." Your admin assistant understands natural language and executes multi-step tasks.',
+    capabilityLabel: "Built for speed & teams of any size",
+    capabilities: [
+      "Wallet & Instant Withdrawal",
+      "Google Workspace Export",
+      "API Access",
+      "Custom Roles & Permissions",
+      "Offline-Friendly Exam Mode",
+      "Domain Whitelisting",
+    ],
+    image: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786835093/AI_Assistance_2_mqvmuh.png",
   },
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="w-full bg-white px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-20">
-        {sections.map((section, index) => {
-          const Icon = section.icon;
-          const reversed = index % 2 === 1;
-
-          return (
-            <motion.div
-              key={section.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-              className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
-            >
-              <div className={cn(reversed && "lg:order-2")}>
-                <div className="flex size-11 items-center justify-center rounded-md bg-accent-soft text-accent">
-                  <Icon className="size-5" />
-                </div>
-                <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
+    <section id="features" className="w-full bg-white px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-0">
+        {sections.map((section) => (
+          <motion.div
+            key={section.number}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="border-t border-border-soft py-20 lg:py-24"
+          >
+            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+              {/* Left — text content */}
+              <div>
+                <p className="font-mono text-sm text-ink-3">
+                  {section.number}
+                </p>
+                <h3 className="mt-4 font-display text-[clamp(28px,3.5vw,40px)] font-bold leading-[1.1] text-ink whitespace-pre-line">
                   {section.title}
                 </h3>
-                <p className="mt-3 max-w-md text-[16px] leading-relaxed text-ink-2">
+                <p className="mt-4 max-w-md text-[16px] leading-relaxed text-ink-2">
                   {section.description}
                 </p>
               </div>
 
-              <MarketingImage
-                src={section.image.src}
-                alt={section.image.alt}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                containerClassName={cn(
-                  "aspect-[4/3] border border-border-soft shadow-[var(--shadow-card)]",
-                  reversed && "lg:order-1",
-                )}
-              />
-            </motion.div>
-          );
-        })}
+              {/* Right — image placeholder */}
+              <Image src={section.image} alt={section.title} width={1000} height={1000} className="w-full h-full object-cover rounded-2xl" priority />
+            </div>
+
+            {/* Capabilities list */}
+            <div className="mt-12 max-w-xl border-t border-border-soft pt-6 lg:mt-16">
+              <p className="text-sm font-semibold text-ink">
+                {section.capabilityLabel}
+              </p>
+              <div className="mt-3 grid grid-cols-2 gap-x-12 gap-y-2">
+                {section.capabilities.map((cap) => (
+                  <p key={cap} className="text-[14px] text-ink-3">
+                    {cap}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

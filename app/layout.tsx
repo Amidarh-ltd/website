@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Bricolage_Grotesque, DM_Serif_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/lib/utils/context/authContext";
@@ -12,6 +12,12 @@ const bricolage = Bricolage_Grotesque({
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -207,7 +213,7 @@ export default function RootLayout({
       <AuthProvider>
         <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "This is me flexing"}>
           <body
-            className={`${bricolage.variable} ${inter.variable} font-sans antialiased`}
+            className={`${bricolage.variable} ${inter.variable} ${dmSerif.variable} font-sans antialiased`}
           >
             {children}
             <Toaster position="top-right" richColors />

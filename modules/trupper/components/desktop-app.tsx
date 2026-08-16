@@ -16,6 +16,8 @@ export default function DesktopApp() {
   return (
     <section className="w-full bg-white px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-4xl border-t border-border-soft pt-20" />
+
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -24,7 +26,7 @@ export default function DesktopApp() {
           className="mx-auto max-w-2xl text-center"
         >
           <Tag>Coming soon</Tag>
-          <h2 className="mt-5 font-display text-[clamp(28px,4vw,40px)] font-semibold text-ink">
+          <h2 className="mt-5 font-display text-[clamp(28px,4vw,40px)] font-bold text-ink">
             Trupper, right on your desktop
           </h2>
           <p className="mt-4 text-[17px] leading-relaxed text-ink-2">
@@ -48,12 +50,12 @@ export default function DesktopApp() {
               <motion.div
                 key={platform.name}
                 variants={fadeUp}
-                className="relative flex flex-col items-center gap-3 rounded-xl border border-border-soft bg-surface px-6 py-8 text-center"
+                className="relative flex flex-col items-center gap-3 rounded-xl border border-border-soft bg-white px-6 py-8 text-center"
               >
-                <span className="absolute top-3 right-3 rounded-pill bg-accent-soft px-2 py-0.5 text-[11px] font-semibold text-accent">
+                <span className="absolute top-3 right-3 rounded-full bg-accent-soft px-2 py-0.5 text-[11px] font-semibold text-accent">
                   Soon
                 </span>
-                <div className="flex size-12 items-center justify-center rounded-full bg-white text-ink shadow-[var(--shadow-card)]">
+                <div className="flex size-12 items-center justify-center rounded-full bg-surface text-ink">
                   <Icon className="size-6" aria-hidden="true" />
                 </div>
                 <div>

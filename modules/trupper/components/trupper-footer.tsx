@@ -1,23 +1,27 @@
+"use client";
+
 import Link from "next/link";
 import { getCurrentYear } from "@/lib/utils";
-import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
-import { FaLinkedin, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa6";
+import { FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa6";
 
 const footerLinks = {
-  products: [
-    { label: "Flow", href: FLOW_URL, external: true },
-    { label: "Trupper", href: TRUPPER_PATH },
-    { label: "Note", href: "#" },
+  institutions: [
+    { label: "Schools", href: "/trupper" },
+    { label: "Universities", href: "/trupper" },
+    { label: "Online Tutors", href: "/trupper" },
+    { label: "Corporate Training", href: "/trupper" },
   ],
   resources: [
-    { label: "Blog", href: "/blog" },
+    { label: "Changelog", href: "/blog" },
     { label: "Docs", href: "#" },
-    { label: "System Status", href: "/trupper/status" },
+    { label: "API Reference", href: "#" },
+    { label: "Blog", href: "/blog" },
   ],
   company: [
     { label: "About", href: "#" },
     { label: "Careers", href: "#" },
     { label: "Contact", href: "#" },
+    { label: "Security", href: "#" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -26,28 +30,25 @@ const footerLinks = {
   ],
 };
 
-export const Footer = () => {
+export default function TrupperFooter() {
   return (
-    <footer className="w-full px-5 sm:px-8">
+    <footer className="w-full bg-white px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {/* Top row — social + status */}
         <div className="flex flex-wrap items-center justify-between gap-4 py-8">
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">
-              Follow Amidarh on
-            </span>
+            <span className="text-sm text-ink-2">Ask about Trupper on</span>
             <div className="flex gap-2">
               {[
                 { Icon: FaTwitter, href: "#", label: "Twitter" },
                 { Icon: FaLinkedin, href: "#", label: "LinkedIn" },
-                { Icon: FaYoutube, href: "#", label: "YouTube" },
                 { Icon: FaWhatsapp, href: "#", label: "WhatsApp" },
               ].map(({ Icon, href, label }) => (
                 <Link
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex size-8 items-center justify-center rounded-md bg-surface text-muted-foreground transition-colors hover:bg-surface-2 hover:text-foreground"
+                  className="flex size-8 items-center justify-center rounded-md bg-surface text-ink-3 transition-colors hover:bg-surface-2 hover:text-ink"
                 >
                   <Icon className="size-3.5" />
                 </Link>
@@ -70,29 +71,18 @@ export const Footer = () => {
         <div className="grid grid-cols-2 gap-8 py-12 sm:grid-cols-4">
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-sm font-semibold capitalize text-foreground">
+              <h4 className="text-sm font-semibold capitalize text-ink">
                 {category}
               </h4>
               <ul className="mt-4 space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    {"external" in link && link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      className="text-sm text-ink-3 transition-colors hover:text-ink"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -103,11 +93,11 @@ export const Footer = () => {
         <div className="border-t border-border-soft" />
 
         {/* Copyright */}
-        <p className="py-8 text-sm text-muted-foreground">
+        <p className="py-8 text-sm text-ink-3">
           Copyright {getCurrentYear()} Amidarh Technologies. All rights
           reserved.
         </p>
       </div>
     </footer>
   );
-};
+}

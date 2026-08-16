@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "What is Amidarh?",
     answer:
-      "Amidarh is the company behind Flow and Trupper — two separate educational technology products built for different audiences.",
+      "Amidarh is the parent company behind Flow and Trupper — two independent products focused on learning and institution management.",
   },
   {
     question: "Are Flow and Trupper connected?",
@@ -26,9 +26,9 @@ const faqs = [
       "Yes, Flow is free to start. You can generate courses, flashcards, and quizzes without an institutional account.",
   },
   {
-    question: "Who is Trupper for?",
+    question: "How much does Trupper cost?",
     answer:
-      "Trupper is built for schools and universities, online tutors running live classes, and companies training their staff — anyone who needs courses, content, exams, and analytics in one place.",
+      "Trupper offers multiple plans to suit different institution sizes. Visit the Trupper pricing page for full details, or book a demo for a personalized walkthrough.",
   },
   {
     question: "How do I get started?",
@@ -40,17 +40,26 @@ const faqs = [
 export default function Faq() {
   return (
     <section className="w-full px-5 py-24 sm:px-8">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
+          className="grid gap-12 lg:grid-cols-[300px_1fr] lg:gap-20"
         >
-          <h2 className="text-center font-display text-[clamp(28px,4vw,40px)] font-700 text-foreground">
-            Frequently asked questions
-          </h2>
-          <Accordion className="mt-10">
+          {/* Left heading */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              FAQ
+            </p>
+            <h2 className="mt-3 font-display text-[clamp(28px,4vw,40px)] font-bold leading-tight text-foreground">
+              Common questions
+            </h2>
+          </div>
+
+          {/* Right accordion */}
+          <Accordion className="w-full">
             {faqs.map((faq) => (
               <AccordionItem key={faq.question} value={faq.question}>
                 <AccordionTrigger>{faq.question}</AccordionTrigger>

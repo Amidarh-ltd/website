@@ -5,7 +5,7 @@ import StatusOverview from "../components/status-overview";
 export default function StatusLayout() {
   return (
     <main className="min-h-screen bg-background">
-      <Header isTrupper />
+      <Header />
 
       <section className="w-full bg-surface px-4 pt-28 pb-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">

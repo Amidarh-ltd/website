@@ -10,4 +10,5 @@ export const images = {
   flow: p("photo-1499750310107-5fef28a66643", 1100), // individual learning on laptop
   trupper: p("photo-1523240795612-9a054b0db644", 1100), // classroom / institution
   cta: p("photo-1503676260728-1c00da094a0b", 1400), // studying, warm
+  closingCta: p("photo-1786476432997-53274a879a71", 1600), // blurred person, stone wall
 };
