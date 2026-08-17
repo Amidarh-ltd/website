@@ -131,14 +131,9 @@ export const FLOW_FEATURES = [
 
 export const PLATFORM_CAPABILITIES = [
   {
-    title: "Flow",
-    description: "AI-powered learning with courses, flashcards, and quizzes.",
-    href: FLOW_URL,
-  },
-  {
-    title: "Trupper",
+    title: "Trupper LMS",
     description:
-      "Learning management for schools, online tutors, and companies—courses, live classes, students, and exams in one platform.",
+      "Learning management for schools, online tutors, and companies — courses, live classes, students, and exams in one platform.",
     href: TRUPPER_PATH,
   },
   {

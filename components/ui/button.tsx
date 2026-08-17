@@ -19,7 +19,7 @@ const buttonVariants = cva(
         ink: "bg-ink text-ink-foreground shadow-ink hover:shadow-lift hover:-translate-y-0.5",
         flow: "bg-flow text-flow-foreground shadow-soft hover:shadow-lift hover:-translate-y-0.5",
         trupper:
-          "bg-trupper text-trupper-foreground shadow-soft hover:shadow-lift hover:-translate-y-0.5",
+          "bg-trupper text-trupper-foreground shadow-[0_4px_16px_rgba(108,60,240,0.35),0_1px_4px_rgba(108,60,240,0.15)] hover:shadow-[0_6px_20px_rgba(108,60,240,0.4),0_2px_6px_rgba(108,60,240,0.2)] hover:-translate-y-0.5",
         paper:
           "bg-card text-foreground border border-border shadow-soft hover:shadow-lift hover:-translate-y-0.5",
       },

@@ -16,8 +16,8 @@ export default function Testimonials() {
         >
           <blockquote className="mx-auto max-w-2xl text-center">
             <p className="font-serif-display text-[clamp(20px,2.5vw,28px)] italic leading-relaxed text-foreground">
-              &ldquo;Flow helped me learn data science in a way textbooks never
-              could. The AI-generated courses just make sense.&rdquo;
+              &ldquo;Trupper transformed how we run our academy. The exam engine
+              and analytics save us hours every week.&rdquo;
             </p>
             <figcaption className="mt-8 flex flex-col items-center gap-3">
               <div className="size-10 rounded-full bg-surface" />
@@ -26,7 +26,7 @@ export default function Testimonials() {
                   Amaka Okonkwo
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Data Science Learner, Flow
+                  Academy Director, Trupper
                 </p>
               </div>
             </figcaption>

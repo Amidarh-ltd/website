@@ -7,9 +7,9 @@ import Image from "next/image";
 const cards = [
   {
     number: "01",
-    title: "AI-powered course generation",
+    title: "White-label LMS platform",
     description:
-      "Flow turns any topic into a structured course with lessons, quizzes, and flashcards — all generated in seconds by AI.",
+      "Trupper gives you a fully branded learning management system — your logo, your domain, your platform. Launch in minutes, not months.",
       image: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786843431/flow_1_awn22i.png",
   },
   {
@@ -23,7 +23,7 @@ const cards = [
     number: "03",
     title: "Scale without the overhead",
     description:
-      "From one learner to thousands — both products handle growth automatically. No servers to manage, no dev team required.",
+      "From one learner to thousands — Trupper handles growth automatically. No servers to manage, no dev team required.",
       image: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786834532/branding_jimmtp.png",
   },
 ];

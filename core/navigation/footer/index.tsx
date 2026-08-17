@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { getCurrentYear } from "@/lib/utils";
-import { FLOW_URL, TRUPPER_PATH } from "@/lib/constants/site";
+import { TRUPPER_PATH } from "@/lib/constants/site";
 import { FaLinkedin, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa6";
 
 const footerLinks = {
   products: [
-    { label: "Flow", href: FLOW_URL, external: true },
-    { label: "Trupper", href: TRUPPER_PATH },
+    { label: "Trupper LMS", href: TRUPPER_PATH },
     { label: "Note", href: "#" },
   ],
   resources: [

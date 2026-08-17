@@ -11,19 +11,19 @@ import { fadeUp } from "@/lib/motion";
 
 const faqs = [
   {
-    question: "What is Amidarh?",
+    question: "What is Trupper?",
     answer:
-      "Amidarh is the parent company behind Flow and Trupper — two independent products focused on learning and institution management.",
+      "Trupper is a white-label learning management platform that lets schools, online tutors, and companies create branded learning experiences with courses, live classes, exams, payments, and analytics.",
   },
   {
-    question: "Are Flow and Trupper connected?",
+    question: "Can I customize my platform?",
     answer:
-      "No. Flow and Trupper are independent products with separate accounts and data. Flow is for individual learners, Trupper is for schools, tutors, and companies.",
+      "Yes. Trupper gives you full white-label control — your logo, colors, domain, and branding. Your students see your brand, not ours.",
   },
   {
-    question: "Is Flow free to use?",
+    question: "Is Trupper free to use?",
     answer:
-      "Yes, Flow is free to start. You can generate courses, flashcards, and quizzes without an institutional account.",
+      "Trupper offers a free plan to get started. You can upgrade as your institution grows. Visit the pricing page for full details.",
   },
   {
     question: "How much does Trupper cost?",
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "How do I get started?",
     answer:
-      "For Flow, just open the app and start learning. For Trupper, request access and our team will help set up your institution.",
+      "Request access and our team will help set up your institution. You can be live in minutes.",
   },
 ];
 

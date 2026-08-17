@@ -3,55 +3,54 @@
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 
-const flowSteps = [
+const institutionSteps = [
   {
     step: "1",
-    title: "Type any topic",
+    title: "Create your platform",
     description:
-      "Enter what you want to learn — a language, skill, or subject.",
+      "Set up your branded LMS with your logo, colors, and custom domain.",
   },
   {
     step: "2",
-    title: "AI generates your course",
-    description: "Lessons, quizzes, and flashcards are created instantly.",
-  },
-  {
-    step: "3",
-    title: "Learn and track mastery",
+    title: "Build your curriculum",
     description:
-      "Study at your pace. Track progress and revisit weak areas.",
-  },
-];
-
-const trupperSteps = [
-  {
-    step: "1",
-    title: "Create your institution",
-    description:
-      "Set your brand, domain, and invite your team in minutes.",
-  },
-  {
-    step: "2",
-    title: "Add courses and learners",
-    description:
-      "Build your curriculum, upload materials, and enrol students.",
+      "Create courses, upload materials, schedule live classes, and set exams.",
   },
   {
     step: "3",
     title: "Launch and grow",
     description:
-      "Go live with classes, exams, payments, and analytics.",
+      "Enrol students, accept payments, and track progress with built-in analytics.",
+  },
+];
+
+const learnerSteps = [
+  {
+    step: "1",
+    title: "Join your institution",
+    description:
+      "Sign up on your school or tutor's platform in seconds.",
+  },
+  {
+    step: "2",
+    title: "Access your courses",
+    description:
+      "Browse courses, join live classes, and take exams — all in one place.",
+  },
+  {
+    step: "3",
+    title: "Track your progress",
+    description:
+      "See your scores, certificates, and learning progress over time.",
   },
 ];
 
 function StepCard({
   label,
-  color,
   steps,
 }: {
   label: string;
-  color: "flow" | "accent";
-  steps: typeof flowSteps;
+  steps: typeof institutionSteps;
 }) {
   return (
     <motion.div
@@ -59,11 +58,7 @@ function StepCard({
       className="flex-1 rounded-2xl border border-border-soft bg-card p-8 sm:p-10"
     >
       <div className="flex items-center gap-2">
-        <span
-          className={`size-2 rounded-full ${
-            color === "flow" ? "bg-flow" : "bg-accent"
-          }`}
-        />
+        <span className="size-2 rounded-full bg-accent" />
         <span className="text-sm font-semibold text-foreground">{label}</span>
       </div>
 
@@ -103,7 +98,7 @@ export default function HowItWorks() {
             How it works
           </p>
           <h2 className="mt-3 font-display text-[clamp(28px,4vw,40px)] font-bold text-foreground">
-            Pick your product. Start in minutes.
+            Get started with Trupper in three simple steps.
           </h2>
         </motion.div>
 
@@ -114,8 +109,8 @@ export default function HowItWorks() {
           variants={staggerContainer}
           className="mt-14 flex flex-col gap-6 lg:flex-row lg:gap-8"
         >
-          <StepCard label="Flow" color="flow" steps={flowSteps} />
-          <StepCard label="Trupper" color="accent" steps={trupperSteps} />
+          <StepCard label="For Institutions" steps={institutionSteps} />
+          <StepCard label="For Learners" steps={learnerSteps} />
         </motion.div>
       </div>
     </section>

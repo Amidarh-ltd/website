@@ -53,7 +53,7 @@ export function Header() {
 
         {/* Right actions */}
         <div className="hidden min-[900px]:flex items-center gap-3">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="trupper" size="sm" asChild>
             <a
               href="https://calendly.com/amidarh01/30min"
               target="_blank"

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { images } from "@/lib/site-image";
 
@@ -41,11 +41,9 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.16, ease }}
               className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground"
             >
-              Amidarh is the company behind two independent products:{" "}
-              <span className="font-semibold text-foreground">Flow</span>, AI-powered
-              learning for individuals, and{" "}
-              <span className="font-semibold text-foreground">Trupper</span>, a
-              learning platform for schools, online tutors, and companies.
+              Trupper is a complete learning management platform for schools,
+              online tutors, and companies — with courses, live classes, exams,
+              payments, and analytics built in.
             </motion.p>
 
             <motion.div
@@ -54,16 +52,18 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.26, ease }}
               className="mt-9 flex flex-wrap items-center gap-4"
             >
-              <Button variant="ink" size="xl" asChild>
-                <a href="#flow">
-                  Start learning free <ArrowRight className="size-4" />
+              <Button variant="trupper" size="xl" asChild>
+                <a href="/trupper">
+                  Get started <ArrowRight className="size-4" />
                 </a>
               </Button>
               <a
-                href="/trupper"
+                href="https://calendly.com/amidarh01/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-1.5 text-sm font-semibold text-trupper transition-colors hover:text-foreground"
               >
-                For institutions
+                Book a demo
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </motion.div>
@@ -85,8 +85,8 @@ export function Hero() {
               </div>
               <div className="h-8 w-px bg-border" />
               <div>
-                <p className="font-display text-2xl font-bold text-foreground">2</p>
-                <p className="text-xs text-muted-foreground">Focused products</p>
+                <p className="font-display text-2xl font-bold text-foreground">1</p>
+                <p className="text-xs text-muted-foreground">Powerful platform</p>
               </div>
             </motion.div>
           </div>
@@ -107,14 +107,14 @@ export function Hero() {
                   className="h-full w-full object-cover"
                   loading="eager"
                 />
-                {/* Flow badge */}
+                {/* Trupper badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 0.6 }}
                   className="absolute left-3 top-3 flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-2 text-sm font-semibold shadow-lift"
                 >
-                  <span className="size-2 rounded-full bg-flow" /> Flow
+                  <span className="size-2 rounded-full bg-trupper" /> Trupper
                 </motion.div>
               </div>
 
@@ -150,10 +150,10 @@ export function Hero() {
               {/* Dark card - bottom-left */}
               <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-ink p-6 text-ink-foreground shadow-ink">
                 <p className="font-display text-xs font-semibold uppercase tracking-[0.14em] text-ink-foreground/50">
-                  One company
+                  One platform
                 </p>
                 <p className="mt-1 font-display text-lg font-semibold leading-snug">
-                  Two products, built to work the way you learn and teach.
+                  Everything you need to run a learning business.
                 </p>
               </div>
             </div>
