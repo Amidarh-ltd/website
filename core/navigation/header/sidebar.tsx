@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Newspaper,
   Tag,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,6 +35,12 @@ export function Sidebar() {
       badge: "Live",
     },
     {
+      href: "/use-cases",
+      label: "Use Cases",
+      icon: Users,
+      description: "Schools, training & CBT",
+    },
+    {
       href: `${TRUPPER_PATH}#pricing`,
       label: "Pricing",
       icon: Tag,
@@ -51,6 +58,7 @@ export function Sidebar() {
     if (href === "/" && pathname === "/") return true;
     if (href === TRUPPER_PATH && pathname === TRUPPER_PATH) return true;
     if (href === "/blog" && pathname.startsWith("/blog")) return true;
+    if (href === "/use-cases" && pathname.startsWith("/use-cases")) return true;
     return false;
   };
 

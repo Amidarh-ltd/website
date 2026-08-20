@@ -4,6 +4,11 @@ import { TRUPPER_PATH } from "@/lib/constants/site";
 import { FaLinkedin, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa6";
 
 const footerLinks = {
+  "use cases": [
+    { label: "Online Schools", href: "/use-cases/online-schools" },
+    { label: "Partner Training", href: "/use-cases/partner-training" },
+    { label: "CBT Center", href: "/use-cases/cbt-center" },
+  ],
   products: [
     { label: "Trupper LMS", href: TRUPPER_PATH },
     { label: "Note", href: "#" },

@@ -37,6 +37,13 @@ export function Header() {
           </Link>
 
           <Link
+            href="/use-cases"
+            className="text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+          >
+            Use Cases
+          </Link>
+
+          <Link
             href={`${TRUPPER_PATH}#pricing`}
             className="text-sm font-medium text-ink-2 transition-colors hover:text-ink"
           >
