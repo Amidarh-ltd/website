@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 
 const institutions = [
-  "Covenant University",
-  "LASU",
-  "Greensprings",
-  "NIIT Nigeria",
-  "Redeemers",
+  "Schools",
+  "Universities",
+  "Companies",
+  "Governments",
+  "Tutors",
+  "Non-Profit",
+  "Other",
 ];
 
 export default function TrustBar() {
@@ -22,7 +24,7 @@ export default function TrustBar() {
     >
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-4">
         <span className="rounded-full border border-border-soft px-4 py-1.5 text-sm text-ink-2">
-          Trusted and funded by
+          Trusted and used by
         </span>
         {institutions.map((name) => (
           <span
