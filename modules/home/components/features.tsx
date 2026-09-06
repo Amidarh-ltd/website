@@ -27,7 +27,7 @@ const sections = [
       "Course duplication & templates",
     ],
     image:
-      "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786843431/flow_1_awn22i.png",
+      "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786835970/courses_mmr6nl.png",
   },
   {
     number: "02",

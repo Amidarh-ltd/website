@@ -7,10 +7,10 @@ import Image from "next/image";
 const cards = [
   {
     number: "01",
-    title: "White-label LMS platform",
+    title: "Customizable LMS platform",
     description:
       "Trupper gives you a fully branded learning management system — your logo, your domain, your platform. Launch in minutes, not months.",
-      image: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786843431/flow_1_awn22i.png",
+      image: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786834532/branding_jimmtp.png",
   },
   {
     number: "02",
