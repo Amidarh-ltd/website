@@ -24,6 +24,11 @@ export type UseCaseHeroData = {
   headlineLine2: string;
   headlineLine2Italic: string;
   description: string;
+  /** When set, renders a centered hero with colored background and dashboard image */
+  variant?: "centered";
+  heroImage?: { src: string; alt: string };
+  ctaNote?: string;
+  trustLogos?: string[];
 };
 
 export type UseCaseClosingCTAData = {

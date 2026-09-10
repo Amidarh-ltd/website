@@ -9,6 +9,21 @@ export const partnerTraining: UseCaseData = {
     headlineLine2Italic: "scale.",
     description:
       "Onboard partners, distributors, and resellers with branded training programs. Track certification, measure engagement, and ensure compliance -- all in one platform.",
+    variant: "centered",
+    heroImage: {
+      src: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1789062284/Screenshot_2026-09-10_at_6.40.06_PM_cpe1ql.png",
+      alt: "Trupper learning management dashboard showing courses, analytics, and partner progress",
+    },
+    ctaNote: "No credit card needed",
+    trustLogos: [
+      // "GTBank",
+      // "Dangote",
+      // "MTN",
+      // "Flutterwave",
+      // "Andela",
+      // "Paystack",
+      "..."
+    ],
   },
   features: [
     {
@@ -23,7 +38,7 @@ export const partnerTraining: UseCaseData = {
         ["Credential management", "Bulk enrollment"],
       ],
       image:
-        "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786843431/flow_1_awn22i.png",
+        "https://res.cloudinary.com/dl5dyntsp/image/upload/v1789064273/onboarding_partner_v3tggn.png",
     },
     {
       number: "02",
@@ -37,7 +52,7 @@ export const partnerTraining: UseCaseData = {
         ["Attendance reports", "On-demand replays"],
       ],
       image:
-        "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786843744/cover_2_d8pzgl.png",
+        "https://res.cloudinary.com/dl5dyntsp/image/upload/v1789064274/live_call_tauphy.png",
     },
     {
       number: "03",
@@ -65,7 +80,7 @@ export const partnerTraining: UseCaseData = {
         ["Export reports", "Partner dashboards"],
       ],
       image:
-        "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786835093/AI_Assistance_2_mqvmuh.png",
+        "https://res.cloudinary.com/dl5dyntsp/image/upload/v1789064273/course_analytics_xucmdt.png",
     },
   ],
   metrics: [
