@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Amidarh",
     images: [
       {
-        url: "/images/trupper/trupper-og-image.jpg",
+        url: "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786832820/cover2_tzfpeo.png",
         width: 1200,
         height: 630,
         alt: "Trupper - Learning Platform for Schools, Tutors, and Companies",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Trupper - Learning Platform for Schools, Tutors & Companies",
     description:
       "Trupper is a learning platform for schools, online tutors, and companies. Manage courses, live classes, learners, and exams—with built-in exam tools.",
-    images: ["/images/trupper/trupper-twitter-image.jpg"],
+    images: ["https://res.cloudinary.com/dl5dyntsp/image/upload/v1786832820/cover2_tzfpeo.png"],
   },
   alternates: {
     canonical: "https://amidarh.com/trupper",

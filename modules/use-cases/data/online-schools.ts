@@ -2,6 +2,8 @@ import type { OnlineSchoolsData } from "../types";
 
 export const onlineSchools: OnlineSchoolsData = {
   slug: "online-schools",
+  ogImage:
+    "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786832820/cover2_tzfpeo.png",
   hero: {
     badge: "For Online Schools",
     headlineLine1: "Launch a school your",

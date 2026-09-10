@@ -30,6 +30,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? onlineSchools.hero.description
       : (data as UseCaseData).hero.description.replace(/--/g, "\u2014");
 
+  const ogImage =
+    slug === "online-schools"
+      ? onlineSchools.ogImage
+      : (data as UseCaseData).hero.ogImage;
+
   return {
     title,
     description,
@@ -40,11 +45,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "Amidarh",
       locale: "en_US",
       type: "website",
+      ...(ogImage && {
+        images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+      }),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      ...(ogImage && { images: [ogImage] }),
     },
     alternates: {
       canonical: `https://amidarh.com/use-cases/${slug}`,

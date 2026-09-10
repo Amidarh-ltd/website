@@ -15,6 +15,8 @@ export const partnerTraining: UseCaseData = {
       alt: "Trupper learning management dashboard showing courses, analytics, and partner progress",
     },
     ctaNote: "No credit card needed",
+    ogImage:
+      "https://res.cloudinary.com/dl5dyntsp/image/upload/v1789062284/Screenshot_2026-09-10_at_6.40.06_PM_cpe1ql.png",
     trustLogos: [
       // "GTBank",
       // "Dangote",

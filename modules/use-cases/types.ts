@@ -29,6 +29,8 @@ export type UseCaseHeroData = {
   heroImage?: { src: string; alt: string };
   ctaNote?: string;
   trustLogos?: string[];
+  /** OG image URL for social sharing previews */
+  ogImage?: string;
 };
 
 export type UseCaseClosingCTAData = {
@@ -80,6 +82,7 @@ export type OnlineSchoolsComparisonRow = {
 
 export type OnlineSchoolsData = {
   slug: "online-schools";
+  ogImage?: string;
   hero: {
     badge: string;
     headlineLine1: string;

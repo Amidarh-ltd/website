@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Amidarh",
     images: [
       {
-        url: "/images/amidarh-homepage-og.jpg",
+        url: "https://amidarh.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Amidarh - Educational Technology for Learning and Institutions",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Educational Technology Solutions for Learning & Institutions",
     description:
       "Discover Amidarh products: Trupper, a learning platform for schools, online tutors, and companies, and Flow for AI-powered learning with generated courses, flashcards, quizzes, and clear progress tracking.",
-    images: ["/images/amidarh-homepage-twitter.jpg"],
+    images: ["https://amidarh.com/logo.png"],
   },
   alternates: {
     canonical: "https://amidarh.com",
