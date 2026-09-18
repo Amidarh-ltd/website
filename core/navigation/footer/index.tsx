@@ -19,14 +19,14 @@ const footerLinks = {
     { label: "System Status", href: "/trupper/status" },
   ],
   company: [
-    { label: "About", href: "#" },
+    { label: "About", href: "/about" },
     { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "Contact", href: "/contact" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
-    { label: "NDPR Compliance", href: "/privacy" },
+    { label: "NDPR Compliance", href: "/ndpr" },
   ],
 };
 
