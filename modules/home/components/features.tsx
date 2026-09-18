@@ -95,7 +95,7 @@ const sections = [
       "Real-time activity feed",
     ],
     image:
-      "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786835093/AI_Assistance_2_mqvmuh.png",
+      "https://res.cloudinary.com/dl5dyntsp/image/upload/v1789064273/course_analytics_xucmdt.png",
   },
 ];
 
