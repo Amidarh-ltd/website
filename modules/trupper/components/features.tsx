@@ -37,7 +37,7 @@ const sections = [
       "Chat & Hand-Raise",
     ],
     image:
-      "https://res.cloudinary.com/dl5dyntsp/image/upload/v1786843744/cover_2_d8pzgl.png",
+      "https://res.cloudinary.com/dl5dyntsp/image/upload/v1789064274/live_call_tauphy.png",
   },
   {
     number: "03",
